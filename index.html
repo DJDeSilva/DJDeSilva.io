@@ -1,11 +1,1532 @@
 <!DOCTYPE html>
-  <html>
-    <head>
-  		<title>DJDeSilva - Perth Wedding DJs</title>
-  			<meta charset="UTF-8" />
-  			<meta http-equiv="refresh" content="0; URL=https://djchan.my.canva.site/" />
-  	</head>
-  	<body>
-  		<p>This page has been moved. Click <a href="https://djchan.my.canva.site/">here</a> to go to the DJ website</p>
-  	</body>
-  </html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DJChan provides professional DJ, sound and lighting services for weddings, birthdays, private parties and corporate events across Perth, WA." />
+  <title>DJChan | Perth DJ, Sound & Lighting</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #07070a;
+      --bg-soft: #11111a;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --text: #f7f7fb;
+      --muted: #b6b6c6;
+      --line: rgba(255, 255, 255, 0.14);
+      --gold: #f6c65b;
+      --gold-2: #ffdf8f;
+      --blue: #56d8ff;
+      --pink: #ff4fd8;
+      --purple: #7c5cff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(124, 92, 255, 0.30), transparent 32rem),
+        radial-gradient(circle at 80% 5%, rgba(86, 216, 255, 0.18), transparent 30rem),
+        radial-gradient(circle at 50% 45%, rgba(255, 79, 216, 0.13), transparent 34rem),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img, svg {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: rgba(7, 7, 10, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--gold), var(--pink), var(--blue));
+      color: #07070a;
+      box-shadow: 0 0 34px rgba(246, 198, 91, 0.25);
+      font-family: Oswald, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-weight: 800;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 900;
+      line-height: 1;
+      transition: 0.22s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      color: #07070a;
+      background: linear-gradient(135deg, var(--gold-2), var(--gold));
+      box-shadow: 0 15px 40px rgba(246, 198, 91, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--line);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    .hero {
+      position: relative;
+      padding: 86px 0 54px;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      color: var(--gold-2);
+      font-weight: 800;
+      font-size: 0.83rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--blue);
+      box-shadow: 0 0 16px var(--blue);
+    }
+
+    h1, h2, h3 {
+      font-family: Oswald, Inter, sans-serif;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: clamp(3.25rem, 8vw, 6.8rem);
+      text-transform: uppercase;
+      max-width: 820px;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, var(--gold-2), var(--gold), var(--blue));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      color: var(--muted);
+      font-size: clamp(1.05rem, 1.6vw, 1.28rem);
+      max-width: 720px;
+      margin: 22px 0 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      border-radius: 34px;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(7, 7, 10, 0.15), rgba(7, 7, 10, 0.78)),
+        radial-gradient(circle at 34% 22%, rgba(255, 223, 143, 0.55), transparent 13rem),
+        radial-gradient(circle at 74% 26%, rgba(86, 216, 255, 0.42), transparent 16rem),
+        radial-gradient(circle at 50% 68%, rgba(255, 79, 216, 0.34), transparent 17rem),
+        linear-gradient(145deg, #19192c, #07070a 70%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      background: repeating-conic-gradient(from 25deg, rgba(255,255,255,0.12) 0 4deg, transparent 4deg 16deg);
+      opacity: 0.16;
+      animation: rotateGlow 24s linear infinite;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0 48%, rgba(255,255,255,0.12) 49%, transparent 51% 100%),
+        linear-gradient(180deg, transparent 0 54%, rgba(255,255,255,0.08) 55%, transparent 57% 100%);
+      opacity: 0.35;
+    }
+
+    @keyframes rotateGlow {
+      to { transform: rotate(360deg); }
+    }
+
+    .dj-console {
+      position: absolute;
+      left: 50%;
+      bottom: 48px;
+      transform: translateX(-50%);
+      width: min(78%, 460px);
+      height: 154px;
+      border-radius: 26px;
+      background: linear-gradient(180deg, #282839, #0e0e15);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 26px 60px rgba(0,0,0,0.55);
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr 1fr;
+      gap: 14px;
+      padding: 18px;
+    }
+
+    .deck, .mixer {
+      border-radius: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .deck::before {
+      content: "";
+      position: absolute;
+      width: 86px;
+      height: 86px;
+      border-radius: 999px;
+      border: 8px solid rgba(255,255,255,0.12);
+      outline: 1px solid rgba(255,255,255,0.20);
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, var(--gold) 0 5px, transparent 6px 100%);
+    }
+
+    .mixer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      padding: 14px;
+    }
+
+    .mixer span {
+      border-radius: 99px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.05));
+      min-height: 78px;
+    }
+
+    .speaker {
+      position: absolute;
+      bottom: 54px;
+      width: 54px;
+      height: 300px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.20), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.16);
+      z-index: 1;
+    }
+
+    .speaker.left { left: 38px; }
+    .speaker.right { right: 38px; }
+
+    .speaker::before, .speaker::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: rgba(0,0,0,0.36);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .speaker::before {
+      top: 38px;
+      width: 32px;
+      height: 32px;
+    }
+
+    .speaker::after {
+      bottom: 34px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .floating-card {
+      position: absolute;
+      z-index: 3;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(9, 9, 14, 0.70);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.32);
+    }
+
+    .rating-card {
+      top: 28px;
+      left: 28px;
+    }
+
+    .sound-card {
+      right: 28px;
+      bottom: 232px;
+      max-width: 210px;
+    }
+
+    .card-kicker {
+      color: var(--muted);
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-value {
+      margin-top: 4px;
+      font-size: 1.35rem;
+      font-weight: 950;
+      color: var(--text);
+    }
+
+    .stars {
+      color: var(--gold);
+      letter-spacing: 2px;
+      font-size: 1.05rem;
+      margin-top: 4px;
+    }
+
+    section {
+      padding: 84px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      text-transform: uppercase;
+      max-width: 780px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      max-width: 460px;
+      font-size: 1.02rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      border-radius: var(--radius);
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 24px;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.20);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.10), transparent 38%);
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
+    .card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(246, 198, 91, 0.12);
+      color: var(--gold-2);
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+    }
+
+    .card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 10px;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .package {
+      min-height: 100%;
+      padding: 28px;
+    }
+
+    .package.featured {
+      background:
+        linear-gradient(145deg, rgba(246,198,91,0.16), rgba(124,92,255,0.11)),
+        var(--card-strong);
+      border-color: rgba(246, 198, 91, 0.38);
+      box-shadow: 0 28px 80px rgba(246, 198, 91, 0.12);
+    }
+
+    .tag {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(86, 216, 255, 0.12);
+      color: #bff2ff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .package h3 {
+      font-size: 1.8rem;
+    }
+
+    .package ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 20px 0 24px;
+    }
+
+    .package li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .package li::before {
+      content: "✓";
+      color: var(--gold);
+      font-weight: 950;
+    }
+
+    .price-note {
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-size: 0.93rem;
+      border: 1px solid var(--line);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .visual-panel {
+      min-height: 470px;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 30% 22%, rgba(246,198,91,0.42), transparent 12rem),
+        radial-gradient(circle at 70% 34%, rgba(86,216,255,0.30), transparent 13rem),
+        linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: end;
+      padding: 28px;
+    }
+
+    .visual-panel::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 26px;
+    }
+
+    .visual-panel h3 {
+      position: relative;
+      z-index: 2;
+      font-size: clamp(2rem, 4.5vw, 3.7rem);
+      text-transform: uppercase;
+      max-width: 430px;
+    }
+
+    .equipment-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .equipment-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.065);
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .equipment-item strong {
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .music-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .music-cloud span {
+      padding: 11px 15px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .quote-card {
+      padding: 26px;
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.075);
+      border: 1px solid var(--line);
+    }
+
+    .quote-card p {
+      color: #dfdfea;
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+    }
+
+    .quote-card strong {
+      color: var(--gold-2);
+    }
+
+    .cta {
+      padding: 0 0 88px;
+    }
+
+    .cta-box {
+      border-radius: 36px;
+      padding: clamp(28px, 6vw, 58px);
+      background:
+        linear-gradient(135deg, rgba(246,198,91,0.18), rgba(86,216,255,0.14), rgba(255,79,216,0.12)),
+        rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .quote-form {
+      display: grid;
+      gap: 12px;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(7,7,10,0.52);
+      border: 1px solid var(--line);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.07);
+      color: var(--text);
+      border-radius: 16px;
+      padding: 13px 14px;
+      font: inherit;
+      outline: none;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #8c8c9d;
+    }
+
+    textarea {
+      min-height: 112px;
+      resize: vertical;
+    }
+
+    .form-help {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 0;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .split,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .hero-visual {
+        min-height: 480px;
+      }
+
+      .grid-4,
+      .grid-3 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head p {
+        margin-top: 14px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 18px;
+        right: 18px;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        border-radius: 22px;
+        border: 1px solid var(--line);
+        background: rgba(7,7,10,0.94);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-btn {
+        display: inline-flex;
+      }
+
+      .nav .btn-primary {
+        display: none;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 15vw, 4.4rem);
+      }
+
+      .grid-4,
+      .grid-3,
+      .reviews,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 420px;
+        border-radius: 26px;
+      }
+
+      .speaker {
+        height: 220px;
+        width: 44px;
+      }
+
+      .speaker.left { left: 18px; }
+      .speaker.right { right: 18px; }
+
+      .dj-console {
+        width: 82%;
+        height: 126px;
+        padding: 14px;
+        gap: 10px;
+      }
+
+      .mixer {
+        gap: 5px;
+        padding: 10px;
+      }
+
+      .mixer span {
+        min-height: 58px;
+      }
+
+      .deck::before {
+        width: 62px;
+        height: 62px;
+      }
+
+      .sound-card {
+        right: 18px;
+        bottom: 192px;
+      }
+
+      .rating-card {
+        left: 18px;
+        top: 18px;
+      }
+
+      section {
+        padding: 62px 0;
+      }
+    }
+  
+
+    /* Mobile-first polish: prevents overflow, improves tap targets and keeps the page premium on phones */
+    html,
+    body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    button,
+    a,
+    input,
+    textarea,
+    select {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @media (hover: none) {
+      .btn:hover {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 840px) {
+      .container {
+        width: min(100% - 28px, 680px);
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        border-radius: 13px;
+      }
+
+      .brand {
+        font-size: 0.95rem;
+      }
+
+      .nav-links {
+        top: 68px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 42px 0 34px;
+      }
+
+      .hero-copy {
+        margin: 18px 0 24px;
+      }
+
+      .hero-actions {
+        gap: 12px;
+      }
+
+      .btn {
+        min-height: 48px;
+        padding: 14px 18px;
+      }
+
+      .pill {
+        font-size: 0.84rem;
+        padding: 8px 10px;
+      }
+
+      .grid-4,
+      .grid-3,
+      .reviews,
+      .form-row,
+      .hero-grid,
+      .split,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 360px;
+        margin-top: 8px;
+      }
+
+      .visual-panel {
+        min-height: 320px;
+      }
+
+      .equipment-item {
+        align-items: flex-start;
+      }
+
+      .equipment-item span {
+        text-align: right;
+      }
+
+      .cta {
+        padding-bottom: 58px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: calc(100% - 24px);
+      }
+
+      .nav-inner {
+        min-height: 64px;
+      }
+
+      .nav-links {
+        top: 64px;
+        left: 12px;
+        right: 12px;
+      }
+
+      .menu-btn {
+        min-height: 44px;
+        min-width: 64px;
+      }
+
+      .eyebrow {
+        font-size: 0.72rem;
+        padding: 7px 10px;
+        margin-bottom: 14px;
+      }
+
+      h1 {
+        font-size: clamp(2.45rem, 14vw, 3.55rem);
+        line-height: 0.98;
+      }
+
+      .section-head h2,
+      .cta h2 {
+        font-size: clamp(2rem, 11vw, 3rem);
+      }
+
+      .hero-copy,
+      .section-head p,
+      .cta p {
+        font-size: 1rem;
+      }
+
+      .hero-actions,
+      .trust-row {
+        width: 100%;
+      }
+
+      .hero-actions .btn,
+      .cta .hero-actions .btn,
+      .quote-form .btn {
+        width: 100%;
+      }
+
+      .trust-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .pill {
+        text-align: center;
+        white-space: normal;
+        line-height: 1.25;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .card,
+      .package,
+      .quote-card,
+      .quote-form {
+        border-radius: 20px;
+        padding: 20px;
+      }
+
+      .card h3,
+      .package h3 {
+        font-size: 1.38rem;
+      }
+
+      .package ul {
+        margin: 16px 0 20px;
+      }
+
+      .hero-visual {
+        min-height: 300px;
+        border-radius: 22px;
+      }
+
+      .floating-card {
+        padding: 12px;
+        border-radius: 16px;
+      }
+
+      .rating-card {
+        top: 12px;
+        left: 12px;
+        max-width: 170px;
+      }
+
+      .sound-card {
+        right: 12px;
+        bottom: 150px;
+        max-width: 155px;
+      }
+
+      .card-value {
+        font-size: 0.95rem;
+        line-height: 1.25;
+      }
+
+      .stars {
+        font-size: 0.82rem;
+      }
+
+      .speaker {
+        bottom: 34px;
+        height: 170px;
+        width: 36px;
+        border-radius: 13px;
+      }
+
+      .speaker.left { left: 12px; }
+      .speaker.right { right: 12px; }
+
+      .speaker::before {
+        width: 24px;
+        height: 24px;
+        top: 28px;
+      }
+
+      .speaker::after {
+        width: 28px;
+        height: 28px;
+        bottom: 24px;
+      }
+
+      .dj-console {
+        bottom: 30px;
+        width: calc(100% - 96px);
+        min-width: 210px;
+        height: 104px;
+        border-radius: 18px;
+        padding: 10px;
+        gap: 7px;
+      }
+
+      .deck,
+      .mixer {
+        border-radius: 14px;
+      }
+
+      .deck::before {
+        width: 48px;
+        height: 48px;
+        border-width: 5px;
+      }
+
+      .mixer {
+        gap: 4px;
+        padding: 8px;
+      }
+
+      .mixer span {
+        min-height: 45px;
+      }
+
+      .visual-panel {
+        min-height: 260px;
+        border-radius: 24px;
+        padding: 22px;
+      }
+
+      .visual-panel::before {
+        inset: 14px;
+        border-radius: 18px;
+      }
+
+      .equipment-item {
+        display: block;
+        padding: 15px;
+      }
+
+      .equipment-item span {
+        display: block;
+        text-align: left;
+        margin-top: 4px;
+      }
+
+      .music-cloud {
+        gap: 8px;
+      }
+
+      .music-cloud span {
+        padding: 9px 11px;
+        font-size: 0.86rem;
+      }
+
+      .cta-box {
+        border-radius: 24px;
+        padding: 22px;
+      }
+
+      input,
+      textarea,
+      select {
+        font-size: 16px;
+        min-height: 48px;
+        border-radius: 14px;
+      }
+
+      .footer-inner {
+        display: grid;
+        gap: 12px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .container {
+        width: calc(100% - 20px);
+      }
+
+      h1 {
+        font-size: 2.35rem;
+      }
+
+      .trust-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual {
+        min-height: 270px;
+      }
+
+      .sound-card {
+        display: none;
+      }
+
+      .dj-console {
+        width: calc(100% - 76px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="#home" class="brand" aria-label="DJChan home">
+        <span class="brand-mark">DC</span>
+        <span>DJChan</span>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">Menu</button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#packages">Packages</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#music">Music</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="btn btn-primary" href="#contact">Get a Quote</a>
+    </div>
+  </nav>
+
+  <main id="home">
+    <header class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Perth mobile DJ service</div>
+          <h1>Premium DJ, Sound & Lighting for <span class="highlight">Unforgettable Events</span></h1>
+          <p class="hero-copy">
+            DJChan provides professional entertainment for weddings, birthdays, private parties, corporate events, sporting events and celebrations across Perth. Quality sound, party lighting, microphones and music tailored to your crowd.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Request a Quote</a>
+            <a class="btn btn-secondary" href="#packages">View Packages</a>
+          </div>
+          <div class="trust-row" aria-label="Service highlights">
+            <span class="pill">DJ + Sound</span>
+            <span class="pill">Lighting Included</span>
+            <span class="pill">Microphones</span>
+            <span class="pill">Karaoke Friendly</span>
+            <span class="pill">Smoke Machine Where Permitted</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Stylised DJ booth with lights and speakers">
+          <div class="floating-card rating-card">
+            <div class="card-kicker">Client vibe</div>
+            <div class="card-value">Professional & prepared</div>
+            <div class="stars">★★★★★</div>
+          </div>
+          <div class="floating-card sound-card">
+            <div class="card-kicker">Sound system</div>
+            <div class="card-value">Clear, powerful, event-ready</div>
+          </div>
+          <div class="speaker left"></div>
+          <div class="speaker right"></div>
+          <div class="dj-console">
+            <div class="deck"></div>
+            <div class="mixer"><span></span><span></span><span></span><span></span></div>
+            <div class="deck"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-head">
+          <h2>More than just music</h2>
+          <p>A polished event experience with the right sound, lighting, preparation and song flow for your guests.</p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card">
+            <div class="icon">🔊</div>
+            <h3>Professional Sound</h3>
+            <p>Clear audio for speeches, background music and dancefloor sets, with extra speaker/subwoofer options for larger crowds.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">✨</div>
+            <h3>Lighting Included</h3>
+            <p>Party lighting helps lift the room and create a stronger dancefloor atmosphere from the first song to the final track.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🎤</div>
+            <h3>Mic & Karaoke Ready</h3>
+            <p>Microphones are available for speeches, announcements, sing-alongs and karaoke-style moments when required.</p>
+          </article>
+
+          <article class="card">
+            <div class="icon">🎧</div>
+            <h3>Requests Welcome</h3>
+            <p>Share your must-play list, do-not-play list and favourite genres so the music feels personal to your event.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="container">
+        <div class="section-head">
+          <h2>Packages for every celebration</h2>
+          <p>Pricing depends on the event duration, location, setup size and equipment package required.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card package">
+            <span class="tag">Private parties</span>
+            <h3>Birthday DJ</h3>
+            <p>Perfect for 18ths, 21sts, 30ths, 40ths, 50ths, backyard parties and house parties.</p>
+            <ul>
+              <li>DJ service with music tailored to the crowd</li>
+              <li>Speaker system and party lighting</li>
+              <li>Song requests and karaoke-friendly options</li>
+              <li>Ideal for halls, homes and small venues</li>
+            </ul>
+            <div class="price-note">Best for: fun, high-energy party sets with classic hits and modern dancefloor favourites.</div>
+          </article>
+
+          <article class="card package featured">
+            <span class="tag">Most requested</span>
+            <h3>Wedding DJ</h3>
+            <p>Designed for smooth wedding receptions, from background dinner music through to the dancefloor.</p>
+            <ul>
+              <li>Ceremony, dinner and reception music options</li>
+              <li>First dance, formal moments and party set flow</li>
+              <li>Microphones for speeches and announcements</li>
+              <li>Professional setup with polished presentation</li>
+            </ul>
+            <div class="price-note">Best for: couples who want a reliable, flexible DJ setup with music planned around the night.</div>
+          </article>
+
+          <article class="card package">
+            <span class="tag">Events</span>
+            <h3>Corporate & Special Events</h3>
+            <p>Suitable for work functions, Christmas parties, sporting clubs, carnivals and community celebrations.</p>
+            <ul>
+              <li>Clean, professional setup for venues</li>
+              <li>Background music and dancefloor options</li>
+              <li>Microphones for hosts, speeches or presentations</li>
+              <li>Flexible sound setup for crowd size</li>
+            </ul>
+            <div class="price-note">Best for: professional events needing reliable sound, lighting and crowd-friendly music.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipment">
+      <div class="container split">
+        <div class="visual-panel">
+          <h3>Pro setup. Clean look. Big energy.</h3>
+        </div>
+
+        <div>
+          <div class="eyebrow">Equipment included</div>
+          <h2>Sound and lighting that looks as good as it sounds</h2>
+          <p class="hero-copy">
+            The setup can be scaled to match your event size, venue and budget — from simple party sound through to a stronger pro rig with extra speakers and subwoofer support.
+          </p>
+
+          <div class="equipment-list">
+            <div class="equipment-item"><strong>DJ Controller</strong><span>Standalone professional DJ setup</span></div>
+            <div class="equipment-item"><strong>JBL Speakers</strong><span>Main speaker system</span></div>
+            <div class="equipment-item"><strong>Yamaha Subwoofer</strong><span>Optional stronger bass package</span></div>
+            <div class="equipment-item"><strong>Lighting</strong><span>Light bar, moving heads and laser effects</span></div>
+            <div class="equipment-item"><strong>Microphones</strong><span>For speeches, karaoke and announcements</span></div>
+            <div class="equipment-item"><strong>Mixer</strong><span>Connect mics, instruments or mini band setup</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="music">
+      <div class="container">
+        <div class="section-head">
+          <h2>Music matched to your crowd</h2>
+          <p>From relaxed background music to peak dancefloor energy, your set can be built around the people in the room.</p>
+        </div>
+
+        <div class="card">
+          <h3>Popular styles</h3>
+          <p>Choose your favourites, send your must-play songs, or let DJChan guide the flow based on the crowd.</p>
+          <div class="music-cloud">
+            <span>70s Disco</span>
+            <span>80s Classics</span>
+            <span>90s Party</span>
+            <span>2000s Hits</span>
+            <span>Modern Dance</span>
+            <span>Pop</span>
+            <span>R&B</span>
+            <span>Hip Hop</span>
+            <span>Bollywood</span>
+            <span>Latin</span>
+            <span>House</span>
+            <span>Wedding Favourites</span>
+            <span>Karaoke</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="container">
+        <div class="section-head">
+          <h2>Trusted by Perth party hosts</h2>
+          <p>Clients highlight the preparation, professionalism, flexibility and ability to create the right vibe.</p>
+        </div>
+
+        <div class="reviews">
+          <article class="quote-card">
+            <p>“Extremely professional, polite and easy going. The whole vibe of the evening felt elevated and enjoyable.”</p>
+            <strong>Private Party Client</strong>
+          </article>
+          <article class="quote-card">
+            <p>“The music selection was perfect and kept everyone on the dance floor. The party felt unforgettable.”</p>
+            <strong>Birthday Party Client</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <div class="eyebrow">Get a fast quote</div>
+            <h2>Ready to make your event unforgettable?</h2>
+            <p>
+              Send your date, start and finish time, event type, venue address, approximate guest count and music style. You’ll get a package recommendation based on your event.
+            </p>
+            <div class="hero-actions" style="margin-top: 26px; margin-bottom: 0;">
+              <a class="btn btn-primary" href="https://www.crowdpleaser.com.au/DJChan" target="_blank" rel="noopener">Book on CrowdPleaser</a>
+              <a class="btn btn-secondary" href="#packages">Compare Packages</a>
+            </div>
+          </div>
+
+          <form class="quote-form" id="quoteForm">
+            <div class="form-row">
+              <input type="text" id="name" placeholder="Your name" aria-label="Your name" required>
+              <input type="text" id="email" placeholder="Email or phone" aria-label="Email or phone" inputmode="email" required>
+            </div>
+            <div class="form-row">
+              <input type="date" id="date" aria-label="Event date">
+              <select id="eventType" aria-label="Event type">
+                <option value="Birthday party">Birthday party</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Corporate event">Corporate event</option>
+                <option value="Private party">Private party</option>
+                <option value="Other event">Other event</option>
+              </select>
+            </div>
+            <textarea id="details" placeholder="Venue/suburb, guest count, start/end time and music style"></textarea>
+            <button class="btn btn-primary" type="submit">Create Quote Message</button>
+            <p class="form-help" id="formHelp">This demo form creates a ready-to-copy enquiry message. Connect it to your preferred email/form service before publishing.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> DJChan. Perth DJ, sound and lighting for weddings, parties and events.</p>
+      <div class="footer-links">
+        <a href="#packages">Packages</a>
+        <a href="#equipment">Equipment</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const quoteForm = document.getElementById('quoteForm');
+    const formHelp = document.getElementById('formHelp');
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    quoteForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const date = document.getElementById('date').value;
+      const eventType = document.getElementById('eventType').value;
+      const details = document.getElementById('details').value.trim();
+
+      const message = `Hi DJChan,\n\nI would like a quote for my event.\n\nName: ${name}\nContact: ${email}\nEvent type: ${eventType}\nDate: ${date || 'TBC'}\nDetails: ${details || 'TBC'}\n\nThank you.`;
+
+      navigator.clipboard.writeText(message).then(() => {
+        formHelp.textContent = 'Quote message copied. Paste it into your email, SMS, CrowdPleaser message or Canva contact button.';
+      }).catch(() => {
+        formHelp.textContent = message;
+      });
+    });
+  </script>
+</body>
+</html>
