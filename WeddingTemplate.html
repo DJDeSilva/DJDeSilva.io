@@ -1,168 +1,734 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            font-family: Calibri, Arial, sans-serif;
-            line-height: 1.6;
-            margin: 40px;
-            color: #333;
-        }
-        h1, h2, h3 {
-            margin-top: 30px;
-            color: #222;
-        }
-        .header, .footer {
-            text-align: center;
-            font-weight: bold;
-        }
-        .section {
-            margin-bottom: 25px;
-        }
-        ul {
-            margin-top: 5px;
-        }
-        .time {
-            font-weight: bold;
-        }
-        .label {
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Ceremony & Reception Run Sheet | DJChan</title>
+  <meta name="description" content="Wedding ceremony and reception music planning template for DJChan." />
+  <style>
+    :root {
+      --bg: #0c0a12;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-strong: rgba(255, 255, 255, 0.12);
+      --text: #fff8f0;
+      --muted: #d9cfc3;
+      --soft: #a99e94;
+      --gold: #d8b66f;
+      --rose: #f0a7b8;
+      --cream: #fff4df;
+      --line: rgba(216, 182, 111, 0.34);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 0%, rgba(240, 167, 184, 0.18), transparent 32%),
+        radial-gradient(circle at 90% 10%, rgba(216, 182, 111, 0.18), transparent 30%),
+        linear-gradient(135deg, #08070c 0%, #17101c 48%, #0c0a12 100%);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--cream);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--gold);
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 60px;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 38px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 32px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04)),
+        linear-gradient(145deg, rgba(216, 182, 111, 0.12), rgba(240, 167, 184, 0.06));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -80px -80px auto auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(216, 182, 111, 0.28), transparent 68%);
+      pointer-events: none;
+    }
+
+    .topbar {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      color: #15100a;
+      font-weight: 900;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #fff1c7, var(--gold));
+      box-shadow: 0 14px 34px rgba(216, 182, 111, 0.22);
+    }
+
+    .brand-title {
+      margin: 0;
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-subtitle {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(216, 182, 111, 0.6);
+    }
+
+    .btn.primary {
+      color: #17100b;
+      background: linear-gradient(135deg, #fff1c7, var(--gold));
+      border-color: transparent;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+      padding: 8px 12px;
+      border: 1px solid rgba(216, 182, 111, 0.38);
+      border-radius: 999px;
+      color: var(--cream);
+      background: rgba(216, 182, 111, 0.1);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 6vw, 4.8rem);
+      line-height: 0.96;
+      letter-spacing: -0.06em;
+    }
+
+    .hero-text {
+      margin: 18px 0 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .info-card {
+      min-height: 92px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    .label {
+      margin: 0 0 6px;
+      color: var(--soft);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .blank-line {
+      min-height: 30px;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.36);
+      color: var(--cream);
+      font-weight: 700;
+    }
+
+    .section-title {
+      margin: 40px 0 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+      flex-wrap: wrap;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 3vw, 2.35rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .event {
+      position: relative;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.16);
+      backdrop-filter: blur(14px);
+    }
+
+    .time {
+      align-self: start;
+      display: inline-flex;
+      justify-content: center;
+      padding: 10px 12px;
+      border-radius: 16px;
+      color: #16100a;
+      background: linear-gradient(135deg, #fff3cc, var(--gold));
+      font-weight: 900;
+      line-height: 1.1;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(216, 182, 111, 0.16);
+    }
+
+    .event h3 {
+      margin: 0 0 10px;
+      font-size: 1.22rem;
+      letter-spacing: -0.02em;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .field {
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .placeholder {
+      color: var(--muted);
+    }
+
+    .song-list {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .song-list li {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      padding: 9px 10px;
+      border-radius: 12px;
+      color: var(--muted);
+      background: rgba(0, 0, 0, 0.14);
+    }
+
+    .song-list li::before {
+      content: "♫";
+      color: var(--rose);
+      font-weight: 900;
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .panel {
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      background: var(--panel-strong);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.14);
+    }
+
+    .panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.2rem;
+    }
+
+    .panel p,
+    .panel li {
+      color: var(--muted);
+    }
+
+    .links {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .resource-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+      padding: 13px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .resource-link span {
+      color: var(--gold);
+    }
+
+    footer {
+      margin-top: 34px;
+      padding: 22px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    footer strong {
+      color: var(--cream);
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding-top: 10px;
+      }
+
+      .hero {
+        padding: 24px;
+        border-radius: 26px;
+      }
+
+      .topbar {
+        align-items: flex-start;
+      }
+
+      .actions {
+        width: 100%;
+      }
+
+      .btn {
+        flex: 1;
+      }
+
+      .info-grid,
+      .notes {
+        grid-template-columns: 1fr;
+      }
+
+      .event {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px;
+      }
+
+      .time {
+        width: fit-content;
+      }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        color: #111;
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .event,
+      .panel,
+      .info-card,
+      .field,
+      .song-list li,
+      .resource-link {
+        color: #111;
+        background: #fff;
+        border-color: #ddd;
+        box-shadow: none;
+      }
+
+      .actions {
+        display: none;
+      }
+
+      .time {
+        color: #111;
+        background: #f3e3b5;
+      }
+
+      .placeholder,
+      .panel p,
+      .panel li,
+      footer {
+        color: #333;
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="page">
+    <section class="hero">
+      <div class="topbar">
+        <div class="brand">
+          <div class="logo">DJ</div>
+          <div>
+            <p class="brand-title">DJChan</p>
+            <p class="brand-subtitle">0402 595 815 · Wedding DJ Planning Template</p>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="https://djchan.my.canva.site/" target="_blank" rel="noopener">Visit Website</a>
+          <button class="btn primary" onclick="window.print()">Print / Save PDF</button>
+        </div>
+      </div>
 
-    <div class="header">
-        DJChan : 0402 595 815<br>
-        <a href="https://djchan.my.canva.site/" target="_blank">https://djchan.my.canva.site/</a>
+      <div class="hero-content">
+        <div class="eyebrow">Wedding Ceremony / Reception</div>
+        <h1>Wedding Music Run Sheet</h1>
+        <p class="hero-text">A clean planning guide for ceremony moments, reception entrances, speeches, dinner music, first dance and dance floor requests.</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card">
+          <p class="label">Groom / Partner 1</p>
+          <div class="blank-line">Mr: </div>
+        </div>
+        <div class="info-card">
+          <p class="label">Bride / Partner 2</p>
+          <div class="blank-line">Mrs: </div>
+        </div>
+        <div class="info-card">
+          <p class="label">Wedding Date</p>
+          <div class="blank-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-title">
+      <div>
+        <h2>Event Timeline</h2>
+        <p>Update times and songs to match the final wedding schedule.</p>
+      </div>
     </div>
 
-    <h1>Wedding Ceremony / Reception</h1>
+    <section class="timeline" aria-label="Wedding timeline">
+      <article class="event">
+        <div class="time">4:00 PM</div>
+        <div>
+          <h3>Arrival of Guests</h3>
+          <div class="details">
+            <div class="field full">
+              <strong>Music Style</strong>
+              <span class="placeholder">Smooth jazz / instrumental / saxophone music / slow songs</span>
+              <ul class="song-list">
+                <li>Song idea 1</li>
+                <li>Song idea 2</li>
+                <li>Song idea 3</li>
+                <li>Song idea 4</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3>Couple’s Information</h3>
-        <p>Mr: ........</p>
-        <p>Mrs:........</p>
-    </div>
+      <article class="event">
+        <div class="time">4:30 PM</div>
+        <div>
+          <h3>Bridesmaids & Bride Walk In</h3>
+          <div class="details">
+            <div class="field full"><strong>Song</strong><span class="placeholder">Song name + artist or link</span></div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">4:00 PM – Arrival of Guests</p></h3>
-        <p><span class="label">Music:</span> Smooth Jazz/Instrumental, Saxophone Music or Slow Songs</p>
-        <ul>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-			<li>........</li>
-            <li>........</li>
-        </ul>
-    </div>
+      <article class="event">
+        <div class="time">4:50 PM</div>
+        <div>
+          <h3>Signing of Papers</h3>
+          <div class="details">
+            <div class="field full"><strong>Song</strong><span class="placeholder">Song name + artist or link</span></div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">4:30 PM – Bridesmaids & Bride Walk In</p></h3>
-        <p><span class="label">Song:</span>........</p>
-    </div>
+      <article class="event">
+        <div class="time">4:57 PM</div>
+        <div>
+          <h3>Exiting the Ceremony</h3>
+          <div class="details">
+            <div class="field full"><strong>Song</strong><span class="placeholder">Song name + artist or link</span></div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">4:50 PM – Signing of Papers</p></h3>
-        <p><span class="label">Song:</span>........</p>
-    </div>
+      <article class="event">
+        <div class="time">5:00 PM</div>
+        <div>
+          <h3>Reception Begins</h3>
+          <div class="details">
+            <div class="field full"><strong>Music</strong><span class="placeholder">Background music style / playlist request</span></div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">4:57 PM – Exiting the Ceremony</p></h3>
-        <p><span class="label">Song:</span>........</p>
-    </div>
+      <article class="event">
+        <div class="time">6:30 PM</div>
+        <div>
+          <h3>Bridal Party Entrance</h3>
+          <div class="details">
+            <div class="field"><strong>MC</strong><span class="placeholder">NA / Name</span></div>
+            <div class="field"><strong>Song</strong><span class="placeholder">Song name + artist or link</span></div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">5:00 PM – Reception Begins</p></h3>
-        <p><span class="label">Music:</span>........</p>
-    </div>
+      <article class="event">
+        <div class="time">6:45 PM</div>
+        <div>
+          <h3>First Set of Speeches</h3>
+          <div class="details">
+            <div class="field full">
+              <strong>Speeches</strong>
+              <ul class="song-list">
+                <li>Speech 1</li>
+                <li>Speech 2</li>
+                <li>Speech 3</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">6:30 PM – Bridal Party Entrance</p></h3>
-        <p><span class="label">MC:</span> NA / ........</p>
-        <p><span class="label">Song:</span>........</p>
-    </div>
+      <article class="event">
+        <div class="time">7:00 PM</div>
+        <div>
+          <h3>Dinner</h3>
+          <div class="details">
+            <div class="field"><strong>MC</strong><span class="placeholder">NA / Name</span></div>
+            <div class="field"><strong>Music Style</strong><span class="placeholder">Instrumental / unplugged / slow songs</span></div>
+            <div class="field full">
+              <strong>Dinner Music Requests</strong>
+              <ul class="song-list">
+                <li>Song idea 1</li>
+                <li>Song idea 2</li>
+                <li>Song idea 3</li>
+                <li>Song idea 4</li>
+                <li>Song idea 5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">6:45 PM – First Set of Speeches</p></h3>
-        <ul>
-            <li>Speech 1</li>
-            <li>Speech 2</li>
-            <li>Speech 3</li>
-        </ul>
-    </div>
+      <article class="event">
+        <div class="time">7:45 PM</div>
+        <div>
+          <h3>Second Set of Speeches</h3>
+          <div class="details">
+            <div class="field full">
+              <strong>Speeches</strong>
+              <ul class="song-list">
+                <li>Speech 4</li>
+                <li>Speech 5</li>
+                <li>Speech 6</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">7:00 PM – Dinner</p></h3>
-        <p><span class="label">MC:</span> NA / ........</p>
-        <p><span class="label">Music:</span> Instrumental/Unplugged/Slow Songs</p>
-		<ul>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-			<li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-        </ul>
-    </div>
+      <article class="event">
+        <div class="time">8:15 PM</div>
+        <div>
+          <h3>Cake Cutting</h3>
+          <div class="details">
+            <div class="field"><strong>MC</strong><span class="placeholder">NA / Name</span></div>
+            <div class="field"><strong>Song</strong><span class="placeholder">Song name + artist or link</span></div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">7:45 PM – Second Set of Speeches</p></h3>
-        <ul>
-            <li>Speech 4</li>
-            <li>Speech 5</li>
-            <li>Speech 6</li>
-        </ul>
-    </div>
+      <article class="event">
+        <div class="time">8:30 PM</div>
+        <div>
+          <h3>Games / Activities</h3>
+          <div class="details">
+            <div class="field full"><strong>Details</strong><span class="placeholder">Add games, bouquet toss, garter toss, cultural moments or special announcements if applicable.</span></div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">8:15 PM – Cake Cutting</p></h3>
-        <p><span class="label">MC:</span> NA / ........</p>
-        <p><span class="label">Song:</span>........</p>
-    </div>
+      <article class="event">
+        <div class="time">9:00 PM</div>
+        <div>
+          <h3>First Dance</h3>
+          <div class="details">
+            <div class="field"><strong>MC</strong><span class="placeholder">NA / Name</span></div>
+            <div class="field"><strong>Duration</strong><span class="placeholder">First __ minutes __ seconds of the song</span></div>
+            <div class="field full"><strong>Song</strong><span class="placeholder">Song name + artist or link</span></div>
+          </div>
+        </div>
+      </article>
 
-    <div class="section">
-        <h3><p class="time">8:30 PM – Games etc (if applicable)</p></h3>
-    </div>
+      <article class="event">
+        <div class="time">9:05 PM</div>
+        <div>
+          <h3>Dance Floor Opens</h3>
+          <div class="details">
+            <div class="field full">
+              <strong>Must-Play Songs</strong>
+              <span class="placeholder">Mention the song name + artist or paste song links here.</span>
+              <ul class="song-list">
+                <li>Song request 1</li>
+                <li>Song request 2</li>
+                <li>Song request 3</li>
+                <li>Song request 4</li>
+                <li>Song request 5</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
 
-    <div class="section">
-        <h3><p class="time">9:00 PM – First Dance</p></h3>
-        <p><span class="label">MC:</span> NA / ........</p>
-        <p><span class="label">Duration:</span> First .. minutes ... seconds of the song</p>
-        <p><span class="label">Song:</span> ........</p>
-    </div>
+    <section class="notes">
+      <div class="panel">
+        <h3>Helpful Notes for the Couple</h3>
+        <p>Please include song links where possible. For special moments such as entrance, cake cutting and first dance, add the exact version of the song if you have a preference.</p>
+        <p>For the dance floor, include must-play songs, do-not-play songs and any cultural or family favourites that should be included.</p>
+      </div>
 
-    <div class="section">
-        <h3><p class="time">9:05 PM – Dance Floor Opens</p></h3>
-        <p><span class="label">Songs:</span></p>
-        <ul>
-            <li>Mention the song name + artist or the song links here</li>
-            <li>........</li>
-            <li>........</li>
-            <li>........</li>
-            <li>......</li>
-            <li>....</li>
-        </ul>
-    </div>
+      <div class="panel">
+        <h3>Song Ideas</h3>
+        <p>Use these links for inspiration when choosing ceremony, reception and dance floor songs.</p>
+        <div class="links">
+          <a class="resource-link" href="https://djchan.my.canva.site/" target="_blank" rel="noopener">DJChan - Most Requested Songs <span>→</span></a>
+          <a class="resource-link" href="https://www.stolendance.com.au/" target="_blank" rel="noopener">Reception ideas <span>→</span></a>
+          <a class="resource-link" href="https://melbourneentertainmentco.com.au/" target="_blank" rel="noopener">Entrance song ideas <span>→</span></a>
+          <a class="resource-link" href="https://www.prodjsaustralia.com.au/" target="_blank" rel="noopener">Ceremony music ideas <span>→</span></a>
+        </div>
+      </div>
+    </section>
 
-    <div class="section">
-        <p class="time">You can get some song ideas from the following websites</p>
-        <ul>
-            <li><a href="https://djdesilva.github.io/DJDeSilva.io/MostReq.html">DJChan - Most Requested Songs</a></li>			
-            <li><a href="https://stolendance.com.au/wedding-reception-songs-guide-must-play-moments/">Reception ideas</a></li>			
-            <li><a href="https://melbourneentertainmentco.com.au/top-40-wedding-entrance-songs/">Entrance song ideas</a></li>			
-            <li><a href="https://www.prodjsaustralia.com.au/wedding-ceremony-music-ultimate-australian-guide/">Ceremony music ideas</a></li>
-        </ul>
-    </div>
+    <footer>
+      <strong>DJChan</strong> · 0402 595 815 · Wedding Ceremony & Reception Planning Template
+    </footer>
+  </main>
 </body>
 </html>
