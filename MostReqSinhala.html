@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>800 Sri Lankan Songs by Artist | DJ Reference</title>
+  <meta name="description" content="A grouped DJ reference list of 800 famous Sri Lankan songs from classic, baila, pop, bands, hip-hop and modern eras." />
+  <style>
+    :root {
+      --bg: #070812;
+      --panel: rgba(255,255,255,.07);
+      --panel2: rgba(255,255,255,.10);
+      --text: #f5f7fb;
+      --muted: #aeb6c8;
+      --line: rgba(255,255,255,.13);
+      --gold: #ffd166;
+      --pink: #ef476f;
+      --cyan: #4cc9f0;
+      --green: #06d6a0;
+      --shadow: 0 18px 60px rgba(0,0,0,.38);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(239,71,111,.28), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(76,201,240,.22), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(6,214,160,.14), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .hero {
+      padding: 46px 18px 28px;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: .92rem;
+      backdrop-filter: blur(10px);
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(2.2rem, 6vw, 5.4rem);
+      line-height: .95;
+      letter-spacing: -0.065em;
+      max-width: 900px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--gold), var(--pink), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 850px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin: 0 0 24px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      padding: 16px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .stat strong { display: block; font-size: 1.7rem; line-height: 1; }
+    .stat span { color: var(--muted); font-size: .9rem; }
+
+    .toolbar-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(7,8,18,.82);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .toolbar {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 13px 16px;
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      outline: none;
+      font-size: 1rem;
+    }
+    .search::placeholder { color: rgba(245,247,251,.52); }
+
+    button {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: var(--panel2);
+      border-radius: 999px;
+      padding: 12px 15px;
+      cursor: pointer;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    button:hover { background: rgba(255,255,255,.16); }
+
+    .layout {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 18px 72px;
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .artist-nav {
+      position: sticky;
+      top: 88px;
+      max-height: calc(100vh - 104px);
+      overflow: auto;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .artist-nav h2 {
+      margin: 0 0 10px;
+      font-size: .9rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .artist-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 9px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .artist-link:hover { background: rgba(255,255,255,.10); color: var(--text); }
+    .artist-link .count { color: var(--gold); }
+
+    .artist-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 15px;
+      backdrop-filter: blur(14px);
+    }
+
+    .artist-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      cursor: pointer;
+      background: linear-gradient(90deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+    }
+    .artist-header:hover { background: rgba(255,255,255,.11); }
+    .artist-title { margin: 0; font-size: 1.2rem; letter-spacing: -.02em; }
+    .artist-meta { color: var(--muted); font-size: .92rem; white-space: nowrap; }
+
+    .song-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .song {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 12px;
+      padding: 12px 18px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      align-items: center;
+    }
+    .song:hover { background: rgba(255,255,255,.06); }
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 30px;
+      border-radius: 999px;
+      background: rgba(255,209,102,.13);
+      color: var(--gold);
+      font-size: .82rem;
+      font-weight: 800;
+    }
+    .song-title { font-weight: 650; }
+    .song-sub { color: var(--muted); font-size: .9rem; margin-top: 2px; }
+
+    .hidden { display: none !important; }
+    .collapsed .song-list { display: none; }
+    .chev { color: var(--gold); font-weight: 900; }
+
+    .empty {
+      display: none;
+      padding: 28px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      text-align: center;
+      background: var(--panel);
+    }
+
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 18px 40px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    @media (max-width: 860px) {
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .toolbar { grid-template-columns: 1fr; }
+      .layout { grid-template-columns: 1fr; }
+      .artist-nav { position: static; max-height: none; }
+      .artist-nav .links { display: flex; overflow: auto; gap: 8px; padding-bottom: 4px; }
+      .artist-link { min-width: max-content; border: 1px solid rgba(255,255,255,.10); }
+    }
+
+    @media (max-width: 520px) {
+      .hero { padding-top: 32px; }
+      .stats { grid-template-columns: 1fr 1fr; }
+      .stat { padding: 13px; }
+      .stat strong { font-size: 1.35rem; }
+      .song { grid-template-columns: 46px 1fr; padding: 11px 13px; }
+      .artist-header { padding: 14px 13px; }
+      .artist-meta { font-size: .8rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="badge">🎧 DJ reference • Sri Lankan classics to modern dance</div>
+    <h1>800 Sri Lankan Songs <span class="gradient-text">Grouped by Artist</span></h1>
+    <p class="lead">A mobile-friendly website page for browsing famous Sri Lankan songs from the 70s to now, including classics, baila, bands, pop, hip-hop, remixes and danceable DJ selections.</p>
+    <div class="stats">
+      <div class="stat"><strong id="songCount">800</strong><span>Total songs</span></div>
+      <div class="stat"><strong id="artistCount">0</strong><span>Artists / acts</span></div>
+      <div class="stat"><strong>70s+</strong><span>Era coverage</span></div>
+      <div class="stat"><strong>DJ</strong><span>Search-ready format</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar-wrap">
+    <div class="toolbar">
+      <input class="search" id="search" type="search" placeholder="Search song or artist... e.g. baila, Yohani, Rambari" autocomplete="off" />
+      <button id="expandAll" type="button">Expand all</button>
+      <button id="collapseAll" type="button">Collapse all</button>
+    </div>
+  </div>
+
+  <main class="layout">
+    <aside class="artist-nav" aria-label="Artist navigation">
+      <h2>Artists</h2>
+      <div class="links" id="artistLinks"></div>
+    </aside>
+
+    <section>
+      <div class="empty" id="emptyState">No songs found. Try another song title or artist name.</div>
+      <div id="artistGroups"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Tip: Use browser search or the page search box during gigs. The list preserves the original 1–800 numbering from the source song list.</p>
+  </footer>
+
+  <script>
+    const songs = [{"number": 1, "title": "Sasara Wasana Thuru", "artist": "W. D. Amaradeva"}, {"number": 2, "title": "Nim Him Sewwa", "artist": "W. D. Amaradeva"}, {"number": 3, "title": "Giman Harina Diyamba Dige", "artist": "W. D. Amaradeva"}, {"number": 4, "title": "Mindada Hee Sara", "artist": "W. D. Amaradeva"}, {"number": 5, "title": "Adawan Wu Denethin", "artist": "W. D. Amaradeva"}, {"number": 6, "title": "Pipunu Male Ruwa", "artist": "Nanda Malini"}, {"number": 7, "title": "Sihina Nelum Mal", "artist": "Nanda Malini"}, {"number": 8, "title": "Sulangata Banden", "artist": "Nanda Malini"}, {"number": 9, "title": "Ammawarune", "artist": "Nanda Malini"}, {"number": 10, "title": "Kiri Muhuda Kalabala", "artist": "Nanda Malini"}, {"number": 11, "title": "Podi Duwe", "artist": "H. R. Jothipala"}, {"number": 12, "title": "Mee Amba Wanaye", "artist": "H. R. Jothipala"}, {"number": 13, "title": "Chandana Allen Nala", "artist": "H. R. Jothipala"}, {"number": 14, "title": "Adhara Mal Pawane", "artist": "H. R. Jothipala"}, {"number": 15, "title": "Durakathanaya", "artist": "H. R. Jothipala"}, {"number": 16, "title": "Upul Nuwan Vidaha", "artist": "Milton Mallawarachchi"}, {"number": 17, "title": "Oba Dan Keewath", "artist": "Milton Mallawarachchi"}, {"number": 18, "title": "Ran Kenden Benda", "artist": "Milton Mallawarachchi"}, {"number": 19, "title": "Sayuru Theredi", "artist": "Milton Mallawarachchi"}, {"number": 20, "title": "Me Awan Hale", "artist": "Milton Mallawarachchi"}, {"number": 21, "title": "Dileepa Podi Puthu", "artist": "Clarence Wijewardena"}, {"number": 22, "title": "Malata Bambareku Se", "artist": "Clarence Wijewardena"}, {"number": 23, "title": "Desa Piya Gath Kala", "artist": "Clarence Wijewardena"}, {"number": 24, "title": "Sihiwatana Sangeethaya", "artist": "Clarence Wijewardena"}, {"number": 25, "title": "Ran Monarun", "artist": "Clarence Wijewardena"}, {"number": 26, "title": "Api Okkoma Rajawaru", "artist": "Victor Ratnayake"}, {"number": 27, "title": "Adara Gangule", "artist": "Victor Ratnayake"}, {"number": 28, "title": "Mal Pokuru Pokuru", "artist": "Victor Ratnayake"}, {"number": 29, "title": "Thotupola Aine", "artist": "Victor Ratnayake"}, {"number": 30, "title": "Pembara Madhu", "artist": "Victor Ratnayake"}, {"number": 31, "title": "Eda Meda Thura", "artist": "Sanath Nandasiri"}, {"number": 32, "title": "Seetha Re Wasanthe", "artist": "Sanath Nandasiri"}, {"number": 33, "title": "Mulu Lowa Magen Asawi", "artist": "Sanath Nandasiri"}, {"number": 34, "title": "Me Prathama Wasanthayai", "artist": "Sanath Nandasiri"}, {"number": 35, "title": "Mahada Veena", "artist": "Sanath Nandasiri"}, {"number": 36, "title": "Amara Ran Divi", "artist": "T. M. Jayaratne"}, {"number": 37, "title": "Sitha Oba Pamula", "artist": "T. M. Jayaratne"}, {"number": 38, "title": "Raththaran Neth Dekin", "artist": "T. M. Jayaratne"}, {"number": 39, "title": "Seetha Arane", "artist": "T. M. Jayaratne"}, {"number": 40, "title": "Eka Sitha Dethanaka", "artist": "T. M. Jayaratne"}, {"number": 41, "title": "Sandakada Pahanaka", "artist": "Sunil Edirisinghe"}, {"number": 42, "title": "Me Tharam Siyumelida", "artist": "Sunil Edirisinghe"}, {"number": 43, "title": "Chandra Mandale", "artist": "Sunil Edirisinghe"}, {"number": 44, "title": "Pile Padura", "artist": "Sunil Edirisinghe"}, {"number": 45, "title": "Thiraya Arenawa", "artist": "Sunil Edirisinghe"}, {"number": 46, "title": "Adaraniya Neranjana", "artist": "Priya Suriyasena"}, {"number": 47, "title": "Mata Wasana", "artist": "Priya Suriyasena"}, {"number": 48, "title": "Sudu Paravi Rane", "artist": "Priya Suriyasena"}, {"number": 49, "title": "Mage Lamatheni", "artist": "Priya Suriyasena"}, {"number": 50, "title": "Hadawatha Illa", "artist": "Priya Suriyasena"}, {"number": 51, "title": "Mango Kalu Nande", "artist": "Annesley Malewana"}, {"number": 52, "title": "Udarata Niliya", "artist": "Annesley Malewana"}, {"number": 53, "title": "Gamen Liyumak", "artist": "Annesley Malewana"}, {"number": 54, "title": "Kalu Mama", "artist": "Annesley Malewana"}, {"number": 55, "title": "Ruwanpuraya", "artist": "Annesley Malewana"}, {"number": 56, "title": "Dilhani Duwani", "artist": "Indrani Perera"}, {"number": 57, "title": "Sigiri Sukumaliye", "artist": "Indrani Perera"}, {"number": 58, "title": "Olu Pipila", "artist": "Indrani Perera"}, {"number": 59, "title": "Sudu Sanda Eliye", "artist": "Indrani Perera"}, {"number": 60, "title": "Mage Hadawatha", "artist": "Indrani Perera"}, {"number": 61, "title": "Bilinda Nelawe", "artist": "C. T. Fernando"}, {"number": 62, "title": "Lo Ada Ninde", "artist": "C. T. Fernando"}, {"number": 63, "title": "Pinsidu Wanne", "artist": "C. T. Fernando"}, {"number": 64, "title": "Barabage", "artist": "C. T. Fernando"}, {"number": 65, "title": "Ambili Mama", "artist": "C. T. Fernando"}, {"number": 66, "title": "Mama Taxikaraya", "artist": "M. S. Fernando"}, {"number": 67, "title": "Galkisse Muhudu Werale", "artist": "M. S. Fernando"}, {"number": 68, "title": "Oba Dakina Dakin", "artist": "M. S. Fernando"}, {"number": 69, "title": "Nilwan Muhudu Theere", "artist": "M. S. Fernando"}, {"number": 70, "title": "Rala Pahara", "artist": "M. S. Fernando"}, {"number": 71, "title": "Chuda Manike", "artist": "Desmond de Silva"}, {"number": 72, "title": "Yaman Bando", "artist": "Desmond de Silva"}, {"number": 73, "title": "Pol Katu Hande", "artist": "Desmond de Silva"}, {"number": 74, "title": "Komali Pane", "artist": "Desmond de Silva"}, {"number": 75, "title": "Sumihiri Pane", "artist": "Desmond de Silva"}, {"number": 76, "title": "Ojaye", "artist": "The Gypsies"}, {"number": 77, "title": "Lunu Dehi", "artist": "The Gypsies"}, {"number": 78, "title": "Saima Cut Wela", "artist": "The Gypsies"}, {"number": 79, "title": "Signore", "artist": "The Gypsies"}, {"number": 80, "title": "Uncle Johnson", "artist": "The Gypsies"}, {"number": 81, "title": "Gune Aiyage Kamare", "artist": "Nihal Nelson"}, {"number": 82, "title": "Karuna Suwanda", "artist": "Nihal Nelson"}, {"number": 83, "title": "Lassanata Pipunu", "artist": "Nihal Nelson"}, {"number": 84, "title": "Kiri Ithirewa", "artist": "Nihal Nelson"}, {"number": 85, "title": "Mal Wasse", "artist": "Nihal Nelson"}, {"number": 86, "title": "Mini Gawuma", "artist": "Anton Jones"}, {"number": 87, "title": "Ralahami", "artist": "Anton Jones"}, {"number": 88, "title": "Udara Ratak", "artist": "Anton Jones"}, {"number": 89, "title": "Kanthoruwa", "artist": "Anton Jones"}, {"number": 90, "title": "Rathu Rosa", "artist": "Anton Jones"}, {"number": 91, "title": "Kundumani", "artist": "Freddie Silva"}, {"number": 92, "title": "Parana Kotte", "artist": "Freddie Silva"}, {"number": 93, "title": "Pushpe", "artist": "Freddie Silva"}, {"number": 94, "title": "Rajakapuru", "artist": "Freddie Silva"}, {"number": 95, "title": "Nei Ithin", "artist": "Freddie Silva"}, {"number": 96, "title": "Surangani", "artist": "A. E. Manoharan"}, {"number": 97, "title": "Brandy Beer", "artist": "A. E. Manoharan"}, {"number": 98, "title": "Ka Ka Ka", "artist": "A. E. Manoharan"}, {"number": 99, "title": "Ruhunu Yapane", "artist": "A. E. Manoharan"}, {"number": 100, "title": "Kimada Nawe", "artist": "A. E. Manoharan"}, {"number": 101, "title": "Nurse Nona", "artist": "Wally Bastians"}, {"number": 102, "title": "Yaman Bando", "artist": "Wally Bastians"}, {"number": 103, "title": "Hai Hui Babi Achchige Bicycle", "artist": "Wally Bastians"}, {"number": 104, "title": "Irridayata Palliyata", "artist": "Wally Bastians"}, {"number": 105, "title": "Le Kiri Karala", "artist": "Wally Bastians"}, {"number": 106, "title": "Kadelle Athiwoo", "artist": "Corrine Almeida"}, {"number": 107, "title": "Hada Gehenne", "artist": "Corrine Almeida"}, {"number": 108, "title": "Suba Prarthana", "artist": "Corrine Almeida"}, {"number": 109, "title": "Ran Kurahan Mala", "artist": "Corrine Almeida"}, {"number": 110, "title": "Api Aye Dawasaka", "artist": "Corrine Almeida"}, {"number": 111, "title": "Ganga Addara", "artist": "Latha Walpola"}, {"number": 112, "title": "Pokuru Pokuru Mal", "artist": "Latha Walpola"}, {"number": 113, "title": "Namo Mariyani", "artist": "Latha Walpola"}, {"number": 114, "title": "Lo Ada Ninde", "artist": "Latha Walpola"}, {"number": 115, "title": "Premalokaya Niwi Giya", "artist": "Latha Walpola"}, {"number": 116, "title": "Doi Doiya Putha", "artist": "Rukmani Devi"}, {"number": 117, "title": "Siri Buddhagaya", "artist": "Rukmani Devi"}, {"number": 118, "title": "Pem Rajadahane", "artist": "Rukmani Devi"}, {"number": 119, "title": "Mame Numba", "artist": "Rukmani Devi"}, {"number": 120, "title": "Sandun Gase Samans", "artist": "Rukmani Devi"}, {"number": 121, "title": "Buddhang Saranang", "artist": "Mohideen Baig"}, {"number": 122, "title": "Anna Sudo", "artist": "Mohideen Baig"}, {"number": 123, "title": "Danno Budunge", "artist": "Mohideen Baig"}, {"number": 124, "title": "Siri Sara Bhawaye", "artist": "Mohideen Baig"}, {"number": 125, "title": "Budu Ama Dharme", "artist": "Mohideen Baig"}, {"number": 126, "title": "Muthu Giravi", "artist": "Anjalin Gunathilaka"}, {"number": 127, "title": "Sanda Thaniwela Ahase", "artist": "Anjalin Gunathilaka"}, {"number": 128, "title": "Hada Guwan Thalawe", "artist": "Anjalin Gunathilaka"}, {"number": 129, "title": "Jeevithe Badhaka", "artist": "Anjalin Gunathilaka"}, {"number": 130, "title": "Ma Prarthana Ashawo", "artist": "Anjalin Gunathilaka"}, {"number": 131, "title": "Master Sir", "artist": "Neela Wickramasinghe"}, {"number": 132, "title": "Ransilu", "artist": "Neela Wickramasinghe"}, {"number": 133, "title": "Viyo Gee", "artist": "Neela Wickramasinghe"}, {"number": 134, "title": "Mage Lowata Oba", "artist": "Neela Wickramasinghe"}, {"number": 135, "title": "Bala Hindimi", "artist": "Neela Wickramasinghe"}, {"number": 136, "title": "Piyaneni Ma Nawatha Upannoth", "artist": "Malani Bulathsinhala"}, {"number": 137, "title": "Sanda Madala", "artist": "Malani Bulathsinhala"}, {"number": 138, "title": "Tharu Arundathi", "artist": "Malani Bulathsinhala"}, {"number": 139, "title": "Hada Vila Kalambu", "artist": "Malani Bulathsinhala"}, {"number": 140, "title": "Sanda Hiru Tharu", "artist": "Malani Bulathsinhala"}, {"number": 141, "title": "Chandra Me Ra Paya Awa", "artist": "Sujatha Attanayake"}, {"number": 142, "title": "Pare Matha Weediye", "artist": "Sujatha Attanayake"}, {"number": 143, "title": "Gan Thiree Gangawe", "artist": "Sujatha Attanayake"}, {"number": 144, "title": "Mal Sugande", "artist": "Sujatha Attanayake"}, {"number": 145, "title": "Maaligawe Ma Rejini", "artist": "Sujatha Attanayake"}, {"number": 146, "title": "Samanala Mala Ha Lamaya", "artist": "Edward Jayakody"}, {"number": 147, "title": "Sudu Neluma Ko", "artist": "Edward Jayakody"}, {"number": 148, "title": "Me Ira Handa Yata", "artist": "Edward Jayakody"}, {"number": 149, "title": "Akuru Maki Na", "artist": "Edward Jayakody"}, {"number": 150, "title": "Nethata Ulelak", "artist": "Edward Jayakody"}, {"number": 151, "title": "Ganga Addara", "artist": "Vijaya Kumaratunga"}, {"number": 152, "title": "Seetha Raye", "artist": "Vijaya Kumaratunga"}, {"number": 153, "title": "Etha Epita", "artist": "Vijaya Kumaratunga"}, {"number": 154, "title": "Rallen Rallata", "artist": "Vijaya Kumaratunga"}, {"number": 155, "title": "Perawadanak", "artist": "Vijaya Kumaratunga"}, {"number": 156, "title": "Dathin Alla", "artist": "Chandralekha Perera"}, {"number": 157, "title": "Kusumata Lanwee", "artist": "Chandralekha Perera"}, {"number": 158, "title": "Gahaka Mal Pipila", "artist": "Chandralekha Perera"}, {"number": 159, "title": "Mayam Tharu Rane", "artist": "Chandralekha Perera"}, {"number": 160, "title": "Senehasa Vindinata", "artist": "Chandralekha Perera"}, {"number": 161, "title": "Diganthaye", "artist": "Rookantha Gunathilake"}, {"number": 162, "title": "Sanda Pana Wage", "artist": "Rookantha Gunathilake"}, {"number": 163, "title": "Suwanda Dena Mal", "artist": "Rookantha Gunathilake"}, {"number": 164, "title": "Ananthayata Yanawa", "artist": "Rookantha Gunathilake"}, {"number": 165, "title": "Ukulata Nawath", "artist": "Rookantha Gunathilake"}, {"number": 166, "title": "Hitha Assata", "artist": "Athula Adhikari"}, {"number": 167, "title": "Adare Soya", "artist": "Athula Adhikari"}, {"number": 168, "title": "Tharuka Pelin Eha", "artist": "Athula Adhikari"}, {"number": 169, "title": "Pana Senehasa", "artist": "Athula Adhikari"}, {"number": 170, "title": "Ruwan Tharaka", "artist": "Athula Adhikari"}, {"number": 171, "title": "Ira Paya", "artist": "Samitha Mudunkotuwa"}, {"number": 172, "title": "Rosa Kusumak", "artist": "Samitha Mudunkotuwa"}, {"number": 173, "title": "Sanda Thaniwela", "artist": "Samitha Mudunkotuwa"}, {"number": 174, "title": "Sulangak Vee", "artist": "Samitha Mudunkotuwa"}, {"number": 175, "title": "Pem Pata Siththam", "artist": "Samitha Mudunkotuwa"}, {"number": 176, "title": "Atheethaya Sihinayak Pamanai", "artist": "Karunarathna Divulgane"}, {"number": 177, "title": "Sulanga Numba Wage", "artist": "Karunarathna Divulgane"}, {"number": 178, "title": "Andara Yaye", "artist": "Karunarathna Divulgane"}, {"number": 179, "title": "Weherak Wage", "artist": "Karunarathna Divulgane"}, {"number": 180, "title": "Adaraya Sundara Waradaki", "artist": "Karunarathna Divulgane"}, {"number": 181, "title": "Kandulu Hela", "artist": "Deepika Priyadarshani"}, {"number": 182, "title": "Sina Podak Wee", "artist": "Deepika Priyadarshani"}, {"number": 183, "title": "Obata Mathakada", "artist": "Deepika Priyadarshani"}, {"number": 184, "title": "Thani Tharuwe", "artist": "Deepika Priyadarshani"}, {"number": 185, "title": "Me Kandulu Bindu", "artist": "Deepika Priyadarshani"}, {"number": 186, "title": "Landune", "artist": "Amarasiri Peiris"}, {"number": 187, "title": "Hanthanata Payana Sanda", "artist": "Amarasiri Peiris"}, {"number": 188, "title": "Mage Punchi Rosa Male", "artist": "Amarasiri Peiris"}, {"number": 189, "title": "Kavuruwath Natha", "artist": "Amarasiri Peiris"}, {"number": 190, "title": "Sonduriya", "artist": "Amarasiri Peiris"}, {"number": 191, "title": "Unmada Sithuwam", "artist": "Gunadasa Kapuge"}, {"number": 192, "title": "Duka Haadu Dena Raye", "artist": "Gunadasa Kapuge"}, {"number": 193, "title": "Sabanda Api Kandu Nowemu", "artist": "Gunadasa Kapuge"}, {"number": 194, "title": "Sanda Ra Sihinaye", "artist": "Gunadasa Kapuge"}, {"number": 195, "title": "Ninda Nathi Raye", "artist": "Gunadasa Kapuge"}, {"number": 196, "title": "Podi Puthuge Sina Welai", "artist": "Somathilaka Jayamaha"}, {"number": 197, "title": "Maha Wessak Bimata Halaa", "artist": "Somathilaka Jayamaha"}, {"number": 198, "title": "Anothaththa Vila", "artist": "Somathilaka Jayamaha"}, {"number": 199, "title": "Wikasitha Pem", "artist": "Somathilaka Jayamaha"}, {"number": 200, "title": "Mage Adara Heenaya", "artist": "Somathilaka Jayamaha"}, {"number": 201, "title": "Me Nagaraya", "artist": "Mervin Perera"}, {"number": 202, "title": "Sanda Midulata Enawa", "artist": "Mervin Perera"}, {"number": 203, "title": "Kiri Kodu Hithata", "artist": "Mervin Perera"}, {"number": 204, "title": "Adare Ran Bigun", "artist": "Mervin Perera"}, {"number": 205, "title": "Oba Dedunna", "artist": "Mervin Perera"}, {"number": 206, "title": "Sandata Thanikama", "artist": "Chandrasena Hettiarachchi"}, {"number": 207, "title": "Oya Nisa Mage Sina", "artist": "Chandrasena Hettiarachchi"}, {"number": 208, "title": "Kandu Pamula Sita", "artist": "Chandrasena Hettiarachchi"}, {"number": 209, "title": "Dineka Me Nadee Theere", "artist": "Chandrasena Hettiarachchi"}, {"number": 210, "title": "Mage Neth Pura", "artist": "Chandrasena Hettiarachchi"}, {"number": 211, "title": "Sandata Ra Wela", "artist": "Udaya Priyantha"}, {"number": 212, "title": "Sanda Kumariyak", "artist": "Udaya Priyantha"}, {"number": 213, "title": "Pana Wage", "artist": "Udaya Priyantha"}, {"number": 214, "title": "Meedum Wala", "artist": "Udaya Priyantha"}, {"number": 215, "title": "Oba Mage Jeevithe", "artist": "Udaya Priyantha"}, {"number": 216, "title": "Kandula Ithin Samaweyan", "artist": "Keerthi Pasquel"}, {"number": 217, "title": "Sanda Latha Payala", "artist": "Keerthi Pasquel"}, {"number": 218, "title": "Neela Ahase", "artist": "Keerthi Pasquel"}, {"number": 219, "title": "Adare Sihinayak", "artist": "Keerthi Pasquel"}, {"number": 220, "title": "Sudu Sanda Ras", "artist": "Keerthi Pasquel"}, {"number": 221, "title": "Hitha Hadaganne", "artist": "Nelu Adhikari"}, {"number": 222, "title": "Pura Handa Wage", "artist": "Nelu Adhikari"}, {"number": 223, "title": "Yali Hamuwela", "artist": "Nelu Adhikari"}, {"number": 224, "title": "Sanda Re", "artist": "Nelu Adhikari"}, {"number": 225, "title": "Adare Sithum", "artist": "Nelu Adhikari"}, {"number": 226, "title": "Kalpana Lowe", "artist": "Abeywardena Balasuriya"}, {"number": 227, "title": "Pembara Puthanuwane", "artist": "Abeywardena Balasuriya"}, {"number": 228, "title": "Kadamandiye", "artist": "Abeywardena Balasuriya"}, {"number": 229, "title": "Bonda Meedum Kandu Relle", "artist": "Abeywardena Balasuriya"}, {"number": 230, "title": "Awasana Mohotha", "artist": "Abeywardena Balasuriya"}, {"number": 231, "title": "Meedum Selen", "artist": "Niranjala Sarojini"}, {"number": 232, "title": "Ran Tikiri Sina", "artist": "Niranjala Sarojini"}, {"number": 233, "title": "Asuru Sanin", "artist": "Niranjala Sarojini"}, {"number": 234, "title": "Sudu Sanda Eliye", "artist": "Niranjala Sarojini"}, {"number": 235, "title": "Sonduru Lowata", "artist": "Niranjala Sarojini"}, {"number": 236, "title": "Sanda Pane", "artist": "Damayanthi Jayasuriya"}, {"number": 237, "title": "Sitha Mage", "artist": "Damayanthi Jayasuriya"}, {"number": 238, "title": "Paalu Anduru", "artist": "Damayanthi Jayasuriya"}, {"number": 239, "title": "Samanala Sihine", "artist": "Damayanthi Jayasuriya"}, {"number": 240, "title": "Nelum Male", "artist": "Damayanthi Jayasuriya"}, {"number": 241, "title": "Mal Pita Mal", "artist": "Amal Perera"}, {"number": 242, "title": "Hitha Hadaganna Ba", "artist": "Amal Perera"}, {"number": 243, "title": "Sanda Thaniwela", "artist": "Amal Perera"}, {"number": 244, "title": "Obe Sina", "artist": "Amal Perera"}, {"number": 245, "title": "Kandulu Pirila", "artist": "Amal Perera"}, {"number": 246, "title": "Ahankara Nagare", "artist": "Marians"}, {"number": 247, "title": "Sudu Rosa", "artist": "Marians"}, {"number": 248, "title": "Sura Loke Man", "artist": "Marians"}, {"number": 249, "title": "Nethu Saluna", "artist": "Marians"}, {"number": 250, "title": "Aha Aha", "artist": "Marians"}, {"number": 251, "title": "Siri Sangabodhi", "artist": "Bathiya & Santhush"}, {"number": 252, "title": "Oba Nisa", "artist": "Bathiya & Santhush"}, {"number": 253, "title": "Res Vihidena Samanaliyak", "artist": "Bathiya & Santhush"}, {"number": 254, "title": "Life", "artist": "Bathiya & Santhush"}, {"number": 255, "title": "Shaheena", "artist": "Bathiya & Santhush"}, {"number": 256, "title": "Mata Aloke", "artist": "Iraj"}, {"number": 257, "title": "J Town Story", "artist": "Iraj"}, {"number": 258, "title": "Manamali", "artist": "Iraj"}, {"number": 259, "title": "Cleopatra", "artist": "Iraj"}, {"number": 260, "title": "Veenavi", "artist": "Iraj"}, {"number": 261, "title": "Oba Magemai", "artist": "Ranidu"}, {"number": 262, "title": "Ahankara Nagare", "artist": "Ranidu"}, {"number": 263, "title": "Kelle", "artist": "Ranidu"}, {"number": 264, "title": "Mage As Piya Wela", "artist": "Ranidu"}, {"number": 265, "title": "Ninda Noyana Handawe", "artist": "Ranidu"}, {"number": 266, "title": "Sokare", "artist": "Chinthy"}, {"number": 267, "title": "Naaree", "artist": "Chinthy"}, {"number": 268, "title": "Kadappuli", "artist": "Chinthy"}, {"number": 269, "title": "Thiththai Panirasai", "artist": "Chinthy"}, {"number": 270, "title": "Gandharva", "artist": "Chinthy"}, {"number": 271, "title": "Ran Ran Ran", "artist": "Randhir Witana"}, {"number": 272, "title": "Mage Heenaye", "artist": "Randhir Witana"}, {"number": 273, "title": "Adare Mandire", "artist": "Randhir Witana"}, {"number": 274, "title": "Seetha Maruthe", "artist": "Randhir Witana"}, {"number": 275, "title": "Neththara", "artist": "Randhir Witana"}, {"number": 276, "title": "Papare", "artist": "Ashanthi"}, {"number": 277, "title": "Sandawathiye", "artist": "Ashanthi"}, {"number": 278, "title": "Ridee Nethu", "artist": "Ashanthi"}, {"number": 279, "title": "Kanyavi", "artist": "Ashanthi"}, {"number": 280, "title": "Rathu Rosa", "artist": "Ashanthi"}, {"number": 281, "title": "Mandaram Kathawe", "artist": "Umaria Sinhawansa"}, {"number": 282, "title": "Denuwan Piya", "artist": "Umaria Sinhawansa"}, {"number": 283, "title": "Wassane Premaya", "artist": "Umaria Sinhawansa"}, {"number": 284, "title": "Dedunna Sedi", "artist": "Umaria Sinhawansa"}, {"number": 285, "title": "Oba Nodanna Adare", "artist": "Umaria Sinhawansa"}, {"number": 286, "title": "Manda Pama", "artist": "Umara Sinhawansa"}, {"number": 287, "title": "Nethu Dasa", "artist": "Umara Sinhawansa"}, {"number": 288, "title": "Sihinayaki Oba", "artist": "Umara Sinhawansa"}, {"number": 289, "title": "Rathu Rosa", "artist": "Umara Sinhawansa"}, {"number": 290, "title": "Ran Samanala", "artist": "Umara Sinhawansa"}, {"number": 291, "title": "Mal Mitak", "artist": "Kasun Kalhara"}, {"number": 292, "title": "Math Mal Sena", "artist": "Kasun Kalhara"}, {"number": 293, "title": "Haritha Nimnaye", "artist": "Kasun Kalhara"}, {"number": 294, "title": "Adara Mal Wala", "artist": "Kasun Kalhara"}, {"number": 295, "title": "Sanda Mithuri", "artist": "Kasun Kalhara"}, {"number": 296, "title": "Gini Avi", "artist": "Indrachapa Liyanage"}, {"number": 297, "title": "Fly Away", "artist": "Indrachapa Liyanage"}, {"number": 298, "title": "Saumya", "artist": "Indrachapa Liyanage"}, {"number": 299, "title": "Sinhawalokanaya", "artist": "Indrachapa Liyanage"}, {"number": 300, "title": "Nadagam Geeya", "artist": "Indrachapa Liyanage"}, {"number": 301, "title": "Oya Susum Pawan", "artist": "Chamara Weerasinghe"}, {"number": 302, "title": "Budu Padavi Pathan", "artist": "Chamara Weerasinghe"}, {"number": 303, "title": "Sanda Renu Wahena", "artist": "Chamara Weerasinghe"}, {"number": 304, "title": "Mage Pana", "artist": "Chamara Weerasinghe"}, {"number": 305, "title": "Duka Danne Wena Kaurunda", "artist": "Chamara Weerasinghe"}, {"number": 306, "title": "Oba Dakina Dakina", "artist": "Shihan Mihiranga"}, {"number": 307, "title": "Mihiraviye", "artist": "Shihan Mihiranga"}, {"number": 308, "title": "Sandawan Ruwin", "artist": "Shihan Mihiranga"}, {"number": 309, "title": "Sihinayak Wage", "artist": "Shihan Mihiranga"}, {"number": 310, "title": "Pem Pata As", "artist": "Shihan Mihiranga"}, {"number": 311, "title": "Paramitha Nopuramu", "artist": "Sashika Nisansala"}, {"number": 312, "title": "Thol Pethi Witharak", "artist": "Sashika Nisansala"}, {"number": 313, "title": "Sanda Eliya", "artist": "Sashika Nisansala"}, {"number": 314, "title": "Oba Nisa", "artist": "Sashika Nisansala"}, {"number": 315, "title": "Sitha Mage Riduna", "artist": "Sashika Nisansala"}, {"number": 316, "title": "Sanda Diyawanna", "artist": "Nirosha Virajini"}, {"number": 317, "title": "Sitha Handai", "artist": "Nirosha Virajini"}, {"number": 318, "title": "Paata Dedunu", "artist": "Nirosha Virajini"}, {"number": 319, "title": "Oba Gawa", "artist": "Nirosha Virajini"}, {"number": 320, "title": "Sihina Genena", "artist": "Nirosha Virajini"}, {"number": 321, "title": "Samanalun Rane", "artist": "Uresha Ravihari"}, {"number": 322, "title": "Sonduru Sithuwam", "artist": "Uresha Ravihari"}, {"number": 323, "title": "Hithumathe", "artist": "Uresha Ravihari"}, {"number": 324, "title": "Sihina Siththaravi", "artist": "Uresha Ravihari"}, {"number": 325, "title": "Dewliye", "artist": "Uresha Ravihari"}, {"number": 326, "title": "Kaluwarata Hitha Baya Hinda", "artist": "Raini Charuka"}, {"number": 327, "title": "Neela Kadugate", "artist": "Raini Charuka"}, {"number": 328, "title": "Nobala", "artist": "Raini Charuka"}, {"number": 329, "title": "Ma Handawala", "artist": "Raini Charuka"}, {"number": 330, "title": "Charuka", "artist": "Raini Charuka"}, {"number": 331, "title": "Sitha Mage", "artist": "Romesh & Lakshan"}, {"number": 332, "title": "Pem Sihine", "artist": "Romesh & Lakshan"}, {"number": 333, "title": "Sanda Mithuri", "artist": "Romesh & Lakshan"}, {"number": 334, "title": "Neela Nethu", "artist": "Romesh & Lakshan"}, {"number": 335, "title": "Oba Tharam", "artist": "Romesh & Lakshan"}, {"number": 336, "title": "Chandrayan Pidu", "artist": "Daddy"}, {"number": 337, "title": "Lassana Dawasak", "artist": "Daddy"}, {"number": 338, "title": "Massina", "artist": "Daddy"}, {"number": 339, "title": "Tiken Tika", "artist": "Daddy"}, {"number": 340, "title": "Aale", "artist": "Daddy"}, {"number": 341, "title": "Ranwan Mal Dam", "artist": "Centigradz"}, {"number": 342, "title": "Urumaya", "artist": "Centigradz"}, {"number": 343, "title": "Pahasara", "artist": "Centigradz"}, {"number": 344, "title": "Rata Pura", "artist": "Centigradz"}, {"number": 345, "title": "Hitha Illana Tharu", "artist": "Centigradz"}, {"number": 346, "title": "Malpettak", "artist": "6th Lane"}, {"number": 347, "title": "Oba Giya", "artist": "6th Lane"}, {"number": 348, "title": "Sandakalum", "artist": "6th Lane"}, {"number": 349, "title": "Himi Nathi Pemakata", "artist": "6th Lane"}, {"number": 350, "title": "Sitha Mage", "artist": "6th Lane"}, {"number": 351, "title": "Api Sanasille", "artist": "Wayo"}, {"number": 352, "title": "Handa Allanna Aasa Gamana", "artist": "Wayo"}, {"number": 353, "title": "Anagathaye", "artist": "Wayo"}, {"number": 354, "title": "Duka Wadi Nethida", "artist": "Wayo"}, {"number": 355, "title": "Hithata Wahal Wela", "artist": "Wayo"}, {"number": 356, "title": "Heenayakda Me", "artist": "Sanka Dineth"}, {"number": 357, "title": "Oba Mage Wenawanam", "artist": "Sanka Dineth"}, {"number": 358, "title": "Mata Aithikarala", "artist": "Sanka Dineth"}, {"number": 359, "title": "Adare Tharam", "artist": "Sanka Dineth"}, {"number": 360, "title": "Nethu Piyan", "artist": "Sanka Dineth"}, {"number": 361, "title": "Rambari", "artist": "Lahiru Perera"}, {"number": 362, "title": "Labendiye", "artist": "Lahiru Perera"}, {"number": 363, "title": "Aei", "artist": "Lahiru Perera"}, {"number": 364, "title": "Adare Aran", "artist": "Lahiru Perera"}, {"number": 365, "title": "Mana Bandina", "artist": "Lahiru Perera"}, {"number": 366, "title": "Saragaye", "artist": "Sanuka Wickramasinghe"}, {"number": 367, "title": "Sansara Sihine", "artist": "Sanuka Wickramasinghe"}, {"number": 368, "title": "Mathakada Handaawe", "artist": "Sanuka Wickramasinghe"}, {"number": 369, "title": "Perawadanak", "artist": "Sanuka Wickramasinghe"}, {"number": 370, "title": "Unmada Chithra", "artist": "Sanuka Wickramasinghe"}, {"number": 371, "title": "Danena Thuru Maa", "artist": "Dinesh Gamage"}, {"number": 372, "title": "Manali", "artist": "Dinesh Gamage"}, {"number": 373, "title": "Udugam Balaa", "artist": "Dinesh Gamage"}, {"number": 374, "title": "Nasuna", "artist": "Dinesh Gamage"}, {"number": 375, "title": "Datha Dara", "artist": "Dinesh Gamage"}, {"number": 376, "title": "Kaali", "artist": "Kanchana Anuradhi"}, {"number": 377, "title": "Udurawee", "artist": "Kanchana Anuradhi"}, {"number": 378, "title": "Sansarini", "artist": "Kanchana Anuradhi"}, {"number": 379, "title": "Aaley Manalai", "artist": "Kanchana Anuradhi"}, {"number": 380, "title": "Layama Piruna", "artist": "Kanchana Anuradhi"}, {"number": 381, "title": "Pandama", "artist": "Dhanith Sri"}, {"number": 382, "title": "Alokawarsha", "artist": "Dhanith Sri"}, {"number": 383, "title": "Loka Sithiyama", "artist": "Dhanith Sri"}, {"number": 384, "title": "Numba Ha", "artist": "Dhanith Sri"}, {"number": 385, "title": "Digasiye", "artist": "Dhanith Sri"}, {"number": 386, "title": "Kuweni", "artist": "Ridma Weerawardena"}, {"number": 387, "title": "Sansaraye Ma", "artist": "Ridma Weerawardena"}, {"number": 388, "title": "Oba Apple Malak Wage", "artist": "Ridma Weerawardena"}, {"number": 389, "title": "Sandawathiye", "artist": "Ridma Weerawardena"}, {"number": 390, "title": "Sanda Aithiyak", "artist": "Ridma Weerawardena"}, {"number": 391, "title": "Prathihari", "artist": "Supun Perera"}, {"number": 392, "title": "Hitha Heenayak", "artist": "Supun Perera"}, {"number": 393, "title": "Nura Wasanthe", "artist": "Supun Perera"}, {"number": 394, "title": "Oba Nisa", "artist": "Supun Perera"}, {"number": 395, "title": "Ma Nowana Mama", "artist": "Supun Perera"}, {"number": 396, "title": "Yanna Yanawada", "artist": "Mihindu Ariyaratne"}, {"number": 397, "title": "Ahas Maliga", "artist": "Mihindu Ariyaratne"}, {"number": 398, "title": "Samanala Sandhawaniya", "artist": "Mihindu Ariyaratne"}, {"number": 399, "title": "Oba Nisa", "artist": "Mihindu Ariyaratne"}, {"number": 400, "title": "Hitha Gawa", "artist": "Mihindu Ariyaratne"}, {"number": 401, "title": "Mathakayan", "artist": "Nadun Gimhana"}, {"number": 402, "title": "Maruthe", "artist": "Nadun Gimhana"}, {"number": 403, "title": "Sudu Rosa Mal", "artist": "Nadun Gimhana"}, {"number": 404, "title": "Oba Dutu Da", "artist": "Nadun Gimhana"}, {"number": 405, "title": "Rathu Rosa", "artist": "Nadun Gimhana"}, {"number": 406, "title": "Nodaka Inna Ba", "artist": "Ruwan Hettiarachchi"}, {"number": 407, "title": "Seetha Maruthe", "artist": "Ruwan Hettiarachchi"}, {"number": 408, "title": "Sanda Mal", "artist": "Ruwan Hettiarachchi"}, {"number": 409, "title": "Oba Hinahena", "artist": "Ruwan Hettiarachchi"}, {"number": 410, "title": "Mathakaya", "artist": "Ruwan Hettiarachchi"}, {"number": 411, "title": "Unuhuma", "artist": "Tehan Perera"}, {"number": 412, "title": "Nuba Nena", "artist": "Tehan Perera"}, {"number": 413, "title": "Pini Poda Wassa", "artist": "Tehan Perera"}, {"number": 414, "title": "Mage Jeewithe", "artist": "Tehan Perera"}, {"number": 415, "title": "Mage Adare", "artist": "Tehan Perera"}, {"number": 416, "title": "Hitha Mage", "artist": "Nadeemal Perera"}, {"number": 417, "title": "Paya Ena Hiru Se", "artist": "Nadeemal Perera"}, {"number": 418, "title": "Mal Warusa", "artist": "Nadeemal Perera"}, {"number": 419, "title": "Obe Susum", "artist": "Nadeemal Perera"}, {"number": 420, "title": "Sandawathura", "artist": "Nadeemal Perera"}, {"number": 421, "title": "Mandaram Kathawe", "artist": "Falan Andrea"}, {"number": 422, "title": "Nurawee", "artist": "Falan Andrea"}, {"number": 423, "title": "Oba Mage", "artist": "Falan Andrea"}, {"number": 424, "title": "Sihina Genena", "artist": "Falan Andrea"}, {"number": 425, "title": "Pem Pata", "artist": "Falan Andrea"}, {"number": 426, "title": "Manike Mage Hithe", "artist": "Yohani"}, {"number": 427, "title": "Moving On", "artist": "Yohani"}, {"number": 428, "title": "Ithin Adare", "artist": "Yohani"}, {"number": 429, "title": "Haal Massa", "artist": "Yohani"}, {"number": 430, "title": "Kella", "artist": "Yohani"}, {"number": 431, "title": "Manike Mage Hithe", "artist": "Satheeshan Rathnayaka"}, {"number": 432, "title": "Mage Waradak", "artist": "Satheeshan Rathnayaka"}, {"number": 433, "title": "Adarei Man", "artist": "Satheeshan Rathnayaka"}, {"number": 434, "title": "Sihina Chaya", "artist": "Satheeshan Rathnayaka"}, {"number": 435, "title": "Heenayak", "artist": "Satheeshan Rathnayaka"}, {"number": 436, "title": "Thaniwee", "artist": "Kevin Smokio"}, {"number": 437, "title": "Colombo", "artist": "Kevin Smokio"}, {"number": 438, "title": "Ape Kathandare", "artist": "Kevin Smokio"}, {"number": 439, "title": "Mabola", "artist": "Kevin Smokio"}, {"number": 440, "title": "Surangana Kirilli", "artist": "Kevin Smokio"}, {"number": 441, "title": "Podi Gahak", "artist": "Drill Team Westnahira"}, {"number": 442, "title": "Aiyage Bara", "artist": "Drill Team Westnahira"}, {"number": 443, "title": "JVP", "artist": "Drill Team Westnahira"}, {"number": 444, "title": "Duppath Paale", "artist": "Drill Team Westnahira"}, {"number": 445, "title": "Deviyange Bare", "artist": "Drill Team Westnahira"}, {"number": 446, "title": "Diya Rella", "artist": "Ravi Jay"}, {"number": 447, "title": "Bonda Meedum", "artist": "Ravi Jay"}, {"number": 448, "title": "Suranganavi", "artist": "Ravi Jay"}, {"number": 449, "title": "Api Kaurunda", "artist": "Ravi Jay"}, {"number": 450, "title": "Magemai", "artist": "Ravi Jay"}, {"number": 451, "title": "Oya As Katha", "artist": "E Costa"}, {"number": 452, "title": "Mayam", "artist": "E Costa"}, {"number": 453, "title": "1970 Love", "artist": "E Costa"}, {"number": 454, "title": "Langa Inna", "artist": "E Costa"}, {"number": 455, "title": "Rosa Mal", "artist": "E Costa"}, {"number": 456, "title": "Komali", "artist": "Methun SK"}, {"number": 457, "title": "Paalu Yame", "artist": "Methun SK"}, {"number": 458, "title": "Udugam Balaa", "artist": "Methun SK"}, {"number": 459, "title": "Sanda Wathiye", "artist": "Methun SK"}, {"number": 460, "title": "Mandakini", "artist": "Methun SK"}, {"number": 461, "title": "Dawasak Ewi", "artist": "Piyath Rajapakse"}, {"number": 462, "title": "Aadareyi", "artist": "Piyath Rajapakse"}, {"number": 463, "title": "Seethala Handawe", "artist": "Piyath Rajapakse"}, {"number": 464, "title": "Hamuwee", "artist": "Piyath Rajapakse"}, {"number": 465, "title": "Sihina", "artist": "Piyath Rajapakse"}, {"number": 466, "title": "Swarnapaliye", "artist": "Sajitha Anthony"}, {"number": 467, "title": "Mihiraviye", "artist": "Sajitha Anthony"}, {"number": 468, "title": "Sanda Renu", "artist": "Sajitha Anthony"}, {"number": 469, "title": "Wala Theerayen", "artist": "Sajitha Anthony"}, {"number": 470, "title": "Hamuwee", "artist": "Sajitha Anthony"}, {"number": 471, "title": "Mal Onchilla", "artist": "Raveen Tharuka"}, {"number": 472, "title": "Oya Dura Athaka", "artist": "Raveen Tharuka"}, {"number": 473, "title": "Heenayak Wage", "artist": "Raveen Tharuka"}, {"number": 474, "title": "Pem Pata", "artist": "Raveen Tharuka"}, {"number": 475, "title": "Sara Sanda", "artist": "Raveen Tharuka"}, {"number": 476, "title": "Api Aye Hamuwela", "artist": "Yasas Medagedara"}, {"number": 477, "title": "Sandawathiye", "artist": "Yasas Medagedara"}, {"number": 478, "title": "Dutu Da", "artist": "Yasas Medagedara"}, {"number": 479, "title": "Pem Heena", "artist": "Yasas Medagedara"}, {"number": 480, "title": "Harimi", "artist": "Yasas Medagedara"}, {"number": 481, "title": "Nadee Ganga Tharanaye", "artist": "Chitral Somapala"}, {"number": 482, "title": "Sinhabhoomi", "artist": "Chitral Somapala"}, {"number": 483, "title": "Dasa Basa Yana", "artist": "Chitral Somapala"}, {"number": 484, "title": "Ralu Mawathe", "artist": "Chitral Somapala"}, {"number": 485, "title": "Lion Nation", "artist": "Chitral Somapala"}, {"number": 486, "title": "Ra Ahase", "artist": "Billy Fernando"}, {"number": 487, "title": "Seetha Maruthe", "artist": "Billy Fernando"}, {"number": 488, "title": "Mage Adare", "artist": "Billy Fernando"}, {"number": 489, "title": "Mal Sara", "artist": "Billy Fernando"}, {"number": 490, "title": "Neth Konin", "artist": "Billy Fernando"}, {"number": 491, "title": "One Morning in May", "artist": "Sohan & The X-Periments"}, {"number": 492, "title": "Rata Giya Aththo", "artist": "Sohan & The X-Periments"}, {"number": 493, "title": "Suzanna", "artist": "Sohan & The X-Periments"}, {"number": 494, "title": "Baila Nonstop", "artist": "Sohan & The X-Periments"}, {"number": 495, "title": "Paata Paata", "artist": "Sohan & The X-Periments"}, {"number": 496, "title": "Udugam Balaa", "artist": "NaadhaGama"}, {"number": 497, "title": "Datha Dara", "artist": "NaadhaGama"}, {"number": 498, "title": "Nomiyena Adare", "artist": "NaadhaGama"}, {"number": 499, "title": "Loka Sithiyama", "artist": "NaadhaGama"}, {"number": 500, "title": "Nadhagama 360", "artist": "NaadhaGama"}, {"number": 501, "title": "Koththamalli", "artist": "The Gypsies"}, {"number": 502, "title": "Waduwa", "artist": "The Gypsies"}, {"number": 503, "title": "Piti Kotapang None", "artist": "The Gypsies"}, {"number": 504, "title": "Lorenso", "artist": "The Gypsies"}, {"number": 505, "title": "Kello Nethuwath Ba", "artist": "The Gypsies"}, {"number": 506, "title": "Irene Joesapin", "artist": "The Gypsies"}, {"number": 507, "title": "Weeriyen Soya", "artist": "The Gypsies"}, {"number": 508, "title": "Pem Lowe", "artist": "The Gypsies"}, {"number": 509, "title": "Piti Kotapan None", "artist": "The Gypsies"}, {"number": 510, "title": "Thaththa Mata Anak Dunna", "artist": "The Gypsies"}, {"number": 511, "title": "Yanna Ratawate", "artist": "Desmond de Silva"}, {"number": 512, "title": "Dompe Aya", "artist": "Desmond de Silva"}, {"number": 513, "title": "Dewlowa Deviyane", "artist": "Desmond de Silva"}, {"number": 514, "title": "Canadawe", "artist": "Desmond de Silva"}, {"number": 515, "title": "Baila Santi", "artist": "Desmond de Silva"}, {"number": 516, "title": "Rampe Katta", "artist": "Desmond de Silva"}, {"number": 517, "title": "Mamma Mia", "artist": "Desmond de Silva"}, {"number": 518, "title": "Suda Suda", "artist": "Desmond de Silva"}, {"number": 519, "title": "Sumihiri Pane Reprise", "artist": "Desmond de Silva"}, {"number": 520, "title": "Sri Lanka Matha Baila", "artist": "Desmond de Silva"}, {"number": 521, "title": "Kisi Wehesak Nobala", "artist": "Wally Bastians"}, {"number": 522, "title": "Irin Josapin", "artist": "Wally Bastians"}, {"number": 523, "title": "Puruwe Pinakini", "artist": "Wally Bastians"}, {"number": 524, "title": "Goviya", "artist": "Wally Bastians"}, {"number": 525, "title": "Sada Sulan Hamanne", "artist": "Wally Bastians"}, {"number": 526, "title": "Aale", "artist": "Wally Bastians"}, {"number": 527, "title": "Mokada Kiyanne", "artist": "Wally Bastians"}, {"number": 528, "title": "Rosa Nonna", "artist": "Wally Bastians"}, {"number": 529, "title": "Rosa Male", "artist": "M. S. Fernando"}, {"number": 530, "title": "Kakiri Palena", "artist": "M. S. Fernando"}, {"number": 531, "title": "Sudu Akka", "artist": "M. S. Fernando"}, {"number": 532, "title": "Mango Nande", "artist": "M. S. Fernando"}, {"number": 533, "title": "Mage Hitha Pura", "artist": "M. S. Fernando"}, {"number": 534, "title": "Ada Dawase", "artist": "M. S. Fernando"}, {"number": 535, "title": "Budu Sadu", "artist": "M. S. Fernando"}, {"number": 536, "title": "Tikiri Menike", "artist": "M. S. Fernando"}, {"number": 537, "title": "Kawadi Baila", "artist": "Nihal Nelson"}, {"number": 538, "title": "Punsanda Wage", "artist": "Nihal Nelson"}, {"number": 539, "title": "Somiyata Waren Puthe", "artist": "Nihal Nelson"}, {"number": 540, "title": "Mawila Penevi Rupe", "artist": "Nihal Nelson"}, {"number": 541, "title": "Lassana Sri Lanka", "artist": "Nihal Nelson"}, {"number": 542, "title": "Dawala Mandiriye", "artist": "Nihal Nelson"}, {"number": 543, "title": "Kandulu Wasse", "artist": "Nihal Nelson"}, {"number": 544, "title": "Raththaran Duwe", "artist": "Nihal Nelson"}, {"number": 545, "title": "Egoda Gode", "artist": "Paul Fernando"}, {"number": 546, "title": "Seegiri Sukumaliye", "artist": "Paul Fernando"}, {"number": 547, "title": "Hela Jathika Abhimane", "artist": "Paul Fernando"}, {"number": 548, "title": "Nuwara Menike", "artist": "Paul Fernando"}, {"number": 549, "title": "Goyam Kapanawa", "artist": "Paul Fernando"}, {"number": 550, "title": "Wathura Nala", "artist": "Paul Fernando"}, {"number": 551, "title": "Mage Nango", "artist": "Paul Fernando"}, {"number": 552, "title": "Kalutara Kello", "artist": "Paul Fernando"}, {"number": 553, "title": "Kaak Kaak Kaak", "artist": "A. E. Manoharan"}, {"number": 554, "title": "Thambi Malli", "artist": "A. E. Manoharan"}, {"number": 555, "title": "Jaffna Jaffna", "artist": "A. E. Manoharan"}, {"number": 556, "title": "Surangani Remix", "artist": "A. E. Manoharan"}, {"number": 557, "title": "Konda Konda", "artist": "A. E. Manoharan"}, {"number": 558, "title": "Yal Devi", "artist": "A. E. Manoharan"}, {"number": 559, "title": "Mini Gawuma 2", "artist": "Anton Jones"}, {"number": 560, "title": "Ralahami Reprise", "artist": "Anton Jones"}, {"number": 561, "title": "Kanthoruwa Reprise", "artist": "Anton Jones"}, {"number": 562, "title": "Salli Salli", "artist": "Anton Jones"}, {"number": 563, "title": "Coconut Woman", "artist": "Anton Jones"}, {"number": 564, "title": "Raththaran Malli", "artist": "Anton Jones"}, {"number": 565, "title": "Kundumani Remix", "artist": "Freddie Silva"}, {"number": 566, "title": "Pushpe Reprise", "artist": "Freddie Silva"}, {"number": 567, "title": "Aron Mama", "artist": "Freddie Silva"}, {"number": 568, "title": "Pankiriththa", "artist": "Freddie Silva"}, {"number": 569, "title": "Handa Mama", "artist": "Freddie Silva"}, {"number": 570, "title": "Jolly Seeya Baila", "artist": "Jolly Seeya"}, {"number": 571, "title": "Nona Mage Sudu Nona", "artist": "Jolly Seeya"}, {"number": 572, "title": "Kukul Kakul", "artist": "Jolly Seeya"}, {"number": 573, "title": "Jolly Good Fellow", "artist": "Jolly Seeya"}, {"number": 574, "title": "Party Time", "artist": "Jolly Seeya"}, {"number": 575, "title": "Mage Podi Duwa", "artist": "Saman de Silva"}, {"number": 576, "title": "Ammala Duk Ganne", "artist": "Saman de Silva"}, {"number": 577, "title": "Nalagana", "artist": "Saman de Silva"}, {"number": 578, "title": "Sudu Pata Meedum", "artist": "Saman de Silva"}, {"number": 579, "title": "Malsara", "artist": "Saman de Silva"}, {"number": 580, "title": "Kandyan Express", "artist": "Mignonne & The Jetliners"}, {"number": 581, "title": "Kisses in the Dark", "artist": "Mignonne & The Jetliners"}, {"number": 582, "title": "Doi Doi", "artist": "Mignonne & The Jetliners"}, {"number": 583, "title": "Mangala Mohotha", "artist": "Mignonne & The Jetliners"}, {"number": 584, "title": "Baila Medley", "artist": "Mignonne & The Jetliners"}, {"number": 585, "title": "Kandy Lamissi", "artist": "Mariazelle Goonetilleke"}, {"number": 586, "title": "Nethin Netha", "artist": "Mariazelle Goonetilleke"}, {"number": 587, "title": "Dilhani", "artist": "Mariazelle Goonetilleke"}, {"number": 588, "title": "Coconut Woman", "artist": "Mariazelle Goonetilleke"}, {"number": 589, "title": "Mama Denna", "artist": "Mariazelle Goonetilleke"}, {"number": 590, "title": "Chuda Manike Medley", "artist": "Dalreen Suby"}, {"number": 591, "title": "Kawda Aave", "artist": "Dalreen Suby"}, {"number": 592, "title": "Baila Beat", "artist": "Dalreen Suby"}, {"number": 593, "title": "Sudu Menike", "artist": "Dalreen Suby"}, {"number": 594, "title": "Rosa Rosa", "artist": "Dalreen Suby"}, {"number": 595, "title": "Nonstop Baila", "artist": "Sunflowers"}, {"number": 596, "title": "Koheda Yanne", "artist": "Sunflowers"}, {"number": 597, "title": "Sundarai Adare", "artist": "Sunflowers"}, {"number": 598, "title": "Papare Beat", "artist": "Sunflowers"}, {"number": 599, "title": "Rasa Pirunu Katha", "artist": "Sunflowers"}, {"number": 600, "title": "Mage Sudu Nona", "artist": "Sunflowers"}, {"number": 601, "title": "Ahankara Nagare Live", "artist": "Marians"}, {"number": 602, "title": "Nona Mage", "artist": "Marians"}, {"number": 603, "title": "Kawada Ho", "artist": "Marians"}, {"number": 604, "title": "Sithin Ma Nosali", "artist": "Marians"}, {"number": 605, "title": "Gamen Liyumak Live", "artist": "Marians"}, {"number": 606, "title": "Singithi Surathal", "artist": "Marians"}, {"number": 607, "title": "Jaya Sri Lanka", "artist": "Marians"}, {"number": 608, "title": "Rata Giya Aththo", "artist": "Sohan & The X-Periments"}, {"number": 609, "title": "Suzanna", "artist": "Sohan & The X-Periments"}, {"number": 610, "title": "Baila Nonstop Medley", "artist": "Sohan & The X-Periments"}, {"number": 611, "title": "Paata Paata", "artist": "Sohan & The X-Periments"}, {"number": 612, "title": "One Morning in May Reprise", "artist": "Sohan & The X-Periments"}, {"number": 613, "title": "Api Denna", "artist": "Sohan & The X-Periments"}, {"number": 614, "title": "Mango Kalu Nande Live", "artist": "Annesley Malewana"}, {"number": 615, "title": "Dilhani Duwani Live", "artist": "Annesley Malewana"}, {"number": 616, "title": "Bola Bola Mati", "artist": "Annesley Malewana"}, {"number": 617, "title": "Kalu Kella", "artist": "Annesley Malewana"}, {"number": 618, "title": "Rosa Male", "artist": "Annesley Malewana"}, {"number": 619, "title": "Malpan Podak", "artist": "Bathiya & Santhush"}, {"number": 620, "title": "Hitha Nambara Thaleta", "artist": "Bathiya & Santhush"}, {"number": 621, "title": "Dangakara Hadakari", "artist": "Bathiya & Santhush"}, {"number": 622, "title": "Kavikariye", "artist": "Bathiya & Santhush"}, {"number": 623, "title": "Labandi Komaliya", "artist": "Bathiya & Santhush"}, {"number": 624, "title": "Habibi", "artist": "Bathiya & Santhush"}, {"number": 625, "title": "Unmada Prema Geeya", "artist": "Bathiya & Santhush"}, {"number": 626, "title": "Baila Gamuda Remix Karala", "artist": "Bathiya & Santhush"}, {"number": 627, "title": "Hini Peththata", "artist": "Bathiya & Santhush"}, {"number": 628, "title": "Ae", "artist": "Bathiya & Santhush"}, {"number": 629, "title": "Jeevithe", "artist": "Bathiya & Santhush"}, {"number": 630, "title": "Ran Kurahan Mala", "artist": "Bathiya & Santhush"}, {"number": 631, "title": "Sudu Adumin", "artist": "Iraj"}, {"number": 632, "title": "Ninda Noyana Handawe", "artist": "Iraj"}, {"number": 633, "title": "Ahankara Nagare", "artist": "Iraj"}, {"number": 634, "title": "Game Kollo", "artist": "Iraj"}, {"number": 635, "title": "Manike", "artist": "Iraj"}, {"number": 636, "title": "Siththara", "artist": "Iraj"}, {"number": 637, "title": "Nil Nuwan", "artist": "Iraj"}, {"number": 638, "title": "Yaluwe", "artist": "Iraj"}, {"number": 639, "title": "Hithuwakkari", "artist": "Iraj"}, {"number": 640, "title": "Paaru Palamen", "artist": "Iraj"}, {"number": 641, "title": "Oba Magemai Remix", "artist": "Ranidu"}, {"number": 642, "title": "Hitha Hadaganna Ba", "artist": "Ranidu"}, {"number": 643, "title": "Kelle Club Mix", "artist": "Ranidu"}, {"number": 644, "title": "Lankawe", "artist": "Ranidu"}, {"number": 645, "title": "Mage Hitha", "artist": "Ranidu"}, {"number": 646, "title": "Tharunyaye", "artist": "Ranidu"}, {"number": 647, "title": "Ninda Noyana Handawe", "artist": "Ranidu"}, {"number": 648, "title": "Sudu Pata Mal", "artist": "Ranidu"}, {"number": 649, "title": "Duwe", "artist": "Ranidu"}, {"number": 650, "title": "Hinahenna", "artist": "Ranidu"}, {"number": 651, "title": "Chanchala", "artist": "Chinthy"}, {"number": 652, "title": "Lassanai", "artist": "Chinthy"}, {"number": 653, "title": "Machan", "artist": "Chinthy"}, {"number": 654, "title": "Saree Pote", "artist": "Chinthy"}, {"number": 655, "title": "Hitha Matha", "artist": "Chinthy"}, {"number": 656, "title": "Ralu Para", "artist": "Chinthy"}, {"number": 657, "title": "Thiththai Panirasai Remix", "artist": "Chinthy"}, {"number": 658, "title": "Naree Reprise", "artist": "Chinthy"}, {"number": 659, "title": "Kadappuli Remix", "artist": "Chinthy"}, {"number": 660, "title": "Malakuth Thibuna", "artist": "Chinthy"}, {"number": 661, "title": "Aare Aare", "artist": "Randhir Witana"}, {"number": 662, "title": "Sanda Se", "artist": "Randhir Witana"}, {"number": 663, "title": "Hitha Pura", "artist": "Randhir Witana"}, {"number": 664, "title": "Sundari", "artist": "Randhir Witana"}, {"number": 665, "title": "Mal Wiyan", "artist": "Randhir Witana"}, {"number": 666, "title": "Ninda Noyana Handawe", "artist": "Randhir Witana"}, {"number": 667, "title": "Kelle", "artist": "Randhir Witana"}, {"number": 668, "title": "Jeewithe", "artist": "Randhir Witana"}, {"number": 669, "title": "Hithuwakkari", "artist": "Randhir Witana"}, {"number": 670, "title": "Ran Ran Ran Remix", "artist": "Randhir Witana"}, {"number": 671, "title": "Papare Remix", "artist": "Ashanthi"}, {"number": 672, "title": "Rathu Rosa Remix", "artist": "Ashanthi"}, {"number": 673, "title": "Sandawathiye Remix", "artist": "Ashanthi"}, {"number": 674, "title": "Pem Hangum", "artist": "Ashanthi"}, {"number": 675, "title": "Kanyavi Remix", "artist": "Ashanthi"}, {"number": 676, "title": "Oba Magemai", "artist": "Ashanthi"}, {"number": 677, "title": "Dance with Me", "artist": "Ashanthi"}, {"number": 678, "title": "Alawanthakama", "artist": "Ashanthi"}, {"number": 679, "title": "Pahasara Remix", "artist": "Centigradz"}, {"number": 680, "title": "Rata Pura Remix", "artist": "Centigradz"}, {"number": 681, "title": "Dark Angel", "artist": "Centigradz"}, {"number": 682, "title": "Sulanga Se", "artist": "Centigradz"}, {"number": 683, "title": "Thawa Dawasak", "artist": "Centigradz"}, {"number": 684, "title": "Yaluwe", "artist": "Centigradz"}, {"number": 685, "title": "Sanda Renu", "artist": "Centigradz"}, {"number": 686, "title": "Diwrala Pawasanna", "artist": "Centigradz"}, {"number": 687, "title": "Dawasaka Ma", "artist": "Centigradz"}, {"number": 688, "title": "Nage", "artist": "Centigradz"}, {"number": 689, "title": "Oba Giya Remix", "artist": "6th Lane"}, {"number": 690, "title": "Sihina Mawana", "artist": "6th Lane"}, {"number": 691, "title": "Hitha Pura", "artist": "6th Lane"}, {"number": 692, "title": "Rae Sihine", "artist": "6th Lane"}, {"number": 693, "title": "Rosa Mal", "artist": "6th Lane"}, {"number": 694, "title": "Malpettak Remix", "artist": "6th Lane"}, {"number": 695, "title": "Oba Giya Club Mix", "artist": "6th Lane"}, {"number": 696, "title": "Tharuka", "artist": "6th Lane"}, {"number": 697, "title": "Chandrayan Pidu Remix", "artist": "Daddy"}, {"number": 698, "title": "Aale Remix", "artist": "Daddy"}, {"number": 699, "title": "Massina Remix", "artist": "Daddy"}, {"number": 700, "title": "Tiken Tika Remix", "artist": "Daddy"}, {"number": 701, "title": "Danga Malla", "artist": "Daddy"}, {"number": 702, "title": "Arabi Kumari", "artist": "Daddy"}, {"number": 703, "title": "Mata Kiyanna", "artist": "Daddy"}, {"number": 704, "title": "SMS", "artist": "Daddy"}, {"number": 705, "title": "Api Sanasille Remix", "artist": "Wayo"}, {"number": 706, "title": "Anagathaye Remix", "artist": "Wayo"}, {"number": 707, "title": "Maga Digata", "artist": "Wayo"}, {"number": 708, "title": "Wayo Nonstop", "artist": "Wayo"}, {"number": 709, "title": "Hithata Wahal Wela Remix", "artist": "Wayo"}, {"number": 710, "title": "Mottu", "artist": "Lahiru Perera"}, {"number": 711, "title": "Mage Nedo", "artist": "Lahiru Perera"}, {"number": 712, "title": "Sudu Gaume Ei", "artist": "Lahiru Perera"}, {"number": 713, "title": "Mana Bandu Hada Randu", "artist": "Lahiru Perera"}, {"number": 714, "title": "Kassata Kosata", "artist": "Lahiru Perera"}, {"number": 715, "title": "Dum Dum Sada Dala", "artist": "Lahiru Perera"}, {"number": 716, "title": "Athata Ahuwena", "artist": "Lahiru Perera"}, {"number": 717, "title": "Dasin Pa", "artist": "Lahiru Perera"}, {"number": 718, "title": "Rambari Remix", "artist": "Lahiru Perera"}, {"number": 719, "title": "Rathu Ratakaju Remix", "artist": "Lahiru Perera"}, {"number": 720, "title": "Manali Remix", "artist": "Dinesh Gamage"}, {"number": 721, "title": "Udugam Balaa Remix", "artist": "Dinesh Gamage"}, {"number": 722, "title": "Datha Dara Remix", "artist": "Dinesh Gamage"}, {"number": 723, "title": "Komaliya", "artist": "Dinesh Gamage"}, {"number": 724, "title": "Mage", "artist": "Dinesh Gamage"}, {"number": 725, "title": "Salli", "artist": "Dinesh Gamage"}, {"number": 726, "title": "Rathu Paata", "artist": "Dinesh Gamage"}, {"number": 727, "title": "Gajaman Nona", "artist": "Dinesh Gamage"}, {"number": 728, "title": "Kaali Remix", "artist": "Kanchana Anuradhi"}, {"number": 729, "title": "Aaley Manalai Remix", "artist": "Kanchana Anuradhi"}, {"number": 730, "title": "Udurawee Remix", "artist": "Kanchana Anuradhi"}, {"number": 731, "title": "Sansarini Remix", "artist": "Kanchana Anuradhi"}, {"number": 732, "title": "Layama Piruna Remix", "artist": "Kanchana Anuradhi"}, {"number": 733, "title": "Rosa Mal", "artist": "Kanchana Anuradhi"}, {"number": 734, "title": "Hadisida Manda", "artist": "Kanchana Anuradhi"}, {"number": 735, "title": "Gamata Kalin Hiru", "artist": "Kanchana Anuradhi"}, {"number": 736, "title": "Manike Mage Hithe Remix", "artist": "Yohani"}, {"number": 737, "title": "Kella Remix", "artist": "Yohani"}, {"number": 738, "title": "Haal Massa Remix", "artist": "Yohani"}, {"number": 739, "title": "Ithin Adare Remix", "artist": "Yohani"}, {"number": 740, "title": "Moving On Remix", "artist": "Yohani"}, {"number": 741, "title": "Unmada Prema Geeya", "artist": "Yohani"}, {"number": 742, "title": "Lunu", "artist": "Yohani"}, {"number": 743, "title": "Tika Tika", "artist": "Yohani"}, {"number": 744, "title": "Chao Malli", "artist": "Sanuka Wickramasinghe"}, {"number": 745, "title": "Awasan Warata", "artist": "Sanuka Wickramasinghe"}, {"number": 746, "title": "Paaren Iwathata", "artist": "Sanuka Wickramasinghe"}, {"number": 747, "title": "Perawadanak Remix", "artist": "Sanuka Wickramasinghe"}, {"number": 748, "title": "Saragaye Remix", "artist": "Sanuka Wickramasinghe"}, {"number": 749, "title": "Sansara Sihine Remix", "artist": "Sanuka Wickramasinghe"}, {"number": 750, "title": "Manda Pama", "artist": "Sanuka Wickramasinghe"}, {"number": 751, "title": "Nura Wasanthe", "artist": "Sanuka Wickramasinghe"}, {"number": 752, "title": "Pandama Remix", "artist": "Dhanith Sri"}, {"number": 753, "title": "Alokawarsha Remix", "artist": "Dhanith Sri"}, {"number": 754, "title": "Loka Sithiyama Remix", "artist": "Dhanith Sri"}, {"number": 755, "title": "Numbawa", "artist": "Dhanith Sri"}, {"number": 756, "title": "Digasiye Remix", "artist": "Dhanith Sri"}, {"number": 757, "title": "Aala Langa", "artist": "Dhanith Sri"}, {"number": 758, "title": "Kuweni Remix", "artist": "Ridma Weerawardena"}, {"number": 759, "title": "Sandawathiye Remix", "artist": "Ridma Weerawardena"}, {"number": 760, "title": "Sansaraye Ma Remix", "artist": "Ridma Weerawardena"}, {"number": 761, "title": "Oba Apple Malak Wage Remix", "artist": "Ridma Weerawardena"}, {"number": 762, "title": "Sanda Aithiyak Remix", "artist": "Ridma Weerawardena"}, {"number": 763, "title": "Charitha Attalage Medley", "artist": "Ridma Weerawardena"}, {"number": 764, "title": "Prathihari Remix", "artist": "Supun Perera"}, {"number": 765, "title": "Nura Wasanthe Remix", "artist": "Supun Perera"}, {"number": 766, "title": "Hitha Heenayak Remix", "artist": "Supun Perera"}, {"number": 767, "title": "Oba Nisa Remix", "artist": "Supun Perera"}, {"number": 768, "title": "Ma Nowana Mama Remix", "artist": "Supun Perera"}, {"number": 769, "title": "Surath Suwaya", "artist": "Supun Perera"}, {"number": 770, "title": "Yanna Yanawada Remix", "artist": "Mihindu Ariyaratne"}, {"number": 771, "title": "Ahas Maliga Remix", "artist": "Mihindu Ariyaratne"}, {"number": 772, "title": "Samanala Sandhawaniya Remix", "artist": "Mihindu Ariyaratne"}, {"number": 773, "title": "Hitha Gawa Remix", "artist": "Mihindu Ariyaratne"}, {"number": 774, "title": "Oba Nisa Remix", "artist": "Mihindu Ariyaratne"}, {"number": 775, "title": "Hitha Mage Remix", "artist": "Nadeemal Perera"}, {"number": 776, "title": "Paya Ena Hiru Se Remix", "artist": "Nadeemal Perera"}, {"number": 777, "title": "Mal Warusa Remix", "artist": "Nadeemal Perera"}, {"number": 778, "title": "Obe Susum Remix", "artist": "Nadeemal Perera"}, {"number": 779, "title": "Sandawathura Remix", "artist": "Nadeemal Perera"}, {"number": 780, "title": "Unuhuma Remix", "artist": "Tehan Perera"}, {"number": 781, "title": "Pini Poda Wassa Remix", "artist": "Tehan Perera"}, {"number": 782, "title": "Nuba Nena Remix", "artist": "Tehan Perera"}, {"number": 783, "title": "Mage Jeewithe Remix", "artist": "Tehan Perera"}, {"number": 784, "title": "Mage Adare Remix", "artist": "Tehan Perera"}, {"number": 785, "title": "Thaniwee Remix", "artist": "Kevin Smokio"}, {"number": 786, "title": "Colombo Remix", "artist": "Kevin Smokio"}, {"number": 787, "title": "Mabola Remix", "artist": "Kevin Smokio"}, {"number": 788, "title": "Ape Kathandare Remix", "artist": "Kevin Smokio"}, {"number": 789, "title": "Surangana Kirilli Remix", "artist": "Kevin Smokio"}, {"number": 790, "title": "Podi Gahak Remix", "artist": "Drill Team Westnahira"}, {"number": 791, "title": "Aiyage Bara Remix", "artist": "Drill Team Westnahira"}, {"number": 792, "title": "Deviyange Bare Remix", "artist": "Drill Team Westnahira"}, {"number": 793, "title": "Duppath Paale Remix", "artist": "Drill Team Westnahira"}, {"number": 794, "title": "JVP Remix", "artist": "Drill Team Westnahira"}, {"number": 795, "title": "Diya Rella Remix", "artist": "Ravi Jay"}, {"number": 796, "title": "Bonda Meedum Remix", "artist": "Ravi Jay"}, {"number": 797, "title": "Api Kaurunda Remix", "artist": "Ravi Jay"}, {"number": 798, "title": "Magemai Remix", "artist": "Ravi Jay"}, {"number": 799, "title": "Suranganavi Remix", "artist": "Ravi Jay"}, {"number": 800, "title": "Oya As Katha Remix", "artist": "E Costa"}];
+
+    const byArtist = songs.reduce((acc, song) => {
+      if (!acc[song.artist]) acc[song.artist] = [];
+      acc[song.artist].push(song);
+      return acc;
+    }, {});
+
+    const artistNames = Object.keys(byArtist);
+    const artistGroups = document.getElementById('artistGroups');
+    const artistLinks = document.getElementById('artistLinks');
+    const searchInput = document.getElementById('search');
+    const emptyState = document.getElementById('emptyState');
+
+    document.getElementById('artistCount').textContent = artistNames.length;
+    document.getElementById('songCount').textContent = songs.length;
+
+    const slug = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+    function render() {
+      artistNames.forEach((artist) => {
+        const id = 'artist-' + slug(artist);
+        const a = document.createElement('a');
+        a.className = 'artist-link';
+        a.href = '#' + id;
+        a.innerHTML = `<span>${artist}</span><span class="count">${byArtist[artist].length}</span>`;
+        artistLinks.appendChild(a);
+
+        const card = document.createElement('article');
+        card.className = 'artist-card';
+        card.id = id;
+        card.dataset.artist = artist.toLowerCase();
+        card.dataset.all = (artist + ' ' + byArtist[artist].map(s => s.title).join(' ')).toLowerCase();
+
+        const header = document.createElement('div');
+        header.className = 'artist-header';
+        header.innerHTML = `<div><h2 class="artist-title">${artist}</h2><div class="artist-meta">${byArtist[artist].length} songs</div></div><span class="chev">−</span>`;
+        header.addEventListener('click', () => {
+          card.classList.toggle('collapsed');
+          header.querySelector('.chev').textContent = card.classList.contains('collapsed') ? '+' : '−';
+        });
+
+        const ul = document.createElement('ul');
+        ul.className = 'song-list';
+        byArtist[artist].forEach(song => {
+          const li = document.createElement('li');
+          li.className = 'song';
+          li.dataset.title = song.title.toLowerCase();
+          li.dataset.artist = song.artist.toLowerCase();
+          li.innerHTML = `<span class="num">${song.number}</span><div><div class="song-title">${song.title}</div><div class="song-sub">${song.artist}</div></div>`;
+          ul.appendChild(li);
+        });
+
+        card.appendChild(header);
+        card.appendChild(ul);
+        artistGroups.appendChild(card);
+      });
+    }
+
+    function filterSongs() {
+      const q = searchInput.value.trim().toLowerCase();
+      let visibleCards = 0;
+
+      document.querySelectorAll('.artist-card').forEach(card => {
+        let visibleSongs = 0;
+        const artistMatch = card.dataset.artist.includes(q);
+
+        card.querySelectorAll('.song').forEach(song => {
+          const match = !q || artistMatch || song.dataset.title.includes(q) || song.dataset.artist.includes(q);
+          song.classList.toggle('hidden', !match);
+          if (match) visibleSongs++;
+        });
+
+        const showCard = visibleSongs > 0;
+        card.classList.toggle('hidden', !showCard);
+        if (showCard) {
+          visibleCards++;
+          if (q) {
+            card.classList.remove('collapsed');
+            card.querySelector('.chev').textContent = '−';
+          }
+        }
+      });
+
+      emptyState.style.display = visibleCards ? 'none' : 'block';
+    }
+
+    document.getElementById('expandAll').addEventListener('click', () => {
+      document.querySelectorAll('.artist-card').forEach(card => {
+        card.classList.remove('collapsed');
+        card.querySelector('.chev').textContent = '−';
+      });
+    });
+
+    document.getElementById('collapseAll').addEventListener('click', () => {
+      document.querySelectorAll('.artist-card').forEach(card => {
+        card.classList.add('collapsed');
+        card.querySelector('.chev').textContent = '+';
+      });
+    });
+
+    searchInput.addEventListener('input', filterSongs);
+    render();
+  </script>
+</body>
+</html>
