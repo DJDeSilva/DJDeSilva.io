@@ -1,427 +1,351 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Most Requested DJ Songs | DJChan</title>
-  <meta name="description" content="A mobile-friendly most requested DJ songs list for weddings, birthdays, corporate events and parties." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Most Requested DJ Songs | Printable Client Selection</title>
+  <meta name="description" content="A printable most requested DJ songs page with category groups, checkbox selections, search, and print selected functionality." />
   <style>
     :root {
       --bg: #070812;
-      --bg-2: #101426;
-      --panel: rgba(255, 255, 255, 0.075);
-      --panel-strong: rgba(255, 255, 255, 0.115);
-      --text: #f8fbff;
-      --muted: #c1c9d8;
-      --soft: #8792a5;
-      --line: rgba(255,255,255,0.13);
+      --panel: rgba(255,255,255,.07);
+      --panel2: rgba(255,255,255,.10);
+      --text: #f5f7fb;
+      --muted: #aeb6c8;
+      --line: rgba(255,255,255,.13);
       --gold: #ffd166;
-      --pink: #ff4fa3;
-      --cyan: #2de2e6;
+      --pink: #ef476f;
+      --cyan: #4cc9f0;
+      --green: #06d6a0;
       --purple: #8f6cff;
-      --green: #4df6a5;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
-      --radius: 24px;
+      --shadow: 0 18px 60px rgba(0,0,0,.38);
+      --radius: 22px;
     }
 
     * { box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       background:
-        radial-gradient(circle at 12% 5%, rgba(255, 79, 163, 0.24), transparent 34%),
-        radial-gradient(circle at 88% 12%, rgba(45, 226, 230, 0.18), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(143, 108, 255, 0.22), transparent 40%),
-        linear-gradient(135deg, #05060c 0%, var(--bg) 48%, #12091a 100%);
-      min-height: 100vh;
-      line-height: 1.55;
+        radial-gradient(circle at 10% 0%, rgba(239,71,111,.28), transparent 30%),
+        radial-gradient(circle at 90% 10%, rgba(76,201,240,.22), transparent 35%),
+        radial-gradient(circle at 50% 100%, rgba(6,214,160,.14), transparent 35%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    .page {
-      width: min(1220px, calc(100% - 32px));
-      margin: 0 auto;
-      padding: 26px 0 68px;
-    }
-
     .hero {
-      position: relative;
-      overflow: hidden;
-      min-height: 420px;
-      display: grid;
-      align-content: space-between;
-      gap: 42px;
-      padding: 34px;
-      border-radius: 34px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.13), rgba(255,255,255,0.04)),
-        linear-gradient(145deg, rgba(255,79,163,0.15), rgba(45,226,230,0.08));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      padding: 46px 18px 28px;
+      max-width: 1180px;
+      margin: 0 auto;
     }
 
-    .hero::before,
-    .hero::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      pointer-events: none;
-      filter: blur(2px);
-    }
-
-    .hero::before {
-      width: 320px;
-      height: 320px;
-      right: -90px;
-      top: -95px;
-      background: radial-gradient(circle, rgba(255,209,102,0.36), transparent 64%);
-    }
-
-    .hero::after {
-      width: 420px;
-      height: 420px;
-      left: -160px;
-      bottom: -190px;
-      background: radial-gradient(circle, rgba(45,226,230,0.20), transparent 68%);
-    }
-
-    .topbar,
-    .hero-main,
-    .hero-stats { position: relative; z-index: 1; }
-
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .logo {
-      display: grid;
-      place-items: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      color: #080812;
-      font-weight: 950;
-      letter-spacing: -0.05em;
-      background: linear-gradient(135deg, var(--cyan), var(--pink));
-      box-shadow: 0 14px 36px rgba(255, 79, 163, 0.28);
-    }
-
-    .brand-title {
-      margin: 0;
-      font-size: 1.18rem;
-      font-weight: 850;
-      letter-spacing: 0.02em;
-    }
-
-    .brand-subtitle {
-      margin: 2px 0 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
+    .badge {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      min-height: 42px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.16);
-      background: rgba(255,255,255,0.08);
-      color: var(--text);
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease, border-color .2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.14);
-      border-color: rgba(45,226,230,0.5);
-    }
-
-    .btn.primary {
-      color: #060712;
-      border-color: transparent;
-      background: linear-gradient(135deg, var(--gold), var(--pink));
-    }
-
-    .eyebrow {
-      display: inline-flex;
       gap: 8px;
-      align-items: center;
-      margin-bottom: 16px;
       padding: 8px 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
       border-radius: 999px;
-      border: 1px solid rgba(45,226,230,0.42);
-      color: #eafcff;
-      background: rgba(45,226,230,0.09);
-      font-size: .82rem;
-      font-weight: 900;
-      letter-spacing: .1em;
-      text-transform: uppercase;
+      color: var(--muted);
+      font-size: .92rem;
+      backdrop-filter: blur(10px);
     }
 
     h1 {
-      margin: 0;
-      max-width: 850px;
-      font-size: clamp(2.65rem, 7vw, 6.2rem);
-      line-height: .9;
-      letter-spacing: -.075em;
+      margin: 18px 0 10px;
+      font-size: clamp(2.25rem, 6vw, 5.2rem);
+      line-height: .95;
+      letter-spacing: -0.065em;
+      max-width: 940px;
     }
 
-    .hero-text {
-      margin: 20px 0 0;
-      max-width: 710px;
+    .gradient-text {
+      background: linear-gradient(90deg, var(--gold), var(--pink), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 860px;
       color: var(--muted);
-      font-size: clamp(1rem, 2vw, 1.18rem);
+      font-size: clamp(1rem, 2vw, 1.22rem);
+      margin: 0 0 22px;
     }
 
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+    .instruction-note {
+      max-width: 930px;
+      margin: 22px 0 0;
+      padding: 16px 18px;
+      border: 1px solid rgba(255,209,102,.38);
+      background: linear-gradient(135deg, rgba(255,209,102,.16), rgba(76,201,240,.09));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      backdrop-filter: blur(14px);
     }
+    .instruction-note strong { color: var(--gold); }
+    .instruction-note p { margin: 0; color: var(--muted); }
 
-    .stat {
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 1.65rem;
-      line-height: 1;
-      letter-spacing: -.04em;
-    }
-
-    .stat span {
-      display: block;
-      margin-top: 7px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .tools {
+    .toolbar-wrap {
       position: sticky;
       top: 0;
-      z-index: 5;
-      margin: 22px 0;
-      padding: 14px;
-      border-radius: 24px;
-      background: rgba(7, 8, 18, 0.82);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: 0 18px 46px rgba(0,0,0,0.22);
+      z-index: 30;
       backdrop-filter: blur(18px);
+      background: rgba(7,8,18,.84);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
-    .search-row {
+    .toolbar {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 10px 16px;
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
+      grid-template-columns: minmax(220px, 1fr) auto auto auto auto auto auto;
+      gap: 7px;
+      align-items: center;
     }
 
     .search {
       width: 100%;
-      min-height: 48px;
-      padding: 0 16px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,0.14);
-      outline: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 13px 16px;
+      background: rgba(255,255,255,.08);
       color: var(--text);
-      background: rgba(255,255,255,0.08);
-      font: inherit;
-      font-weight: 700;
+      outline: none;
+      font-size: 1rem;
+    }
+    .search::placeholder { color: rgba(245,247,251,.52); }
+
+    button {
+      border: 1px solid rgba(255,255,255,.22);
+      color: var(--text);
+      background: var(--panel2);
+      border-radius: 999px;
+      padding: 8px 11px;
+      cursor: pointer;
+      font-size: .84rem;
+      font-weight: 800;
+      line-height: 1.1;
+      white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(0,0,0,.22);
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease, background .16s ease;
+    }
+    button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 9px 22px rgba(0,0,0,.30);
+    }
+    button:active { transform: translateY(0); }
+
+    #printSelected {
+      color: #17100a;
+      background: linear-gradient(135deg, #ffd166, #ff9f1c);
+      border-color: rgba(255,209,102,.75);
+      box-shadow: 0 7px 18px rgba(255,159,28,.24);
     }
 
-    .search::placeholder { color: #9ba6b8; }
+    #printAll {
+      color: #03151b;
+      background: linear-gradient(135deg, #4cc9f0, #06d6a0);
+      border-color: rgba(76,201,240,.75);
+      box-shadow: 0 7px 18px rgba(76,201,240,.20);
+    }
+
+    #clearSelections {
+      color: #fff;
+      background: linear-gradient(135deg, #ef476f, #b5179e);
+      border-color: rgba(239,71,111,.72);
+      box-shadow: 0 7px 18px rgba(239,71,111,.22);
+    }
+
+    #clearSearch,
+    #expandAll,
+    #collapseAll {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(76,201,240,.78));
+      border-color: rgba(167,139,250,.55);
+    }
+
+    .selected-pill {
+      border: 1px solid rgba(6,214,160,.36);
+      color: var(--green);
+      background: rgba(6,214,160,.10);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: .84rem;
+      font-weight: 800;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .layout {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 18px 72px;
+      display: grid;
+      grid-template-columns: 270px minmax(0, 1fr);
+      gap: 18px;
+      align-items: start;
+    }
+
+    .category-nav {
+      position: sticky;
+      top: 86px;
+      max-height: calc(100vh - 104px);
+      overflow: auto;
+      padding: 14px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .category-nav h2 {
+      margin: 0 0 10px;
+      font-size: .9rem;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .category-link {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 9px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .category-link:hover { background: rgba(255,255,255,.10); color: var(--text); }
+    .category-link .count { color: var(--gold); }
 
     .chips {
       display: flex;
-      gap: 9px;
       flex-wrap: wrap;
-      margin-top: 12px;
+      gap: 8px;
+      margin: 0 0 16px;
     }
-
     .chip {
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
+      padding: 8px 11px;
       color: var(--muted);
-      background: rgba(255,255,255,0.07);
-      font-size: .9rem;
-      font-weight: 800;
-      cursor: pointer;
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.14);
+      box-shadow: none;
     }
-
     .chip.active {
       color: #071018;
       border-color: transparent;
       background: linear-gradient(135deg, var(--cyan), var(--gold));
     }
 
-    .section {
-      margin-top: 28px;
-      scroll-margin-top: 140px;
+    .category-card {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 15px;
+      backdrop-filter: blur(14px);
+      scroll-margin-top: 96px;
     }
 
-    .section-head {
+    .category-header {
       display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 18px;
-      margin-bottom: 14px;
-      flex-wrap: wrap;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(1.65rem, 3.5vw, 2.6rem);
-      line-height: 1;
-      letter-spacing: -.045em;
-    }
-
-    .section-head p {
-      margin: 8px 0 0;
-      color: var(--muted);
-    }
-
-    .badge {
-      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      color: #071018;
-      background: linear-gradient(135deg, var(--gold), var(--green));
-      font-weight: 900;
-      white-space: nowrap;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 18px;
+      cursor: pointer;
+      background: linear-gradient(90deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
     }
+    .category-header:hover { background: rgba(255,255,255,.11); }
+    .category-title { margin: 0; font-size: 1.22rem; letter-spacing: -.02em; }
+    .category-description { margin: 5px 0 0; color: var(--muted); font-size: .92rem; }
+    .category-meta { color: var(--muted); font-size: .9rem; white-space: nowrap; }
 
     .song-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      padding: 13px;
     }
 
     .song {
       position: relative;
-      overflow: hidden;
-      min-height: 98px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 15px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.115);
-      background: var(--panel);
-      box-shadow: 0 12px 32px rgba(0,0,0,0.16);
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      display: grid;
+      grid-template-columns: 34px 42px minmax(0, 1fr);
+      gap: 10px;
+      align-items: start;
+      min-height: 82px;
+      padding: 13px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.055);
+      transition: transform .16s ease, border-color .16s ease, background .16s ease;
     }
-
-    .song::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      background: linear-gradient(var(--pink), var(--cyan));
-      opacity: .85;
-    }
-
     .song:hover {
-      transform: translateY(-3px);
-      border-color: rgba(45,226,230,0.42);
-      background: rgba(255,255,255,0.105);
+      transform: translateY(-2px);
+      border-color: rgba(76,201,240,.40);
+      background: rgba(255,255,255,.09);
+    }
+    .song.selected {
+      background: rgba(6,214,160,.12);
+      border-color: rgba(6,214,160,.35);
+      outline: 1px solid rgba(6,214,160,.22);
+      outline-offset: -1px;
+    }
+
+    .song-check {
+      width: 22px;
+      height: 22px;
+      margin-top: 3px;
+      accent-color: var(--green);
+      cursor: pointer;
+    }
+
+    .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 28px;
+      padding: 0 7px;
+      border-radius: 999px;
+      background: rgba(255,209,102,.13);
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 850;
     }
 
     .song-title {
       margin: 0;
-      padding-left: 8px;
-      font-size: 1rem;
-      line-height: 1.35;
-      font-weight: 850;
-      letter-spacing: -.01em;
-    }
-
-    .song-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      align-items: center;
-      padding-left: 8px;
-      color: var(--soft);
-      font-size: .86rem;
-      font-weight: 750;
-    }
-
-
-    .empty {
-      display: none;
-      padding: 32px;
-      text-align: center;
-      border-radius: 22px;
-      border: 1px dashed rgba(255,255,255,0.18);
-      color: var(--muted);
-      background: rgba(255,255,255,0.06);
-    }
-
-    .quick-links {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 26px;
-    }
-
-    .quick-link {
-      padding: 17px;
-      border-radius: 20px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.075);
-      color: var(--muted);
-      font-weight: 800;
-      transition: transform .2s ease, background .2s ease;
-    }
-
-    .quick-link:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,0.12);
       color: var(--text);
+      font-weight: 760;
+      line-height: 1.28;
+      overflow-wrap: anywhere;
     }
 
-    footer {
-      margin-top: 42px;
-      padding: 24px;
-      text-align: center;
+    .song-sub {
+      margin-top: 5px;
       color: var(--muted);
+      font-size: .88rem;
     }
 
-    footer strong { color: var(--text); }
+    .song-year {
+      color: var(--gold);
+      font-weight: 800;
+    }
 
     mark {
       color: inherit;
@@ -430,487 +354,674 @@
       padding: 0 2px;
     }
 
-    @media (max-width: 980px) {
-      .hero-stats,
-      .quick-links { grid-template-columns: repeat(2, 1fr); }
-      .song-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hidden { display: none !important; }
+    .collapsed .song-grid { display: none; }
+    .chev { color: var(--gold); font-weight: 900; font-size: 1.15rem; }
+
+    .empty {
+      display: none;
+      padding: 28px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      color: var(--muted);
+      text-align: center;
+      background: var(--panel);
     }
 
-    @media (max-width: 680px) {
-      .page {
-        width: min(100% - 20px, 1220px);
-        padding-top: 10px;
-      }
+    footer {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 18px 40px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
 
-      .hero {
-        padding: 22px;
-        border-radius: 26px;
-        min-height: 0;
-      }
+    @media (max-width: 980px) {
+      .song-grid { grid-template-columns: 1fr; }
+    }
 
-      .brand-subtitle { font-size: .86rem; }
-      .actions { width: 100%; }
-      .btn { flex: 1; }
-      .hero-stats,
-      .quick-links,
-      .song-grid,
-      .search-row { grid-template-columns: 1fr; }
-      .tools { top: 0; border-radius: 18px; }
-      .chip { font-size: .83rem; padding: 8px 10px; }
-      .song { min-height: 86px; }
+    @media (max-width: 860px) {
+      .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .search,
+      .selected-pill { grid-column: 1 / -1; }
+      .layout { grid-template-columns: 1fr; }
+      .category-nav { position: static; max-height: none; }
+      .category-nav .links { display: flex; overflow: auto; gap: 8px; padding-bottom: 4px; }
+      .category-link { min-width: max-content; border: 1px solid rgba(255,255,255,.10); }
+    }
+
+    @media (max-width: 520px) {
+      .hero { padding-top: 32px; }
+      .toolbar { padding: 9px 10px; }
+      .song { grid-template-columns: 30px 38px 1fr; padding: 11px; gap: 8px; }
+      .category-header { padding: 14px 13px; }
+      .category-meta { font-size: .8rem; }
+      button { padding: 7px 9px; font-size: .78rem; }
+      .selected-pill { padding: 7px 9px; font-size: .78rem; }
     }
 
     @media print {
-      body { background: #fff; color: #111; }
-      .page { width: 100%; padding: 0; }
-      .hero, .tools, .song, .stat, .quick-link {
-        color: #111;
-        background: #fff;
-        border-color: #ddd;
-        box-shadow: none;
+      @page { margin: 12mm; }
+      html { scroll-behavior: auto; }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 11pt;
       }
-      .tools, .actions, .quick-links { display: none; }
-      .section { break-inside: avoid; }
-      .song-grid { grid-template-columns: repeat(2, 1fr); }
-      .song-meta, .section-head p, footer { color: #333; }
+      .toolbar-wrap,
+      .category-nav,
+      .chips,
+      footer,
+      .badge,
+      .empty,
+      .category-meta,
+      .chev {
+        display: none !important;
+      }
+      .hero {
+        max-width: none;
+        padding: 0 0 8mm;
+        margin: 0;
+      }
+      h1 {
+        color: #000 !important;
+        font-size: 24pt !important;
+        line-height: 1.1;
+        letter-spacing: 0;
+        margin: 0 0 6pt;
+        max-width: none;
+      }
+      .gradient-text {
+        color: #000 !important;
+        background: none !important;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+      }
+      .lead,
+      .instruction-note p {
+        color: #222 !important;
+        font-size: 10.5pt;
+      }
+      .instruction-note {
+        border: 1px solid #999 !important;
+        background: #f5f5f5 !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        padding: 8pt 10pt;
+        margin: 8pt 0 10pt;
+      }
+      .layout {
+        display: block;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+      .category-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #bbb !important;
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        margin: 0 0 8pt;
+      }
+      .category-header {
+        background: #eee !important;
+        color: #000 !important;
+        padding: 6pt 8pt;
+      }
+      .category-title { color: #000 !important; font-size: 13pt; }
+      .category-description { color: #333 !important; font-size: 9.5pt; }
+      .collapsed .song-grid { display: grid !important; }
+      .song-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4pt;
+        padding: 5pt;
+      }
+      .song {
+        grid-template-columns: 18pt 28pt 1fr;
+        gap: 6pt;
+        min-height: 0;
+        padding: 5pt 6pt;
+        border: 1px solid #ddd !important;
+        background: #fff !important;
+        color: #000 !important;
+        break-inside: avoid;
+        box-shadow: none !important;
+      }
+      .song.hidden { display: grid !important; }
+      .song.selected { outline: none; background: #f7fff9 !important; }
+      .num {
+        background: #fff !important;
+        border: 1px solid #999;
+        color: #000 !important;
+        width: auto;
+        height: auto;
+        min-width: 24pt;
+        padding: 2pt 4pt;
+      }
+      .song-title { color: #000 !important; font-weight: 700; }
+      .song-sub { color: #333 !important; }
+      .song-year { color: #000 !important; }
+      .song-check {
+        width: 13pt;
+        height: 13pt;
+        accent-color: #000;
+      }
+      body.print-selected .song:not(.selected) { display: none !important; }
+      body.print-selected .category-card:not(.has-selected) { display: none !important; }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <section class="hero">
-      <div class="topbar">
-        <div class="brand">
-          <div class="logo">DJ</div>
-          <div>
-            <p class="brand-title">DJChan</p>
-            <p class="brand-subtitle">Most requested party songs · weddings · birthdays · corporate events</p>
-          </div>
-        </div>
-        <div class="actions">
-          <a class="btn" href="https://djchan.my.canva.site/" target="_blank" rel="noopener">Visit Website</a>
-          <button class="btn primary" onclick="window.print()">Print / Save PDF</button>
-        </div>
-      </div>
+  <header class="hero" id="top">
+    <div class="badge">🎧 DJChan client request sheet • printable song selector</div>
+    <h1>Most Requested DJ Songs <span class="gradient-text">Client Selection</span></h1>
+    <p class="lead">Browse party favourites by the existing category groups, tick the songs you want, then print or save as PDF.</p>
+    <div class="instruction-note">
+      <p><strong>Instructions:</strong> Tick the checkbox beside each song you want. Use <strong>Print selected</strong> to print only your chosen songs, or <strong>Print all</strong> to print the full inspiration list. Your ticks are saved in this browser.</p>
+    </div>
+  </header>
 
-      <div class="hero-main">
-        <div class="eyebrow">Client song inspiration</div>
-        <h1>Most Requested DJ Songs</h1>
-        <p class="hero-text">Browse proven dance floor favourites by era and vibe. Use search to find songs quickly, or send this page to clients so they can choose must-play requests.</p>
-      </div>
+  <div class="toolbar-wrap">
+    <div class="toolbar">
+      <input class="search" id="search" type="search" placeholder="Search song, artist, category or year..." autocomplete="off" />
+      <div class="selected-pill"><span id="selectedCount">0</span> selected</div>
+      <button id="printSelected" type="button">Print selected</button>
+      <button id="printAll" type="button">Print all</button>
+      <button id="clearSelections" type="button">Clear ticks</button>
+      <button id="clearSearch" type="button">Clear search</button>
+      <button id="expandAll" type="button">Expand all</button>
+      <button id="collapseAll" type="button">Collapse all</button>
+    </div>
+  </div>
 
-      <div class="hero-stats">
-        <div class="stat"><strong id="totalSongs">0</strong><span>Total song ideas</span></div>
-        <div class="stat"><strong>7</strong><span>Party categories</span></div>
-        <div class="stat"><strong>Mobile</strong><span>Friendly layout</span></div>
-        <div class="stat"><strong>Search</strong><span>Find requests fast</span></div>
-      </div>
-    </section>
+  <main class="layout">
+    <aside class="category-nav" aria-label="Category navigation">
+      <h2>Categories</h2>
+      <div class="links" id="categoryLinks"></div>
+    </aside>
 
-    <section class="quick-links" aria-label="Quick category links">
-      <a class="quick-link" href="#60s-70s-classics">60s / 70s Classics</a>
-      <a class="quick-link" href="#daggy-80s">Daggy 80s</a>
-      <a class="quick-link" href="#tragic-90s">Tragic 90s</a>
-      <a class="quick-link" href="#old-school-rnb-hiphop">Old School RnB / HipHop</a>
-      <a class="quick-link" href="#modern-bangers">Modern Bangers</a>
-      <a class="quick-link" href="#party-rock">Party Rock</a>
-      <a class="quick-link" href="#singalong-anthems">Singalong Anthems</a>
-      <a class="quick-link" href="#all-songs">All Songs</a>
-    </section>
-
-    <section class="tools" id="all-songs">
-      <div class="search-row">
-        <input class="search" id="searchInput" type="search" placeholder="Search song, artist, era or keyword..." autocomplete="off" />
-        <button class="btn" type="button" id="clearSearch">Clear</button>
-      </div>
+    <section>
       <div class="chips" id="chips" aria-label="Category filter chips"></div>
+      <div class="empty" id="emptyState">No songs found. Try another song, artist, year, or category.</div>
+      <div id="categoryGroups"></div>
     </section>
-
-    <div id="songSections"></div>
-    <div class="empty" id="emptyState">No songs found. Try a different search term or clear the filter.</div>
-
-    <footer>
-      <strong>DJChan</strong> · Most requested party songs · Use this page as a starting point for client music planning.
-    </footer>
   </main>
+
+  <footer>
+    <p><a href="https://djdesilva.github.io/DJDeSilva.io">DJDeSilva</a> · Most requested party songs · Use this page as a starting point for client music planning.</p>
+  </footer>
 
   <script>
     const categories = [
-      {
-        name: "60s / 70s Classics",
-        id: "60s-70s-classics",
-        description: "Feel-good classics that work early, during dinner singalongs or when mixed into a retro dance set.",
-        songs: [
-          "I'm a Believer (2006 Remaster) - The Monkees - 1967",
-          "Dancing Queen - ABBA - 1992",
-          "Superstition - Stevie Wonder - 1972",
-          "Oh What a Night - The Four Seasons - 2014",
-          "Stayin Alive - Bee Gees - 2009",
-          "That's the Way (I Like It) [2004 Remaster] - KC & The Sunshine Band - 1975",
-          "Blame It on the Boogie - The Jackson 5 - 2005",
-          "The Wanderer - Dion - 2013",
-          "Respect (2003 Remaster) - Aretha Franklin - 2007",
-          "Gimme! Gimme! Gimme! (A Man After Midnight) - ABBA - 1992",
-          "Celebration (Re-Recorded In Stereo) - Kool & The Gang - 1998",
-          "Eagle Rock - Daddy Cool - 2007",
-          "September - Earth, Wind & Fire - 1978",
-          "YMCA - Village People - 2002",
-          "Twist And Shout (2023 Mix) - The Beatles - 2023",
-          "Brown Eyed Girl - Van Morrison - 1967",
-          "Nutbush City Limits - Ike & Tina Turner - 2004",
-          "The Twist (Rerecorded) - Chubby Checker - 2015",
-          "Signed, Sealed, Delivered (I’m Yours) – Stevie Wonder",
-          "Proud Mary – Creedence Clearwater Revival",
-          "Sweet Caroline – Neil Diamond",
-          "Can’t Take My Eyes Off You – Frankie Valli",
-          "Build Me Up Buttercup – The Foundations",
-          "Piano Man – Billy Joel",
-          "Shout – Lulu"
-        ]
-      },
-      {
-        name: "Daggy 80s",
-        id: "daggy-80s",
-        description: "Fun, familiar, nostalgic tracks that get mixed-age crowds smiling and singing quickly.",
-        songs: [
-          "La Bamba - Los Lobos - 1987",
-          "Wake Me Up Before You Go-Go - Wham! - 2010",
-          "Take on Me - a-ha - 1985",
-          "You Make My Dreams (Come True) - Daryl Hall & John Oates - 1980",
-          "Africa - TOTO - 1982",
-          "Blister In The Sun - Violent Femmes - 1993",
-          "La Isla Bonita - Madonna - 1986",
-          "Come On Eileen - Dexys Midnight Runners - 2018",
-          "9 to 5 - Dolly Parton - 2010",
-          "All Night Long (All Night) - Lionel Richie - 2003",
-          "Walking On Sunshine - Katrina & The Waves - 1985",
-          "Like a Prayer - Madonna - 1989",
-          "Never Gonna Give You Up - Rick Astley - 2019",
-          "I Wanna Dance with Somebody (Who Loves Me) - Whitney Houston - 1987",
-          "Thriller - Michael Jackson - 1995",
-          "Don't Stop Believin' (2024 Remaster) - Journey - 1988",
-          "The Power Of Love - Huey Lewis & The News - 2006",
-          "Girls Just Wanna Have Fun - Cyndi Lauper - 2010",
-          "How Will I Know (Remastered) - Whitney Houston - 2007",
-          "Slice of Heaven - Dave Dobbyn, Herbs - 1988",
-          "Sweet Dreams (Are Made of This) (2005 Remaster) - Eurythmics, Annie Lennox, Dave Stewart - 1983",
-          "Rasputin - Majestic, Boney M. - 2021",
-          "Funky Town (Remastered) - Pseudo Echo - 2022",
-          "Hot Hot Hot - Buster Poindexter And His Banshees Of Blue - 1987",
-          "Underneath the Radar - Underworld - 1988",
-          "Got My Mind Set On You - George Harrison - 1987",
-          "Footloose (From Footloose Soundtrack) - Kenny Loggins - 1998",
-          "Beat It – Michael Jackson",
-          "Billie Jean – Michael Jackson",
-          "Jessie’s Girl – Rick Springfield",
-          "Kiss – Prince",
-          "Sweet Child O’ Mine – Guns N’ Roses",
-          "Summer of ’69 – Bryan Adams",
-          "Livin’ On A Prayer – Bon Jovi",
-          "Old Time Rock And Roll – Bob Seger",
-          "The Horses – Daryl Braithwaite",
-          "Fat Bottomed Girls – Queen",
-          "Don’t Stop ’Til You Get Enough – Michael Jackson"
-        ]
-      },
-      {
-        name: "Tragic 90s",
-        id: "tragic-90s",
-        description: "Big guilty-pleasure hooks, hands-up moments and singalong tracks for a mixed party crowd.",
-        songs: [
-          "...Baby One More Time - Britney Spears - 1999",
-          "The Sign - Ace Of Base - 1993",
-          "S Club Party - S Club - 2019",
-          "Macarena (Bayside Boys Remix) - Los Del Río - 2018",
-          "MMMBop - Hanson - 2017",
-          "Everybody (Backstreet's Back) (Extended Version) - Backstreet Boys - 2001",
-          "Wannabe - Spice Girls - 1996",
-          "(Lover) You Don't Treat Me No Good (Live) - Sonia Dada, D. Pritzker - 1999",
-          "I'm Too Sexy (7 Mix) - Right Said Fred - 1991",
-          "What Is Love (7 Mix) - Haddaway - 1993",
-          "Man! I Feel Like A Woman! - Shania Twain - 2022",
-          "Love Shack (Club Mix) - Leandro Da Silva - 2015",
-          "Jackie (Mind Electric's 25th Anniversary Remix) - Joanne - 2023",
-          "That Don't Impress Me Much (Edit) - Shania Twain - 1997",
-          "Moving on Up - M People - 2005",
-          "Barbie Girl (Tiësto Remix) - Aqua, Tiësto - 2023",
-          "Believe - Cher - 1998",
-          "Teardrops (7's Single Version) - Womack & Womack - 2001",
-          "We Like To Party! (The Vengabus) - Vengaboys - 1999",
-          "Heaven - DJ Sammy - 2002",
-          "5, 6, 7, 8 - Steps - 1998",
-          "We Didn't Start the Fire - Billy Joel - 1997",
-          "Mambo No. 5 (A Little Bit Of...) - Lou Bega - 1999",
-          "Baby Got Back – Sir Mix-A-Lot",
-          "Ice Ice Baby – Vanilla Ice",
-          "I Want It That Way – Backstreet Boys",
-          "This Is How We Do It – Montell Jordan",
-          "Return of the Mack – Mark Morrison",
-          "Pony – Ginuwine",
-          "Friends In Low Places – Garth Brooks",
-          "Bye Bye Bye – *NSYNC",
-          "Cotton Eye Joe – Rednex",
-          "Come On Eileen – Dexys Midnight Runners",
-          "December, 1963 (Oh What a Night!) – The Four Seasons"
-        ]
-      },
-      {
-        name: "Old School RnB / HipHop",
-        id: "old-school-rnb-hiphop",
-        description: "Classic RnB, hip hop and club tracks for building the dance floor after the pop singalongs.",
-        songs: [
-          "Baby Got Back - Sir Mix-A-Lot - 2011",
-          "Gangsta's Paradise - Coolio, L.V. - 1995",
-          "No Diggity - Blackstreet, Dr. Dre, Queen Pen - 2003",
-          "In Da Club - 50 Cent - 2003",
-          "California Love (Original Version) - 2Pac, Roger Troutman, Dr. Dre - 1998",
-          "Drop It Like It's Hot - Snoop Dogg, Pharrell Williams - 2017",
-          "No Scrubs - TLC - 1999",
-          "Gold Digger - Kanye West, Jamie Foxx - 2005",
-          "Return of the Mack - Mark Morrison - 1997",
-          "Ms. Jackson (Radio Mix) - Outkast - 2000",
-          "It Wasn't Me - Shaggy, Ricardo Ducent - 2017",
-          "Informer - Snow - 2018",
-          "Boom! Shake the Room - DJ Jazzy Jeff, The Fresh Prince - 2003",
-          "Hips Don't Lie (feat. Wyclef Jean) - Shakira - 2005",
-          "Get Low - Lil Jon & The East Side Boyz, Ying Yang Twins - 2009",
-          "Be Faithful - Fatman Scoop, Crooklyn Clan - 2015",
-          "Ride Wit Me - Nelly, City Spud - 2017",
-          "Dance With Me - 112 - 2001",
-          "Jump Around (Pete Rock Remix) - House of Pain - 1992",
-          "This Is How We Do It (Re-Recorded / Remastered) - Montell Jordan - 2011",
-          "Yeah! (feat. Lil Jon & Ludacris) - USHER, Lil Jon, Ludacris - 2004",
-          "Hot In Herre - Nelly - 2002",
-          "Shake That (Radio Edit) - Eminem, Nate Dogg - 2006",
-          "Gettin' Jiggy Wit It - Will Smith - 2002",
-          "Let's Get Married (feat. Run) (ReMarqable Remix) - Jagged Edge, RUN - 2006",
-          "Without Me - Eminem - 2002",
-          "1, 2 Step (feat. Missy Elliott) - Ciara, Missy Elliott - 2004",
-          "Milkshake - Kelis - 2003",
-          "Ice Ice Baby (Re-Recorded / Remastered) - Vanilla Ice - 2009",
-          "American Boy - Estelle, Kanye West - 2008",
-          "It's Like That - RUN-DMC - 1984",
-          "Temperature - Sean Paul - 2005",
-          "The Way You Move (feat. Sleepy Brown) (Radio Mix) - Outkast, Sleepy Brown - 2003",
-          "Low (feat. T-Pain) - Flo Rida, T-Pain - 2008",
-          "Yeah 3x - Chris Brown - 2013",
-          "Ignition (Remix) - R. Kelly - 2003",
-          "Pony - Ginuwine - 1996",
-          "U Can’t Touch This – MC Hammer",
-          "Push It – Salt-N-Pepa",
-          "Promiscuous – Nelly Furtado",
-          "SexyBack – Justin Timberlake",
-          "Buy U a Drank – T-Pain",
-          "Crazy In Love – Beyoncé",
-          "Hey Ya! – Outkast",
-          "Get Lucky – Daft Punk",
-          "Gasolina – Daddy Yankee",
-          "Trap Queen – Fetty Wap"
-        ]
-      },
-      {
-        name: "Modern Bangers",
-        id: "modern-bangers",
-        description: "Modern pop, club and festival-energy songs for peak dance floor moments.",
-        songs: [
-          "Price Tag - Jessie J, B.o.B - 2021",
-          "Despacito (Remix) - Luis Fonsi, Daddy Yankee, Justin Bieber - 2019",
-          "Untouched - The Veronicas - 2007",
-          "Party In The U.S.A. - Miley Cyrus - 2018",
-          "Gasolina (with Pitbull, Lil Jon, Noriega, Dj Buddha) (Dj Buddha Remix) - Daddy Yankee, Pitbull, Lil Jon, Noriega, DJ Buddha - 2005",
-          "Single Ladies (Put a Ring on It) - Beyoncé - 2008",
-          "Candy Shop - 50 Cent, Olivia Longott - 2005",
-          "Dance Monkey - Tones and I - 2019",
-          "Crazy In Love (feat. Jay-Z) - Beyoncé, JAY Z - 2003",
-          "Sorry - Justin Bieber - 2015",
-          "24K Magic - Bruno Mars - 2016",
-          "King Kunta - Kendrick Lamar - 2015",
-          "Hollaback Girl - Gwen Stefani - 2005",
-          "Downtown (feat. Melle Mel, Grandmaster Caz, Kool Moe Dee & Eric Nally) - Macklemore, Ryan Lewis, Melle Mel, Grandmaster Caz, Kool Moe Dee, Eric Nally, Macklemore & Ryan Lewis - 2016",
-          "CAN'T STOP THE FEELING! (from DreamWorks Animation's TROLLS) - Justin Timberlake - 2016",
-          "Uptown Funk (feat. Bruno Mars) - Mark Ronson, Bruno Mars - 2015",
-          "Cold Heart (PNAU Remix) - Elton John, Dua Lipa - 2021",
-          "Murder On The Dancefloor - Sophie Ellis-Bextor - 2002",
-          "SexyBack (feat. Timbaland) - Justin Timberlake, Timbaland - 2006",
-          "Call Me Maybe - Carly Rae Jepsen - 2012",
-          "Counting Stars - OneRepublic - 2013",
-          "One More Time - Daft Punk - 2001",
-          "Cha Cha Slide (Club) - DJ Casper - 2014",
-          "Wake Me Up - Avicii - 2013",
-          "Losing It - FISHER - 2018",
-          "Shooting Stars - BAG RAIDERS - 2010",
-          "I Love It (feat. Charli XCX) - Icona Pop, Charli xcx - 2013",
-          "Can't Feel My Face (Martin Garrix Remix) - The Weeknd - 2015",
-          "Feel So Close (Radio Edit) - Calvin Harris - 2012",
-          "Shots - LMFAO, Lil Jon - 2009",
-          "Shut Up and Dance - Walk The Moon - 2019",
-          "Swing (Joel Fletcher Remix) - Joel Fletcher, Savage - 2013",
-          "Freaks (Radio Edit) - Timmy Trumpet, Savage - 2017",
-          "Rhyme Dust - MK, Dom Dolla - 2023",
-          "When Love Takes Over (feat. Kelly Rowland) - David Guetta, Kelly Rowland - 2009",
-          "Sexy And I Know It - LMFAO - 2011",
-          "Gangnam Style - Psy - 2012",
-          "WAP (feat. Megan Thee Stallion) - Cardi B, Megan Thee Stallion - 2020",
-          "Sandstorm (Radio Edit) - Darude - 1999",
-          "Toxic - Britney Spears - 2003",
-          "Hey Ya! - Outkast - 2003",
-          "Happy (From Despicable Me 2) - Pharrell Williams - 2014",
-          "Shake It Off (Taylor's Version) - Taylor Swift - 2023",
-          "Blinding Lights – The Weeknd",
-          "Don’t Start Now – Dua Lipa",
-          "Dance The Night – Dua Lipa",
-          "One Kiss – Calvin Harris & Dua Lipa",
-          "Levels – Avicii",
-          "Party Rock Anthem – LMFAO",
-          "Turn Down For What – DJ Snake & Lil Jon",
-          "Timber – Pitbull & Kesha",
-          "Pepas – Farruko",
-          "Not Like Us – Kendrick Lamar",
-          "Espresso – Sabrina Carpenter",
-          "Taste – Sabrina Carpenter",
-          "HOT TO GO! – Chappell Roan",
-          "Pink Pony Club – Chappell Roan",
-          "Treasure – Bruno Mars",
-          "Wake Me Up – Avicii",
-          "Time of Our Lives – Pitbull & Ne-Yo",
-          "Fireball – Pitbull",
-          "Give Me Everything – Pitbull",
-          "Danza Kuduro – Don Omar",
-          "Mi Gente – J Balvin",
-          "A Bar Song (Tipsy) – Shaboozey",
-          "Prada – Cassö, RAYE",
-          "Stumblin’ In – Cyril"
-        ]
-      },
-      {
-        name: "Party Rock",
-        id: "party-rock",
-        description: "Guitar-led party favourites, Aussie pub anthems and big rock singalongs.",
-        songs: [
-          "What I Like About You - The Romantics - 1980",
-          "The Middle - Jimmy Eat World - 2001",
-          "Am I Ever Gonna See Your Face Again - The Angels - 1976",
-          "Cherry Pie - Warrant - 2014",
-          "Teenage Dirtbag - Wheatus - 2000",
-          "Are You Gonna Be My Girl - Jet - 2003",
-          "Dammit - blink-182 - 1997",
-          "The Ballroom Blitz - Sweet - 1993",
-          "Livin' On A Prayer - Bon Jovi - 1986",
-          "I Believe in a Thing Called Love - The Darkness - 2003",
-          "Jailbreak - AC/DC - 1984",
-          "Run to Paradise - Choirboys - 1987",
-          "Summer of 69 (Classic Version) - Bryan Adams - 2022",
-          "Pretty Fly (For A White Guy) - The Offspring - 2005",
-          "Prisoner of Society - The Living End - 1998",
-          "Mr. Brightside - The Killers - 2013",
-          "My Sharona - The Knack - 1979",
-          "Dancing In the Dark - Bruce Springsteen - 1984",
-          "Sk8er Boi - Avril Lavigne - 2002",
-          "Saturday Night’s Alright (For Fighting) (Remastered 2014) - Elton John - 1973",
-          "Don’t Stop Believin’ – Journey",
-          "Don’t Stop Me Now – Queen",
-          "Bohemian Rhapsody – Queen",
-          "Crazy Little Thing Called Love – Queen",
-          "All Star – Smash Mouth",
-          "Shut Up and Dance – Walk The Moon",
-          "Eagle Rock – Daddy Cool",
-          "Khe Sanh – Cold Chisel",
-          "Wonderwall – Oasis",
-          "Sweet Home Alabama – Lynyrd Skynyrd",
-          "Old Town Road – Lil Nas X",
-          "Save a Horse (Ride a Cowboy) – Big & Rich"
-        ]
-      },
-      {
-        name: "Singalong Anthems",
-        id: "singalong-anthems",
-        description: "End-of-night crowd pleasers, family favourites and big chorus moments.",
-        songs: [
-          "Wagon Wheel - Darius Rucker - 2013",
-          "Because I Got High (Radio Edit) - Afroman - 2001",
-          "Paradise By the Dashboard Light - Meat Loaf - 1977",
-          "You're the Voice - John Farnham - 2010",
-          "The Gambler - Kenny Rogers - 1978",
-          "Wonderwall (Remastered) - Oasis - 1995",
-          "The Time Warp - The Rocky Horror Show - 2012",
-          "The Horses (Remastered) - Daryl Braithwaite - 2007",
-          "Minnie The Moocher - Cab Calloway, His Orchestra - 2009",
-          "Yellow Submarine (2022 Mix) - The Beatles - 2023",
-          "Can't Take My Eyes off You - Frankie Valli - 2024",
-          "The Grease Megamix - John Travolta, Olivia Newton-John - 2022",
-          "Sweet Caroline - Neil Diamond - 1974",
-          "I'm Gonna Be (500 Miles) - The Proclaimers - 2011",
-          "Little Lion Man - Mumford & Sons - 2009",
-          "Bohemian Rhapsody (Remastered 2011) - Queen - 1992",
-          "(I’ve Had) The Time Of My Life – Bill Medley & Jennifer Warnes",
-          "You Make My Dreams – Hall & Oates",
-          "Valerie – Mark Ronson & Amy Winehouse",
-          "We Are Family – Sister Sledge",
-          "Take On Me",
-          "Unwritten – Natasha Bedingfield",
-          "Sweet Caroline – Neil Diamond",
-          "Call Me Maybe – Carly Rae Jepsen",
-          "CAN’T STOP THE FEELING! – Justin Timberlake",
-          "Cake By The Ocean – DNCE",
-          "Cheap Thrills – Sia",
-          "Cheerleader (Felix Jaehn Remix) – OMI",
-          "Happy – Pharrell Williams",
-          "Havana – Camila Cabello",
-          "Heat Waves – Glass Animals",
-          "I Gotta Feeling – Black Eyed Peas",
-          "Just Dance – Lady Gaga",
-          "Poker Face – Lady Gaga",
-          "Starships – Nicki Minaj",
-          "Super Freaky Girl – Nicki Minaj",
-          "Shake It Off – Taylor Swift",
-          "Love Story – Taylor Swift",
-          "Cruel Summer – Taylor Swift",
-          "good 4 u – Olivia Rodrigo",
-          "What Makes You Beautiful – One Direction",
-          "Sucker – Jonas Brothers",
-          "Sugar – Maroon 5",
-          "Moves Like Jagger – Maroon 5",
-          "Late Night Talking – Harry Styles",
-          "A Sky Full of Stars – Coldplay",
-          "Something Just Like This – The Chainsmokers & Coldplay"
-        ]
-      }
-    ];
+  {
+    "name": "60s / 70s Classics",
+    "id": "60s-70s-classics",
+    "description": "Feel-good classics that work early, during dinner singalongs or when mixed into a retro dance set.",
+    "songs": [
+      "I'm a Believer (2006 Remaster) - The Monkees - 1967",
+      "Dancing Queen - ABBA - 1992",
+      "Superstition - Stevie Wonder - 1972",
+      "Oh What a Night - The Four Seasons - 2014",
+      "Stayin Alive - Bee Gees - 2009",
+      "That's the Way (I Like It) [2004 Remaster] - KC & The Sunshine Band - 1975",
+      "Blame It on the Boogie - The Jackson 5 - 2005",
+      "The Wanderer - Dion - 2013",
+      "Respect (2003 Remaster) - Aretha Franklin - 2007",
+      "Gimme! Gimme! Gimme! (A Man After Midnight) - ABBA - 1992",
+      "Celebration (Re-Recorded In Stereo) - Kool & The Gang - 1998",
+      "Eagle Rock - Daddy Cool - 2007",
+      "September - Earth, Wind & Fire - 1978",
+      "YMCA - Village People - 2002",
+      "Twist And Shout (2023 Mix) - The Beatles - 2023",
+      "Brown Eyed Girl - Van Morrison - 1967",
+      "Nutbush City Limits - Ike & Tina Turner - 2004",
+      "The Twist (Rerecorded) - Chubby Checker - 2015",
+      "Signed, Sealed, Delivered (I’m Yours) – Stevie Wonder",
+      "Proud Mary – Creedence Clearwater Revival",
+      "Sweet Caroline – Neil Diamond",
+      "Can’t Take My Eyes Off You – Frankie Valli",
+      "Build Me Up Buttercup – The Foundations",
+      "Piano Man – Billy Joel",
+      "Shout – Lulu"
+    ]
+  },
+  {
+    "name": "Daggy 80s",
+    "id": "daggy-80s",
+    "description": "Fun, familiar, nostalgic tracks that get mixed-age crowds smiling and singing quickly.",
+    "songs": [
+      "La Bamba - Los Lobos - 1987",
+      "Wake Me Up Before You Go-Go - Wham! - 2010",
+      "Take on Me - a-ha - 1985",
+      "You Make My Dreams (Come True) - Daryl Hall & John Oates - 1980",
+      "Africa - TOTO - 1982",
+      "Blister In The Sun - Violent Femmes - 1993",
+      "La Isla Bonita - Madonna - 1986",
+      "Come On Eileen - Dexys Midnight Runners - 2018",
+      "9 to 5 - Dolly Parton - 2010",
+      "All Night Long (All Night) - Lionel Richie - 2003",
+      "Walking On Sunshine - Katrina & The Waves - 1985",
+      "Like a Prayer - Madonna - 1989",
+      "Never Gonna Give You Up - Rick Astley - 2019",
+      "I Wanna Dance with Somebody (Who Loves Me) - Whitney Houston - 1987",
+      "Thriller - Michael Jackson - 1995",
+      "Don't Stop Believin' (2024 Remaster) - Journey - 1988",
+      "The Power Of Love - Huey Lewis & The News - 2006",
+      "Girls Just Wanna Have Fun - Cyndi Lauper - 2010",
+      "How Will I Know (Remastered) - Whitney Houston - 2007",
+      "Slice of Heaven - Dave Dobbyn, Herbs - 1988",
+      "Sweet Dreams (Are Made of This) (2005 Remaster) - Eurythmics, Annie Lennox, Dave Stewart - 1983",
+      "Rasputin - Majestic, Boney M. - 2021",
+      "Funky Town (Remastered) - Pseudo Echo - 2022",
+      "Hot Hot Hot - Buster Poindexter And His Banshees Of Blue - 1987",
+      "Underneath the Radar - Underworld - 1988",
+      "Got My Mind Set On You - George Harrison - 1987",
+      "Footloose (From Footloose Soundtrack) - Kenny Loggins - 1998",
+      "Beat It – Michael Jackson",
+      "Billie Jean – Michael Jackson",
+      "Jessie’s Girl – Rick Springfield",
+      "Kiss – Prince",
+      "Sweet Child O’ Mine – Guns N’ Roses",
+      "Summer of ’69 – Bryan Adams",
+      "Livin’ On A Prayer – Bon Jovi",
+      "Old Time Rock And Roll – Bob Seger",
+      "The Horses – Daryl Braithwaite",
+      "Fat Bottomed Girls – Queen",
+      "Don’t Stop ’Til You Get Enough – Michael Jackson"
+    ]
+  },
+  {
+    "name": "Tragic 90s",
+    "id": "tragic-90s",
+    "description": "Big guilty-pleasure hooks, hands-up moments and singalong tracks for a mixed party crowd.",
+    "songs": [
+      "...Baby One More Time - Britney Spears - 1999",
+      "The Sign - Ace Of Base - 1993",
+      "S Club Party - S Club - 2019",
+      "Macarena (Bayside Boys Remix) - Los Del Río - 2018",
+      "MMMBop - Hanson - 2017",
+      "Everybody (Backstreet's Back) (Extended Version) - Backstreet Boys - 2001",
+      "Wannabe - Spice Girls - 1996",
+      "(Lover) You Don't Treat Me No Good (Live) - Sonia Dada, D. Pritzker - 1999",
+      "I'm Too Sexy (7 Mix) - Right Said Fred - 1991",
+      "What Is Love (7 Mix) - Haddaway - 1993",
+      "Man! I Feel Like A Woman! - Shania Twain - 2022",
+      "Love Shack (Club Mix) - Leandro Da Silva - 2015",
+      "Jackie (Mind Electric's 25th Anniversary Remix) - Joanne - 2023",
+      "That Don't Impress Me Much (Edit) - Shania Twain - 1997",
+      "Moving on Up - M People - 2005",
+      "Barbie Girl (Tiësto Remix) - Aqua, Tiësto - 2023",
+      "Believe - Cher - 1998",
+      "Teardrops (7's Single Version) - Womack & Womack - 2001",
+      "We Like To Party! (The Vengabus) - Vengaboys - 1999",
+      "Heaven - DJ Sammy - 2002",
+      "5, 6, 7, 8 - Steps - 1998",
+      "We Didn't Start the Fire - Billy Joel - 1997",
+      "Mambo No. 5 (A Little Bit Of...) - Lou Bega - 1999",
+      "Baby Got Back – Sir Mix-A-Lot",
+      "Ice Ice Baby – Vanilla Ice",
+      "I Want It That Way – Backstreet Boys",
+      "This Is How We Do It – Montell Jordan",
+      "Return of the Mack – Mark Morrison",
+      "Pony – Ginuwine",
+      "Friends In Low Places – Garth Brooks",
+      "Bye Bye Bye – *NSYNC",
+      "Cotton Eye Joe – Rednex",
+      "Come On Eileen – Dexys Midnight Runners",
+      "December, 1963 (Oh What a Night!) – The Four Seasons"
+    ]
+  },
+  {
+    "name": "Old School RnB / HipHop",
+    "id": "old-school-rnb-hiphop",
+    "description": "Classic RnB, hip hop and club tracks for building the dance floor after the pop singalongs.",
+    "songs": [
+      "Baby Got Back - Sir Mix-A-Lot - 2011",
+      "Gangsta's Paradise - Coolio, L.V. - 1995",
+      "No Diggity - Blackstreet, Dr. Dre, Queen Pen - 2003",
+      "In Da Club - 50 Cent - 2003",
+      "California Love (Original Version) - 2Pac, Roger Troutman, Dr. Dre - 1998",
+      "Drop It Like It's Hot - Snoop Dogg, Pharrell Williams - 2017",
+      "No Scrubs - TLC - 1999",
+      "Gold Digger - Kanye West, Jamie Foxx - 2005",
+      "Return of the Mack - Mark Morrison - 1997",
+      "Ms. Jackson (Radio Mix) - Outkast - 2000",
+      "It Wasn't Me - Shaggy, Ricardo Ducent - 2017",
+      "Informer - Snow - 2018",
+      "Boom! Shake the Room - DJ Jazzy Jeff, The Fresh Prince - 2003",
+      "Hips Don't Lie (feat. Wyclef Jean) - Shakira - 2005",
+      "Get Low - Lil Jon & The East Side Boyz, Ying Yang Twins - 2009",
+      "Be Faithful - Fatman Scoop, Crooklyn Clan - 2015",
+      "Ride Wit Me - Nelly, City Spud - 2017",
+      "Dance With Me - 112 - 2001",
+      "Jump Around (Pete Rock Remix) - House of Pain - 1992",
+      "This Is How We Do It (Re-Recorded / Remastered) - Montell Jordan - 2011",
+      "Yeah! (feat. Lil Jon & Ludacris) - USHER, Lil Jon, Ludacris - 2004",
+      "Hot In Herre - Nelly - 2002",
+      "Shake That (Radio Edit) - Eminem, Nate Dogg - 2006",
+      "Gettin' Jiggy Wit It - Will Smith - 2002",
+      "Let's Get Married (feat. Run) (ReMarqable Remix) - Jagged Edge, RUN - 2006",
+      "Without Me - Eminem - 2002",
+      "1, 2 Step (feat. Missy Elliott) - Ciara, Missy Elliott - 2004",
+      "Milkshake - Kelis - 2003",
+      "Ice Ice Baby (Re-Recorded / Remastered) - Vanilla Ice - 2009",
+      "American Boy - Estelle, Kanye West - 2008",
+      "It's Like That - RUN-DMC - 1984",
+      "Temperature - Sean Paul - 2005",
+      "The Way You Move (feat. Sleepy Brown) (Radio Mix) - Outkast, Sleepy Brown - 2003",
+      "Low (feat. T-Pain) - Flo Rida, T-Pain - 2008",
+      "Yeah 3x - Chris Brown - 2013",
+      "Ignition (Remix) - R. Kelly - 2003",
+      "Pony - Ginuwine - 1996",
+      "U Can’t Touch This – MC Hammer",
+      "Push It – Salt-N-Pepa",
+      "Promiscuous – Nelly Furtado",
+      "SexyBack – Justin Timberlake",
+      "Buy U a Drank – T-Pain",
+      "Crazy In Love – Beyoncé",
+      "Hey Ya! – Outkast",
+      "Get Lucky – Daft Punk",
+      "Gasolina – Daddy Yankee",
+      "Trap Queen – Fetty Wap"
+    ]
+  },
+  {
+    "name": "Modern Bangers",
+    "id": "modern-bangers",
+    "description": "Modern pop, club and festival-energy songs for peak dance floor moments.",
+    "songs": [
+      "Price Tag - Jessie J, B.o.B - 2021",
+      "Despacito (Remix) - Luis Fonsi, Daddy Yankee, Justin Bieber - 2019",
+      "Untouched - The Veronicas - 2007",
+      "Party In The U.S.A. - Miley Cyrus - 2018",
+      "Gasolina (with Pitbull, Lil Jon, Noriega, Dj Buddha) (Dj Buddha Remix) - Daddy Yankee, Pitbull, Lil Jon, Noriega, DJ Buddha - 2005",
+      "Single Ladies (Put a Ring on It) - Beyoncé - 2008",
+      "Candy Shop - 50 Cent, Olivia Longott - 2005",
+      "Dance Monkey - Tones and I - 2019",
+      "Crazy In Love (feat. Jay-Z) - Beyoncé, JAY Z - 2003",
+      "Sorry - Justin Bieber - 2015",
+      "24K Magic - Bruno Mars - 2016",
+      "King Kunta - Kendrick Lamar - 2015",
+      "Hollaback Girl - Gwen Stefani - 2005",
+      "Downtown (feat. Melle Mel, Grandmaster Caz, Kool Moe Dee & Eric Nally) - Macklemore, Ryan Lewis, Melle Mel, Grandmaster Caz, Kool Moe Dee, Eric Nally, Macklemore & Ryan Lewis - 2016",
+      "CAN'T STOP THE FEELING! (from DreamWorks Animation's TROLLS) - Justin Timberlake - 2016",
+      "Uptown Funk (feat. Bruno Mars) - Mark Ronson, Bruno Mars - 2015",
+      "Cold Heart (PNAU Remix) - Elton John, Dua Lipa - 2021",
+      "Murder On The Dancefloor - Sophie Ellis-Bextor - 2002",
+      "SexyBack (feat. Timbaland) - Justin Timberlake, Timbaland - 2006",
+      "Call Me Maybe - Carly Rae Jepsen - 2012",
+      "Counting Stars - OneRepublic - 2013",
+      "One More Time - Daft Punk - 2001",
+      "Cha Cha Slide (Club) - DJ Casper - 2014",
+      "Wake Me Up - Avicii - 2013",
+      "Losing It - FISHER - 2018",
+      "Shooting Stars - BAG RAIDERS - 2010",
+      "I Love It (feat. Charli XCX) - Icona Pop, Charli xcx - 2013",
+      "Can't Feel My Face (Martin Garrix Remix) - The Weeknd - 2015",
+      "Feel So Close (Radio Edit) - Calvin Harris - 2012",
+      "Shots - LMFAO, Lil Jon - 2009",
+      "Shut Up and Dance - Walk The Moon - 2019",
+      "Swing (Joel Fletcher Remix) - Joel Fletcher, Savage - 2013",
+      "Freaks (Radio Edit) - Timmy Trumpet, Savage - 2017",
+      "Rhyme Dust - MK, Dom Dolla - 2023",
+      "When Love Takes Over (feat. Kelly Rowland) - David Guetta, Kelly Rowland - 2009",
+      "Sexy And I Know It - LMFAO - 2011",
+      "Gangnam Style - Psy - 2012",
+      "WAP (feat. Megan Thee Stallion) - Cardi B, Megan Thee Stallion - 2020",
+      "Sandstorm (Radio Edit) - Darude - 1999",
+      "Toxic - Britney Spears - 2003",
+      "Hey Ya! - Outkast - 2003",
+      "Happy (From Despicable Me 2) - Pharrell Williams - 2014",
+      "Shake It Off (Taylor's Version) - Taylor Swift - 2023",
+      "Blinding Lights – The Weeknd",
+      "Don’t Start Now – Dua Lipa",
+      "Dance The Night – Dua Lipa",
+      "One Kiss – Calvin Harris & Dua Lipa",
+      "Levels – Avicii",
+      "Party Rock Anthem – LMFAO",
+      "Turn Down For What – DJ Snake & Lil Jon",
+      "Timber – Pitbull & Kesha",
+      "Pepas – Farruko",
+      "Not Like Us – Kendrick Lamar",
+      "Espresso – Sabrina Carpenter",
+      "Taste – Sabrina Carpenter",
+      "HOT TO GO! – Chappell Roan",
+      "Pink Pony Club – Chappell Roan",
+      "Treasure – Bruno Mars",
+      "Wake Me Up – Avicii",
+      "Time of Our Lives – Pitbull & Ne-Yo",
+      "Fireball – Pitbull",
+      "Give Me Everything – Pitbull",
+      "Danza Kuduro – Don Omar",
+      "Mi Gente – J Balvin",
+      "A Bar Song (Tipsy) – Shaboozey",
+      "Prada – Cassö, RAYE",
+      "Stumblin’ In – Cyril"
+    ]
+  },
+  {
+    "name": "Party Rock",
+    "id": "party-rock",
+    "description": "Guitar-led party favourites, Aussie pub anthems and big rock singalongs.",
+    "songs": [
+      "What I Like About You - The Romantics - 1980",
+      "The Middle - Jimmy Eat World - 2001",
+      "Am I Ever Gonna See Your Face Again - The Angels - 1976",
+      "Cherry Pie - Warrant - 2014",
+      "Teenage Dirtbag - Wheatus - 2000",
+      "Are You Gonna Be My Girl - Jet - 2003",
+      "Dammit - blink-182 - 1997",
+      "The Ballroom Blitz - Sweet - 1993",
+      "Livin' On A Prayer - Bon Jovi - 1986",
+      "I Believe in a Thing Called Love - The Darkness - 2003",
+      "Jailbreak - AC/DC - 1984",
+      "Run to Paradise - Choirboys - 1987",
+      "Summer of 69 (Classic Version) - Bryan Adams - 2022",
+      "Pretty Fly (For A White Guy) - The Offspring - 2005",
+      "Prisoner of Society - The Living End - 1998",
+      "Mr. Brightside - The Killers - 2013",
+      "My Sharona - The Knack - 1979",
+      "Dancing In the Dark - Bruce Springsteen - 1984",
+      "Sk8er Boi - Avril Lavigne - 2002",
+      "Saturday Night’s Alright (For Fighting) (Remastered 2014) - Elton John - 1973",
+      "Don’t Stop Believin’ – Journey",
+      "Don’t Stop Me Now – Queen",
+      "Bohemian Rhapsody – Queen",
+      "Crazy Little Thing Called Love – Queen",
+      "All Star – Smash Mouth",
+      "Shut Up and Dance – Walk The Moon",
+      "Eagle Rock – Daddy Cool",
+      "Khe Sanh – Cold Chisel",
+      "Wonderwall – Oasis",
+      "Sweet Home Alabama – Lynyrd Skynyrd",
+      "Old Town Road – Lil Nas X",
+      "Save a Horse (Ride a Cowboy) – Big & Rich"
+    ]
+  },
+  {
+    "name": "Singalong Anthems",
+    "id": "singalong-anthems",
+    "description": "End-of-night crowd pleasers, family favourites and big chorus moments.",
+    "songs": [
+      "Wagon Wheel - Darius Rucker - 2013",
+      "Because I Got High (Radio Edit) - Afroman - 2001",
+      "Paradise By the Dashboard Light - Meat Loaf - 1977",
+      "You're the Voice - John Farnham - 2010",
+      "The Gambler - Kenny Rogers - 1978",
+      "Wonderwall (Remastered) - Oasis - 1995",
+      "The Time Warp - The Rocky Horror Show - 2012",
+      "The Horses (Remastered) - Daryl Braithwaite - 2007",
+      "Minnie The Moocher - Cab Calloway, His Orchestra - 2009",
+      "Yellow Submarine (2022 Mix) - The Beatles - 2023",
+      "Can't Take My Eyes off You - Frankie Valli - 2024",
+      "The Grease Megamix - John Travolta, Olivia Newton-John - 2022",
+      "Sweet Caroline - Neil Diamond - 1974",
+      "I'm Gonna Be (500 Miles) - The Proclaimers - 2011",
+      "Little Lion Man - Mumford & Sons - 2009",
+      "Bohemian Rhapsody (Remastered 2011) - Queen - 1992",
+      "(I’ve Had) The Time Of My Life – Bill Medley & Jennifer Warnes",
+      "You Make My Dreams – Hall & Oates",
+      "Valerie – Mark Ronson & Amy Winehouse",
+      "We Are Family – Sister Sledge",
+      "Take On Me",
+      "Unwritten – Natasha Bedingfield",
+      "Sweet Caroline – Neil Diamond",
+      "Call Me Maybe – Carly Rae Jepsen",
+      "CAN’T STOP THE FEELING! – Justin Timberlake",
+      "Cake By The Ocean – DNCE",
+      "Cheap Thrills – Sia",
+      "Cheerleader (Felix Jaehn Remix) – OMI",
+      "Happy – Pharrell Williams",
+      "Havana – Camila Cabello",
+      "Heat Waves – Glass Animals",
+      "I Gotta Feeling – Black Eyed Peas",
+      "Just Dance – Lady Gaga",
+      "Poker Face – Lady Gaga",
+      "Starships – Nicki Minaj",
+      "Super Freaky Girl – Nicki Minaj",
+      "Shake It Off – Taylor Swift",
+      "Love Story – Taylor Swift",
+      "Cruel Summer – Taylor Swift",
+      "good 4 u – Olivia Rodrigo",
+      "What Makes You Beautiful – One Direction",
+      "Sucker – Jonas Brothers",
+      "Sugar – Maroon 5",
+      "Moves Like Jagger – Maroon 5",
+      "Late Night Talking – Harry Styles",
+      "A Sky Full of Stars – Coldplay",
+      "Something Just Like This – The Chainsmokers & Coldplay"
+    ]
+  }
+];
 
-    const sectionContainer = document.getElementById('songSections');
+    const STORAGE_KEY = 'djchan-mostreq-selections-v1';
+    const searchInput = document.getElementById('search');
+    const categoryGroups = document.getElementById('categoryGroups');
+    const categoryLinks = document.getElementById('categoryLinks');
     const chips = document.getElementById('chips');
-    const searchInput = document.getElementById('searchInput');
-    const clearSearch = document.getElementById('clearSearch');
     const emptyState = document.getElementById('emptyState');
-    const totalSongs = categories.reduce((sum, category) => sum + category.songs.length, 0);
-    document.getElementById('totalSongs').textContent = totalSongs;
+    const selectedCount = document.getElementById('selectedCount');
 
     let activeCategory = 'all';
+    let selected = loadSelections();
 
-    function escapeRegExp(string) {
-      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    function safeSlug(text) {
+      return String(text).toLowerCase()
+        .replace(/&/g, 'and')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '') || 'item';
+    }
+
+    function songId(category, index) {
+      return `${category.id}-${index}`;
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function escapeRegExp(value) {
+      return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
     function highlight(text, query) {
-      if (!query) return text;
+      const safe = escapeHtml(text);
+      if (!query) return safe;
       const regex = new RegExp(`(${escapeRegExp(query)})`, 'ig');
-      return text.replace(regex, '<mark>$1</mark>');
+      return safe.replace(regex, '<mark>$1</mark>');
     }
 
-    function cleanSongTitle(song) {
-      return song.replace(/\s(?:-|–)\s\d{4}$/, '');
+    function parseSong(raw) {
+      const parts = String(raw).split(/\s[-–]\s/).map(p => p.trim()).filter(Boolean);
+      let year = '';
+      let artist = 'DJ favourite';
+      let title = String(raw).trim();
+
+      if (parts.length >= 3 && /^\d{4}$/.test(parts[parts.length - 1])) {
+        year = parts.pop();
+        artist = parts.pop();
+        title = parts.join(' - ');
+      } else if (parts.length >= 2) {
+        artist = parts.pop();
+        title = parts.join(' - ');
+      }
+
+      return {
+        raw: String(raw),
+        title: title || String(raw),
+        artist: artist || 'DJ favourite',
+        year
+      };
     }
 
-    function songMeta(song) {
-      const cleaned = cleanSongTitle(song);
-      const artistSplit = cleaned.includes(' – ') ? cleaned.split(' – ') : cleaned.split(' - ');
-      const artist = artistSplit.length >= 2 ? artistSplit.slice(1).join(' - ') : 'DJ favourite';
-      return { artist };
+    function normalizedSearchText(category, raw, number) {
+      const song = parseSong(raw);
+      return [
+        number,
+        category.name,
+        category.description,
+        raw,
+        song.title,
+        song.artist,
+        song.year
+      ].join(' ').toLowerCase();
+    }
+
+    function loadSelections() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        const parsed = stored ? JSON.parse(stored) : [];
+        return new Set(Array.isArray(parsed) ? parsed : []);
+      } catch (error) {
+        return new Set();
+      }
+    }
+
+    function saveSelections() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify([...selected]));
+      } catch (error) {
+        // Ignore blocked storage.
+      }
+    }
+
+    function updateSelectedCount() {
+      selectedCount.textContent = selected.size;
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.classList.toggle('has-selected', card.querySelectorAll('.song.selected').length > 0);
+      });
+    }
+
+    function allSongsNumber(categoryIndex, songIndex) {
+      let base = 0;
+      for (let i = 0; i < categoryIndex; i++) base += categories[i].songs.length;
+      return base + songIndex + 1;
+    }
+
+    function renderCategoryLinks() {
+      categoryLinks.innerHTML = categories.map(category => `
+        <a class="category-link" href="#${category.id}">
+          <span>${escapeHtml(category.name)}</span>
+          <span class="count">${category.songs.length}</span>
+        </a>
+      `).join('');
     }
 
     function renderChips() {
       const chipData = [{ name: 'All', id: 'all' }, ...categories.map(c => ({ name: c.name, id: c.id }))];
-      chips.innerHTML = chipData.map(chip => `<button class="chip ${chip.id === activeCategory ? 'active' : ''}" type="button" data-category="${chip.id}">${chip.name}</button>`).join('');
+      chips.innerHTML = chipData.map(chip => `
+        <button class="chip ${chip.id === activeCategory ? 'active' : ''}" type="button" data-category="${chip.id}">
+          ${escapeHtml(chip.name)}
+        </button>
+      `).join('');
       chips.querySelectorAll('.chip').forEach(button => {
         button.addEventListener('click', () => {
           activeCategory = button.dataset.category;
@@ -923,52 +1034,138 @@
       const query = searchInput.value.trim().toLowerCase();
       let visibleCount = 0;
 
-      sectionContainer.innerHTML = categories.map(category => {
+      categoryGroups.innerHTML = categories.map((category, categoryIndex) => {
         if (activeCategory !== 'all' && activeCategory !== category.id) return '';
 
-        const matchingSongs = category.songs.filter(song => cleanSongTitle(song).toLowerCase().includes(query) || songMeta(song).artist.toLowerCase().includes(query));
+        const matchingSongs = category.songs
+          .map((raw, songIndex) => ({ raw, songIndex, number: allSongsNumber(categoryIndex, songIndex) }))
+          .filter(item => !query || normalizedSearchText(category, item.raw, item.number).includes(query));
+
         if (matchingSongs.length === 0) return '';
         visibleCount += matchingSongs.length;
 
-        const songsHtml = matchingSongs.map(song => {
-          const displaySong = cleanSongTitle(song);
-          const meta = songMeta(song);
+        const songCards = matchingSongs.map(item => {
+          const parsed = parseSong(item.raw);
+          const id = songId(category, item.songIndex);
+          const isChecked = selected.has(id);
+          const meta = [
+            parsed.artist,
+            parsed.year
+          ].filter(Boolean).join(' · ');
+
           return `
-            <article class="song" data-song="${displaySong.replaceAll('\"', '&quot;')}">
-              <p class="song-title">${highlight(displaySong, searchInput.value.trim())}</p>
-              <div class="song-meta">
-                <span>${meta.artist}</span>
+            <article class="song ${isChecked ? 'selected' : ''}" data-song-id="${id}">
+              <input class="song-check" type="checkbox" ${isChecked ? 'checked' : ''} aria-label="Select ${escapeHtml(parsed.title)}" />
+              <span class="num">${item.number}</span>
+              <div>
+                <p class="song-title">${highlight(parsed.title, searchInput.value.trim())}</p>
+                <div class="song-sub">${highlight(meta, searchInput.value.trim())}</div>
               </div>
             </article>
           `;
         }).join('');
 
         return `
-          <section class="section" id="${category.id}">
-            <div class="section-head">
+          <article class="category-card" id="${category.id}">
+            <div class="category-header" role="button" tabindex="0">
               <div>
-                <h2>${category.name}</h2>
-                <p>${category.description}</p>
+                <h2 class="category-title">${escapeHtml(category.name)}</h2>
+                <p class="category-description">${escapeHtml(category.description)}</p>
               </div>
-              <div class="badge">${matchingSongs.length} songs</div>
+              <div class="category-meta">${matchingSongs.length} songs <span class="chev">−</span></div>
             </div>
-            <div class="song-grid">${songsHtml}</div>
-          </section>
+            <div class="song-grid">${songCards}</div>
+          </article>
         `;
       }).join('');
 
       emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+
+      document.querySelectorAll('.category-header').forEach(header => {
+        header.addEventListener('click', () => toggleCard(header.closest('.category-card')));
+        header.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleCard(header.closest('.category-card'));
+          }
+        });
+      });
+
+      document.querySelectorAll('.song-check').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+          const row = checkbox.closest('.song');
+          const id = row.dataset.songId;
+          row.classList.toggle('selected', checkbox.checked);
+          if (checkbox.checked) selected.add(id);
+          else selected.delete(id);
+          saveSelections();
+          updateSelectedCount();
+        });
+      });
+
       renderChips();
+      updateSelectedCount();
     }
 
-    searchInput.addEventListener('input', render);
-    clearSearch.addEventListener('click', () => {
+    function toggleCard(card) {
+      card.classList.toggle('collapsed');
+      const chev = card.querySelector('.chev');
+      if (chev) chev.textContent = card.classList.contains('collapsed') ? '+' : '−';
+    }
+
+    document.getElementById('printSelected').addEventListener('click', () => {
+      if (selected.size === 0) {
+        alert('Please tick at least one song before using Print selected.');
+        return;
+      }
+      document.body.classList.add('print-selected');
+      updateSelectedCount();
+      window.print();
+    });
+
+    document.getElementById('printAll').addEventListener('click', () => {
+      document.body.classList.remove('print-selected');
+      window.print();
+    });
+
+    document.getElementById('clearSelections').addEventListener('click', () => {
+      selected.clear();
+      saveSelections();
+      document.querySelectorAll('.song-check').forEach(cb => { cb.checked = false; });
+      document.querySelectorAll('.song').forEach(song => song.classList.remove('selected'));
+      updateSelectedCount();
+    });
+
+    document.getElementById('clearSearch').addEventListener('click', () => {
       searchInput.value = '';
       activeCategory = 'all';
       render();
       searchInput.focus();
     });
 
+    document.getElementById('expandAll').addEventListener('click', () => {
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.classList.remove('collapsed');
+        const chev = card.querySelector('.chev');
+        if (chev) chev.textContent = '−';
+      });
+    });
+
+    document.getElementById('collapseAll').addEventListener('click', () => {
+      document.querySelectorAll('.category-card').forEach(card => {
+        card.classList.add('collapsed');
+        const chev = card.querySelector('.chev');
+        if (chev) chev.textContent = '+';
+      });
+    });
+
+    window.addEventListener('afterprint', () => {
+      document.body.classList.remove('print-selected');
+    });
+
+    searchInput.addEventListener('input', render);
+
+    renderCategoryLinks();
     render();
   </script>
 </body>
