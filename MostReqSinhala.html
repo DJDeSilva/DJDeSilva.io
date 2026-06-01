@@ -78,6 +78,20 @@
       margin: 0 0 24px;
     }
 
+    .instruction-note {
+      max-width: 930px;
+      margin: 22px 0 0;
+      padding: 16px 18px;
+      border: 1px solid rgba(255,209,102,.38);
+      background: linear-gradient(135deg, rgba(255,209,102,.16), rgba(76,201,240,.09));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      backdrop-filter: blur(14px);
+    }
+    .instruction-note strong { color: var(--gold); }
+    .instruction-note p { margin: 0; color: var(--muted); }
+
     .stats {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -110,10 +124,10 @@
     .toolbar {
       max-width: 1180px;
       margin: 0 auto;
-      padding: 14px 18px;
+      padding: 10px 16px;
       display: grid;
-      grid-template-columns: 1fr auto auto;
-      gap: 10px;
+      grid-template-columns: minmax(220px, 1fr) auto auto auto auto auto;
+      gap: 7px;
       align-items: center;
     }
 
@@ -130,16 +144,65 @@
     .search::placeholder { color: rgba(245,247,251,.52); }
 
     button {
-      border: 1px solid var(--line);
+      border: 1px solid rgba(255,255,255,.22);
       color: var(--text);
       background: var(--panel2);
       border-radius: 999px;
-      padding: 12px 15px;
+      padding: 8px 11px;
       cursor: pointer;
-      font-weight: 700;
+      font-size: .84rem;
+      font-weight: 800;
+      line-height: 1.1;
       white-space: nowrap;
+      box-shadow: 0 6px 16px rgba(0,0,0,.22);
+      transition: transform .16s ease, box-shadow .16s ease, filter .16s ease, background .16s ease;
     }
-    button:hover { background: rgba(255,255,255,.16); }
+    button:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.08);
+      box-shadow: 0 9px 22px rgba(0,0,0,.30);
+    }
+    button:active { transform: translateY(0); }
+
+    #printSelected {
+      color: #17100a;
+      background: linear-gradient(135deg, #ffd166, #ff9f1c);
+      border-color: rgba(255,209,102,.75);
+      box-shadow: 0 7px 18px rgba(255,159,28,.24);
+    }
+
+    #printAll {
+      color: #03151b;
+      background: linear-gradient(135deg, #4cc9f0, #06d6a0);
+      border-color: rgba(76,201,240,.75);
+      box-shadow: 0 7px 18px rgba(76,201,240,.20);
+    }
+
+    #clearSelections {
+      color: #fff;
+      background: linear-gradient(135deg, #ef476f, #b5179e);
+      border-color: rgba(239,71,111,.72);
+      box-shadow: 0 7px 18px rgba(239,71,111,.22);
+    }
+
+    #expandAll,
+    #collapseAll {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(76,201,240,.78));
+      border-color: rgba(167,139,250,.55);
+    }
+
+    .selected-pill {
+      border: 1px solid rgba(6,214,160,.36);
+      color: var(--green);
+      background: rgba(6,214,160,.10);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: .84rem;
+      font-weight: 800;
+      white-space: nowrap;
+      text-align: center;
+    }
 
     .layout {
       max-width: 1180px;
@@ -214,13 +277,25 @@
     }
     .song {
       display: grid;
-      grid-template-columns: 58px 1fr;
+      grid-template-columns: 38px 58px 1fr;
       gap: 12px;
       padding: 12px 18px;
       border-top: 1px solid rgba(255,255,255,.08);
       align-items: center;
     }
     .song:hover { background: rgba(255,255,255,.06); }
+    .song.selected {
+      background: rgba(6,214,160,.11);
+      outline: 1px solid rgba(6,214,160,.25);
+      outline-offset: -1px;
+    }
+
+    .song-check {
+      width: 22px;
+      height: 22px;
+      accent-color: var(--green);
+      cursor: pointer;
+    }
     .num {
       display: inline-flex;
       align-items: center;
@@ -260,7 +335,9 @@
 
     @media (max-width: 860px) {
       .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .toolbar { grid-template-columns: 1fr; }
+      .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .search,
+      .selected-pill { grid-column: 1 / -1; }
       .layout { grid-template-columns: 1fr; }
       .artist-nav { position: static; max-height: none; }
       .artist-nav .links { display: flex; overflow: auto; gap: 8px; padding-bottom: 4px; }
@@ -272,10 +349,118 @@
       .stats { grid-template-columns: 1fr 1fr; }
       .stat { padding: 13px; }
       .stat strong { font-size: 1.35rem; }
-      .song { grid-template-columns: 46px 1fr; padding: 11px 13px; }
+      .song { grid-template-columns: 32px 46px 1fr; padding: 11px 13px; gap: 9px; }
       .artist-header { padding: 14px 13px; }
       .artist-meta { font-size: .8rem; }
+      button { padding: 7px 9px; font-size: .78rem; }
+      .selected-pill { padding: 7px 9px; font-size: .78rem; }
     }
+
+
+    @media print {
+      @page { margin: 12mm; }
+      html { scroll-behavior: auto; }
+      body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 11pt;
+      }
+      .toolbar-wrap,
+      .artist-nav,
+      footer,
+      .badge,
+      .stats,
+      .empty,
+      .artist-meta,
+      .chev {
+        display: none !important;
+      }
+      .hero {
+        max-width: none;
+        padding: 0 0 10mm;
+        margin: 0;
+      }
+      h1 {
+        color: #000 !important;
+        font-size: 24pt !important;
+        line-height: 1.1;
+        letter-spacing: 0;
+        margin: 0 0 6pt;
+        max-width: none;
+      }
+      .gradient-text {
+        color: #000 !important;
+        background: none !important;
+        -webkit-background-clip: initial;
+        background-clip: initial;
+      }
+      .lead,
+      .instruction-note p {
+        color: #222 !important;
+        font-size: 10.5pt;
+      }
+      .instruction-note {
+        border: 1px solid #999 !important;
+        background: #f5f5f5 !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        padding: 8pt 10pt;
+        margin: 8pt 0 10pt;
+      }
+      .layout {
+        display: block;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+      }
+      .artist-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #bbb !important;
+        background: #fff !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        margin: 0 0 8pt;
+      }
+      .artist-header {
+        background: #eee !important;
+        color: #000 !important;
+        padding: 6pt 8pt;
+      }
+      .artist-title { color: #000 !important; font-size: 13pt; }
+      .collapsed .song-list { display: block !important; }
+      .song-list { display: block !important; }
+      .song {
+        grid-template-columns: 20pt 34pt 1fr;
+        gap: 7pt;
+        padding: 5pt 8pt;
+        border-top: 1px solid #ddd !important;
+        background: #fff !important;
+        color: #000 !important;
+        break-inside: avoid;
+      }
+      .song.hidden { display: grid !important; }
+      .song.selected { outline: none; background: #f7fff9 !important; }
+      .num {
+        background: #fff !important;
+        border: 1px solid #999;
+        color: #000 !important;
+        width: auto;
+        height: auto;
+        min-width: 28pt;
+        padding: 2pt 4pt;
+      }
+      .song-title { color: #000 !important; font-weight: 700; }
+      .song-sub { color: #333 !important; }
+      .song-check {
+        width: 14pt;
+        height: 14pt;
+        accent-color: #000;
+      }
+      body.print-selected .song:not(.selected) { display: none !important; }
+      body.print-selected .artist-card:not(.has-selected) { display: none !important; }
+    }
+
   </style>
 </head>
 <body>
@@ -283,17 +468,15 @@
     <div class="badge">🎧 DJ reference • Sri Lankan classics to modern dance</div>
     <h1>Expanded Sri Lankan Song Library <span class="gradient-text">Grouped by Artist</span></h1>
     <p class="lead">Famous Sri Lankan songs from the 70s to now, including classics, baila, bands, pop, hip-hop, remixes, medleys, live-band favourites and danceable DJ selections.</p>
-    <div class="stats">
-      <div class="stat"><strong id="songCount">0</strong><span>Total songs</span></div>
-      <div class="stat"><strong id="artistCount">0</strong><span>Artists / acts</span></div>
-      <div class="stat"><strong>70s+</strong><span>Era coverage</span></div>
-      <div class="stat"><strong>DJ</strong><span>Search-ready format</span></div>
-    </div>
   </header>
 
   <div class="toolbar-wrap">
     <div class="toolbar">
       <input class="search" id="search" type="search" placeholder="Search song or artist... e.g. Sarith, 2fourty2, baila, Yohani, Rambari" autocomplete="off" />
+      <div class="selected-pill"><span id="selectedCount">0</span> selected</div>
+      <button id="printSelected" type="button">Print selected</button>
+      <button id="printAll" type="button">Print all</button>
+      <button id="clearSelections" type="button">Clear ticks</button>
       <button id="expandAll" type="button">Expand all</button>
       <button id="collapseAll" type="button">Collapse all</button>
     </div>
@@ -6605,9 +6788,22 @@
     const artistLinks = document.getElementById('artistLinks');
     const searchInput = document.getElementById('search');
     const emptyState = document.getElementById('emptyState');
+    const selectedCountEl = document.getElementById('selectedCount');
+    const storageKey = 'mostReqSinhalaSelectedSongs';
+    function loadSavedSelections() {
+      try {
+        const raw = window.localStorage ? window.localStorage.getItem(storageKey) : null;
+        return new Set(JSON.parse(raw || '[]'));
+      } catch (e) {
+        return new Set();
+      }
+    }
+    const selectedSongs = loadSavedSelections();
 
-    document.getElementById('artistCount').textContent = artistNames.length;
-    document.getElementById('songCount').textContent = songs.length;
+    const artistCountEl = document.getElementById('artistCount');
+    const songCountEl = document.getElementById('songCount');
+    if (artistCountEl) artistCountEl.textContent = artistNames.length;
+    if (songCountEl) songCountEl.textContent = songs.length;
 
     const norm = (text) => text
       .toLowerCase()
@@ -6618,6 +6814,23 @@
 
     const slug = (text) => norm(text).replace(/\s+/g, '-').replace(/(^-|-$)/g, '');
     const escapeHtml = (text) => String(text).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+
+    function saveSelections() {
+      try {
+        if (window.localStorage) {
+          window.localStorage.setItem(storageKey, JSON.stringify([...selectedSongs]));
+        }
+      } catch (e) {
+        // Some browsers block localStorage for downloaded files. The page still works; selections just will not persist.
+      }
+    }
+
+    function updateSelectedCount() {
+      selectedCountEl.textContent = selectedSongs.size;
+      document.querySelectorAll('.artist-card').forEach(card => {
+        card.classList.toggle('has-selected', card.querySelectorAll('.song.selected').length > 0);
+      });
+    }
 
     function render() {
       artistNames.forEach((artist) => {
@@ -6649,7 +6862,22 @@
           li.className = 'song';
           li.dataset.title = norm(song.title);
           li.dataset.artist = norm(song.artist);
-          li.innerHTML = `<span class="num">${song.number}</span><div><div class="song-title">${escapeHtml(song.title)}</div><div class="song-sub">${escapeHtml(song.artist)}</div></div>`;
+          const songId = String(song.number);
+          const checked = selectedSongs.has(songId);
+          li.classList.toggle('selected', checked);
+          li.innerHTML = `<input class="song-check" type="checkbox" aria-label="Select ${escapeHtml(song.title)} by ${escapeHtml(song.artist)}" data-song-id="${songId}" ${checked ? 'checked' : ''}><span class="num">${song.number}</span><div><div class="song-title">${escapeHtml(song.title)}</div><div class="song-sub">${escapeHtml(song.artist)}</div></div>`;
+          const checkbox = li.querySelector('.song-check');
+          checkbox.addEventListener('change', () => {
+            if (checkbox.checked) {
+              selectedSongs.add(songId);
+              li.classList.add('selected');
+            } else {
+              selectedSongs.delete(songId);
+              li.classList.remove('selected');
+            }
+            saveSelections();
+            updateSelectedCount();
+          });
           ul.appendChild(li);
         });
 
@@ -6687,6 +6915,33 @@
       emptyState.style.display = visibleCards ? 'none' : 'block';
     }
 
+    document.getElementById('printSelected').addEventListener('click', () => {
+      if (selectedSongs.size === 0) {
+        alert('Please tick at least one song before printing selected songs.');
+        return;
+      }
+      document.body.classList.add('print-selected');
+      updateSelectedCount();
+      window.print();
+    });
+
+    document.getElementById('printAll').addEventListener('click', () => {
+      document.body.classList.remove('print-selected');
+      window.print();
+    });
+
+    document.getElementById('clearSelections').addEventListener('click', () => {
+      selectedSongs.clear();
+      saveSelections();
+      document.querySelectorAll('.song-check').forEach(cb => { cb.checked = false; });
+      document.querySelectorAll('.song').forEach(song => song.classList.remove('selected'));
+      updateSelectedCount();
+    });
+
+    window.addEventListener('afterprint', () => {
+      document.body.classList.remove('print-selected');
+    });
+
     document.getElementById('expandAll').addEventListener('click', () => {
       document.querySelectorAll('.artist-card').forEach(card => {
         card.classList.remove('collapsed');
@@ -6703,6 +6958,7 @@
 
     searchInput.addEventListener('input', filterSongs);
     render();
+    updateSelectedCount();
   </script>
 </body>
 </html>
