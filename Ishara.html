@@ -13,58 +13,94 @@
         }
 
         html, body {
+            min-height: 100%;
             width: 100%;
-            overflow-x: hidden;
-            background-color: #000;
+            background: #000;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        .section-title {
+        body {
+            padding: 2rem 1rem;
+        }
+
+        main {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .page-title {
             text-align: center;
-            font-size: 1.2rem;
-            padding: 15px 10px;
+            margin-bottom: 2rem;
+            font-size: clamp(2rem, 4vw, 3rem);
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
         }
 
         .song-list {
-            width: 100%;
+            display: grid;
+            gap: 1rem;
         }
 
         .song-list img {
-            display: block;
             width: 100%;
             height: auto;
+            display: block;
             border: 0;
+            border-radius: 0.5rem;
         }
     </style>
 </head>
 <body>
-		<br></br>
-    <p class="section-title"><h1>Slow Songs for Dinner and Start</h1></p>
+    <main>
+        <h1 class="page-title">Song Lists</h1>
 
-    <div class="song-list">
-        <img src="slow1.png" alt="Slow Songs Page 1" loading="eager">
-        <img src="slow2.png" alt="Slow Songs Page 2" loading="lazy">
-        <img src="slow3.png" alt="Slow Songs Page 3" loading="lazy">
-    </div>
-		<br></br>
-	    <p class="section-title"><h1>Fast Songs for the Party</h1></p>
+        <section class="section" aria-labelledby="slow-songs-title">
+            <h2 id="slow-songs-title">Slow Songs for Dinner and Start</h2>
+            <div class="song-list">
+                <img src="slow1.png" alt="Slow songs list page 1" loading="eager">
+                <img src="slow2.png" alt="Slow songs list page 2" loading="lazy">
+                <img src="slow3.png" alt="Slow songs list page 3" loading="lazy">
+            </div>
+        </section>
 
-    <div class="song-list">
-        <img src="fast1.png" alt="fast1" loading="eager">
-        <img src="fast2.png" alt="fast2" loading="lazy">
-        <img src="fast3.png" alt="fast3" loading="lazy">
-		        <img src="fast4.png" alt="fast4" loading="lazy">
-				        <img src="fast5.png" alt="fast5" loading="lazy">
-    </div>
+        <section class="section" aria-labelledby="fast-songs-title">
+            <h2 id="fast-songs-title">Fast Songs for the Party</h2>
+            <div class="song-list">
+                <img src="fast1.png" alt="Fast songs list page 1" loading="eager">
+                <img src="fast2.png" alt="Fast songs list page 2" loading="lazy">
+                <img src="fast3.png" alt="Fast songs list page 3" loading="lazy">
+                <img src="fast4.png" alt="Fast songs list page 4" loading="lazy">
+                <img src="fast5.png" alt="Fast songs list page 5" loading="lazy">
+            </div>
+        </section>
 
-		<br></br>
-	    <p class="section-title"><h1>None Stop & Baila for the Dance Floor</h1></p>
+        <section class="section" aria-labelledby="dance-songs-title">
+            <h2 id="dance-songs-title">Non-Stop &amp; Baila for the Dance Floor</h2>
+            <div class="song-list">
+                <img src="nonestop1.png" alt="Non-stop dance songs page 1" loading="eager">
+                <img src="nonestop2.png" alt="Non-stop dance songs page 2" loading="eager">
+            </div>
+        </section>
 
-    <div class="song-list">
-        <img src="nonestop1.png" alt="nonestop 1" loading="eager">
-        <img src="nonestop.png" alt="nonestop " loading="eager">
-		<br></br>
-    </div>
+        <section class="section" aria-labelledby="hindi-songs-title">
+            <h2 id="hindi-songs-title">Hindi</h2>
+            <div class="song-list">
+                <img src="hindi1.png" alt="Hindi songs page 1" loading="eager">
+                <img src="hindi2.png" alt="Hindi songs page 2" loading="eager">
+                <img src="hindi3.png" alt="Hindi songs page 3" loading="lazy">
+                <img src="hindi4.png" alt="Hindi songs page 4" loading="lazy">
+                <img src="hindi5.png" alt="Hindi songs page 5" loading="lazy">
+            </div>
+        </section>
+    </main>
 </body>
 </html>
