@@ -1,123 +1,792 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Song List</title>
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        html, body {
-            min-height: 100%;
-            width: 100%;
-            background: #000;
-            color: #fff;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+      html,
+      body {
+        min-height: 100%;
+        width: 100%;
+        background: #000;
+        color: #fff;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-        body {
-            padding: 2rem 1rem;
-        }
+      body {
+        padding: 2rem 1rem;
+      }
 
-        main {
-            max-width: 960px;
-            margin: 0 auto;
-        }
+      main {
+        max-width: 960px;
+        margin: 0 auto;
+      }
 
-        .page-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: clamp(2rem, 4vw, 3rem);
-        }
+      .page-title {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
 
-        .section {
-            margin-bottom: 2.5rem;
-        }
+      .section {
+        margin-bottom: 2.5rem;
+      }
 
-        .section h2 {
-            text-align: center;
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-        }
+      .section h2 {
+        text-align: center;
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
 
-        .song-list {
-            display: grid;
-            gap: 1rem;
-        }
+      .song-list {
+        display: grid;
+        gap: 1rem;
+      }
 
-        .song-list img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border: 0;
-            border-radius: 0.5rem;
-        }
+      .song-list img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 0;
+        border-radius: 0.5rem;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <main>
-        <h1 class="page-title">Song Lists</h1>
-        <section class="section" aria-labelledby="must-songs-title">
-            <h2 id="must-songs-title">Must Play Songs</h2>
-            <div class="song-list">
-                <img src="must1.png" alt="Must play songs page 1" loading="eager">
-            </div>
-        </section>
-        <section class="section" aria-labelledby="slow-songs-title">
-            <h2 id="slow-songs-title">Slow Songs for Dinner and Start</h2>
-            <div class="song-list">
-                <img src="slow1.png" alt="Slow songs list page 1" loading="eager">
+      <h1 class="page-title">Song Lists</h1>
+      <section class="section" aria-labelledby="must-songs-title">
+        <h2 id="must-songs-title">Must Play Songs</h2>
+        <div class="song-list">
+          <img src="must1.png" alt="Must play songs page 1" loading="eager" />
+        </div>
+      </section>
+      <section class="section" aria-labelledby="slow-songs-title">
+        <h2 id="slow-songs-title">Slow Songs for Dinner and at the Start</h2>
+        <div class="song-list">
+          <!-- <img src="slow1.png" alt="Slow songs list page 1" loading="eager">
                 <img src="slow2.png" alt="Slow songs list page 2" loading="lazy">
-                <img src="slow3.png" alt="Slow songs list page 3" loading="lazy">
-            </div>
-        </section>
+                <img src="slow3.png" alt="Slow songs list page 3" loading="lazy"> -->
+          <ul>
+            <li>
+              Daffodil Mala Harshana Dissanayake Live Cover Naada Yaththra.m4a
+            </li>
+            <li>
+              Eka wasanthayaka Harshana Dissanayake Live cover - Naada
+              yaththra.m4a
+            </li>
+            <li>
+              2FORTY2 MAATHRA LIVE Chandana Allen H.R. Jothipala Feat. Billy
+              Fernando.m4a
+            </li>
+            <li>
+              Ada Thaniyen Ma - SHIHAN MIHIRANGA Official Music Video Sinhala
+              Songs.m4a
+            </li>
+            <li>Ahasai Oba Mata Hiru Unplugged - EP 10 (Stereo).m4a</li>
+            <li>Ambili mame Nalin Perera Baila Sadaya @RooTunes.m4a</li>
+            <li>
+              Amma 6th Lane Hiran Thenuwara Tharaka Karunanayake Fill T Official
+              Music Video.m4a
+            </li>
+            <li>
+              Ananthayata Yana Para Dige Indrachapa Liyanage Coke RED
+              @RooTunes.m4a
+            </li>
+            <li>WAYO - Api Kawuruda (Official Music Video).mp3</li>
+            <li>Ashanthi - Dilhani Duwani Remake - Official Music Video.m4a</li>
+            <li>
+              B&S Mashup Cover Unmadini Hanguna The News Coke RED @RooTunes.mp3
+            </li>
+            <li>Chandani Payala - Bhatiya & Santhush.m4a</li>
+            <li>
+              Chandimal Fernando Kimada Sumihiriye Live Cover @ CT Show 2015.m4a
+            </li>
+            <li>
+              Chandrame Ra Paya Aawa - Billy Fernando, Devashrie De Silva -
+              COVER.m4a
+            </li>
+            <li>
+              Dampata Handawe Sachin Rakitha Eranga Official Music Video Sinhala
+              Sindu.m4a
+            </li>
+            <li>
+              Dawasak Pala Nathi Hene - Mithra Kapuge with 2FORTY2 MAATHRA.m4a
+            </li>
+            <li>Diurala Pawasanna CENTIGRADZ Coke RED @RooTunes.mp3</li>
+            <li>DMAJOR Live in Concert I Medley I.m4a</li>
+            <li>Ganga Addara I Hector Dias I DMajor Live in concert.m4a</li>
+            <li>
+              Geeyakin Kese Clarence Wijewardena & Shyami Fonseka Sinhala Duet
+              Songs.mp3
+            </li>
+            <li>
+              Gum Nade - Rosa Kale Movie - Santhush ft. Umariya - Official Music
+              Video.m4a
+            </li>
+            <li>Hada wiman Dorin Cover by Hector Dias with D MAJOR.m4a</li>
+            <li>
+              Hadawatha Illa (Remake) - Priya Sooriyasena [www.Music.lk].m4a
+            </li>
+            <li>Hector Dias , DMAJOR, ..Old is Gold!!..m4a</li>
+            <li>Hiru Mal - Ruwan Hettiarachchi ft Umaria.m4a</li>
+            <li>
+              Hithumathe Romesh Sugathapala IRAJ Official Music Video Ma Desa
+              Neth Nopiya Balapu.m4a
+            </li>
+            <li>Jeewithe Tharuna Kale Billy Fernando, 2forty2.flac</li>
+            <li>
+              Kameliya Mal Suwadata - Kithsiri Jayasekara [lyrics video].m4a
+            </li>
+            <li>Labendiye La Signore 2021.flac</li>
+            <li>Maage Mathake Cover by D MAJOR with Hector Dias.m4a</li>
+            <li>
+              Malata Bambareku Se Clarence Wijewardena Sinhala Classical
+              Songs.mp3
+            </li>
+            <li>
+              Master Sir - Neela Wickramasinghe @ Dell Studio Season 03 (
+              29-01-2016 ) Episode 01.m4a
+            </li>
+            <li>
+              Mihiraviye - Shihan Mihiranga Official Audio MEntertainments.m4a
+            </li>
+            <li>Milton Mallawarachchi - Eda Raa Live Cover by Infinity.m4a</li>
+            <li>Nadee Ganga(Unplugged) Chitral Chity Somapala 2016.flac</li>
+            <li>Nisansale.m4a</li>
+            <li>Oba Dutu Ea Mul Dine The Gypsies 2003.flac</li>
+            <li>Oba Gawa Cover By D MAJOR with Hector Dias.m4a</li>
+            <li>
+              Oba Hinda Ba Mata Me Tharam Iraj & Samitha Official Music
+              Video.m4a
+            </li>
+            <li>
+              Olu Nelum Neriya Rangala Dewmini Fernando & Kawya Sathsarani.m4a
+            </li>
+            <li>Pata Dedunu Sedila Sunil Edirisinghe.mp3</li>
+            <li>
+              Pehesara Obe Adare - Centigradz - Asai Man Piyabanna OST -
+              Official Video Song.m4a
+            </li>
+            <li>
+              Ranidu-Hinahenne Mung (Nil Nayaniye) Official Music video.m4a
+            </li>
+            <li>Ran_Kurahan_Mala_Sema_Bathiya_And_Santhush_Sarigama_lk.mp3</li>
+            <li>Rookantha Goonatillake - Anganawo.m4a</li>
+            <li>
+              Rookantha Gunathilaka - Sanda Pinidiye - l Live @ Bhava 2019.m4a
+            </li>
+            <li>
+              Rookantha Gunathilaka - Sudu mudu welle à¶»à·–à¶šà·à¶±à·Šà¶­
+              à¶œà·”à¶«à¶­à·’à¶½à¶š - à·ƒà·”à¶¯à·” à¶¸à·”à¶¯à·”
+              à·€à·à¶½à·Šà¶½à·š.m4a
+            </li>
+            <li>
+              Salalihiniyo Hector Dias Cover #hectordias #dmajor #srilanka.m4a
+            </li>
+            <li>
+              Sanasenna Nalawenna à·ƒà·à¶±à·ƒà·™à¶±à·Šà¶±
+              à¶±à·à¶½à·€à·™à¶±à·Šà¶± à·ƒà·”à¶¯à· Athul Adhikari.m4a
+            </li>
+            <li>Sandawathiye_Centigradz.m4a</li>
+            <li>Shihan Mihiranga - Perada Mawu Sina (Lyrics).m4a</li>
+            <li>
+              Sihina Ahase Wasanthe Cover By Hector Dias With D MAJOR #wedding
+              #events.m4a
+            </li>
+            <li>
+              Sihina Nelum Mal @ Tone Poem with Mariazelle Goonetilleke.m4a
+            </li>
+            <li>
+              Sililara Sitha Nayana(2FORTY2 Remake Lounge) Senanga Dissanayake,
+              2forty2, CeyMusic.flac
+            </li>
+            <li>Sithin Ma Nosali - Billy Fernando live in Concert 2012.m4a</li>
+            <li>
+              Sudu Paravi Rena Se - Priya Sooriyasena Acoustic Version.m4a
+            </li>
+            <li>Suragana Kirilliye.m4a</li>
+            <li>Surangana_Kirilliye_Infaas_Noor.Ud.Din_Sarigama_lk.mp3</li>
+            <li>
+              Suwanda Danee - Kasun Kalhara Sudu Muthu Rala Pela Live [Official
+              Video].m4a
+            </li>
+            <li>
+              Suwandai Mal Suwanda Se - Kasun Kalhara and Sashika Nisansala.m4a
+            </li>
+            <li>Tharu Mal Wage LIVE - Rookantha & Chandralekha.m4a</li>
+            <li>
+              Unity Band - Sili Sili Seethala (à·ƒà·’à¶½à·’ à·ƒà·’à¶½à·’
+              à·ƒà·“à¶­à¶½) Radeesh Vandebona Unity Band Wedding Session.m4a
+            </li>
+            <li>Unmadini Hanguna - Version #2 Bathiya N Santhush.m4a</li>
+            <li>Yayata Payana Prihan Natasha Iraj Official Music Video.m4a</li>
+            <li>
+              Oba nidanna ( Cover ) @ChitralChitySomapalaMusic at Untitled -
+              Live.m4a
+            </li>
+            <li>Oba Laga Nathi Me - Rookantha Gunathilaka.m4a</li>
+            <li>Neka Uyan Wathu Pradeepa Dharmadasa & Amarasiri.m4a</li>
+            <li>Sithe Susum - Clarence the LEGEND Unplugged 02.mp3</li>
+          </ul>
+        </div>
+      </section>
 
-        <section class="section" aria-labelledby="fast-songs-title">
-            <h2 id="fast-songs-title">Fast Songs for the Party</h2>
-            <div class="song-list">
-                <img src="fast1.png" alt="Fast songs list page 1" loading="eager">
+      <section class="section" aria-labelledby="fast-songs-title">
+        <h2 id="fast-songs-title">Fast Songs for the Party</h2>
+        <div class="song-list">
+          <!-- <img src="fast1.png" alt="Fast songs list page 1" loading="eager">
                 <img src="fast2.png" alt="Fast songs list page 2" loading="lazy">
                 <img src="fast3.png" alt="Fast songs list page 3" loading="lazy">
                 <img src="fast4.png" alt="Fast songs list page 4" loading="lazy">
-                <img src="fast5.png" alt="Fast songs list page 5" loading="lazy">
-            </div>
-        </section>
+                <img src="fast5.png" alt="Fast songs list page 5" loading="lazy"> -->
+          <ul>
+            <li>
+              2FORTY2 - Me Amba Wanaye Feat. Billy Fernando Original Song - C T
+              Fernando.m4a
+            </li>
+            <li>
+              2FORTY2 Live - Kimada Sumihiriye CT Fernando Cover Ra Ahase Nelum
+              Pokuna.m4a
+            </li>
+            <li>Aaley Mal - Kanchana Anuradhi Official Music Video.m4a</li>
+            <li>Adambarai baluwamanam - Iraj Ft. Sureni & Killer B.m4a</li>
+            <li>Adara Lowe JAYA SRI Coke RED @RooTunes.mp3</li>
+            <li>
+              Adare Hithenawa Dakkama Billy Fernando, 2forty2, Devashrie De
+              Silva.flac
+            </li>
+            <li>Adare Hithenawa Dakkama (Remake) Uditha Sanjaya (HD).m4a</li>
+            <li>Adare Soya The Gypsies 2019.flac</li>
+            <li>
+              Adare Soya - Dushan Jayathilake - Official Music Video Sinhala
+              Songs.m4a
+            </li>
+            <li>Ranidu - Ahankara Nagare (Official Original Upload).mp3</li>
+            <li>
+              Alawanthiyak Ashanthi De Alwis Randhir Official Lyrical Video
+              Sinhala Songs.m4a
+            </li>
+            <li>Amathaka Karannepa The Gypsies 2019.flac</li>
+            <li>Ananthayata Yana Para Dige Kasun Kalhara.mp3</li>
+            <li>
+              Ananthayata yanawamai Official Music Video - Senaka Batagoda.mp3
+            </li>
+            <li>Andura Ira Clarence Wijewardena Sinhala Classical Songs.mp3</li>
+            <li>Asurin Mideela - Priya Suriyasena Priya Sooriyasena.m4a</li>
+            <li>
+              Atha Dilisena Hiru Sandu Billy Fernando, 2forty2, Devashrie De
+              Silva.flac
+            </li>
+            <li>
+              Awadi Wanna Peter Rosario Ranjith Atigala Baila Sadaya
+              @RooTunes.m4a
+            </li>
+            <li>
+              Aya Dompe Aya Mariazelle Goonetilleke Chandani Hettiarachchi Baila
+              Sadaya.m4a
+            </li>
+            <li>Ayyo Saami Windy Goonatillake, SANUKA 2022.flac</li>
+            <li>
+              Ba Ba Mata Enna Ba Jacqualine Hettiarachchi Dinu Sanjuna Baila
+              Sadya.m4a
+            </li>
+            <li>Baila Gamuda Remix Karala Bathiya & Santhush 2010.flac</li>
+            <li>
+              Bambara Patikka Iraj ft. BK Samitha Official Music Video Sinhala
+              Songs.m4a
+            </li>
+            <li>
+              Chandralekha Perera - Sitha Sanasuma Windemi Oba Hinda (Dell
+              Studio Version).m4a
+            </li>
+            <li>Chandrayan Pidu.m4a</li>
+            <li>
+              Clarence Baila Medley (2FORTY2) 2forty2, Billy Fernando.flac
+            </li>
+            <li>
+              Dawasak Ewi (Duet Version) Piyath Rajapakse, Raini Charuka
+              2021.flac
+            </li>
+            <li>Desin Pe La Signore 2021.flac</li>
+            <li>DIAS - FREEZE (Official Music Video).m4a</li>
+            <li>Diganthaye Rookantha Goonatillake 2018.flac</li>
+            <li>
+              Dinaka Me Nadee Theere Clarence Wijewardena Sinhala Classical
+              Songs.mp3
+            </li>
+            <li>
+              DJ Mass - Pem Kekula Ft. Apzi & Romaine Willis [Official Music
+              Video].m4a
+            </li>
+            <li>Dunhinda Manamali Annesley Malewana 2001.flac</li>
+            <li>Galana Ganga Charitha Attalage, Ravi Jay 2017.flac</li>
+            <li>
+              Gayu Gee Atheethe Mariyasel Gunathilaka The Music Room RooTunes
+              â€‹.m4a
+            </li>
+            <li>Gedara Yan The Gypsies 2023.flac</li>
+            <li>Gini Anguru Gode The Gypsies 2019.flac</li>
+            <li>Gypsies & Marians Medley Sarith and Surith 2022.flac</li>
+            <li>
+              Hello Hello - Chinthy,Centigradz,Ashanthi [www.BNRmedia.com].m4a
+            </li>
+            <li>
+              Hiruge Lowedi Clarence Wijewardena Sinhala Classical Songs.mp3
+            </li>
+            <li>
+              Ill Mahe Kurullo Nisala Kavinda, Yuki Navaratne, AKIIY 2023.flac
+            </li>
+            <li>Ingi_Marana_Tharu_Rena_K.Sujeewa_Sarigama_lk.mp3</li>
+            <li>Issara aadikale wayana Keerthi Pasquel Baila Sadaya.m4a</li>
+            <li>
+              Jeevithe Tharuna kaale (Live ReMake) - Ra Ahase Live in Concert
+              2017.m4a
+            </li>
+            <li>Kaandam Daasa Chinthy, Raini Charuka 2024.flac</li>
+            <li>
+              Kaandam Dasa Tharumini Ochcham Neela Kandu Gatee Raini Charuka
+              Youth on Red@Rupavahini RED.mp3
+            </li>
+            <li>
+              Kakiri Palena Tikiri Hinawai 68 Baila Dance Mix By - Djz Rowdy
+              Nethsara ( 140 BPM ).m4a
+            </li>
+            <li>Kakiri Palena M. S. Fernando.m4a</li>
+            <li>
+              Kandy Lamissi Mariazelle Goonetilleke Chandani Hettiarachchi Baila
+              Sadaya.m4a
+            </li>
+            <li>Kasthuri - Santhush, Ashanthi Ft.m4a</li>
+            <li>
+              Kirilli Ran Kirilli - Desmond de Silva - (Live Cover by Infinity)
+              - Sundown Sessions I.m4a
+            </li>
+            <li>Komaliya Prageeth Perera 2023.flac</li>
+            <li>Koththamalli The Gypsies 2015.flac</li>
+            <li>
+              Kotthu Iraj Weeraratne Official Music Video Sinhala Songs.m4a
+            </li>
+            <li>Kurumitto The Gypsies 2003.flac</li>
+            <li>Kusumi Latha Renu Latha (Medley) The News RED @RooTunes.mp3</li>
+            <li>
+              Laila Sarith - Surith & The News Coke RED @RooTunes â€‹ â€‹
+              â€‹.m4a
+            </li>
+            <li>Lassana lokaye - Glory ft Sunil Perera and Piyal Perera.m4a</li>
+            <li>Latha The Gypsies 2001.flac</li>
+            <li>Lelena(Remix) Nilan Hettiarachchi 2021.mp3</li>
+            <li>Linda Langa Sangamaya The Gypsies 2001.flac</li>
+            <li>Lorenso The Gypsies 2001.flac</li>
+            <li>Love Sama The Gypsies 2001.flac</li>
+            <li>Lunu Dehi The Gypsies 2019.flac</li>
+            <li>
+              Ma Ha Senehasa Paala Lyrical Video Milton Mallawarachchi Lyrical
+              Video.mp3
+            </li>
+            <li>Mage pale Adura Nasanna Jude De Zoysa @RooTunes.m4a</li>
+            <li>Mal Osariya @DushanJayathilake @lunudehiband â¤ï¸ðŸŽ™ï¸.m4a</li>
+            <li>Mame Ape Kalu Mame Annesley Malewana 2014.flac</li>
+            <li>Manali Windy Goonatillake, SANUKA 2022.flac</li>
+            <li>Manali Yuki Navaratne, Ravi Jay 2022.flac</li>
+            <li>
+              Manda Pama - Umariya ft. News Live @ O Fans Festival 2020.m4a
+            </li>
+            <li>Mango Kalu Nande(Radio Version) Annesley Malewana 2021.flac</li>
+            <li>Massina.m4a</li>
+            <li>Mata aloke genadevi Ranidu, BK, Krishan, Iraj 2012.flac</li>
+            <li>
+              Mee Wadayaki Peter Rosario Thisara Fernando Baila Sadya
+              @RooTunes.m4a
+            </li>
+            <li>
+              Meka Nam Pissuwak Bun (Remix) - Anushka Udana (Wasthi) DJ EvO
+              Sinhala Remix Songs Sinhala DJ.m4a
+            </li>
+            <li>Mottu La Signore 2020.flac</li>
+            <li>
+              Muthu Manike Ude Rayin Clarence Wijewardena Sinhala Classical
+              Songs.mp3
+            </li>
+            <li>
+              Muwa Hasarali Sagaraye Lyrical Video Clarence Wijewardena Lyrical
+              Video.mp3
+            </li>
+            <li>Na Na Nay The Gypsies 2001.flac</li>
+            <li>
+              Naaree Chinthy Official Music Video Sinhala Sindu Sinhala Songs
+              Hip-Hop Rap Songs.m4a
+            </li>
+            <li>Naden (Remix).m4a</li>
+            <li>
+              Nasuna - Smokio Ft. Dinesh Gamage Chamath Sangeeth - Official
+              Music Video.m4a
+            </li>
+            <li>Neela Kadugate Raini Charuka, Gayya 2012.flac</li>
+            <li>
+              Nelum Male Pethi Kadala Mariazelle and Walter Fernando (brother of
+              M S Fernando) Mariazelle.m4a
+            </li>
+            <li>
+              Nelum Vilen Pena - Dushyanth Weeraman RE-MIX DJ SHAN-L 2021.m4a
+            </li>
+            <li>
+              Neththara Bathiya & Santhush Officia Music Audio MEntertainments
+              Sinhala songs Sindu.m4a
+            </li>
+            <li>
+              Nil Dasin Surenie De Mel Official Music Video Sinhala Songs.m4a
+            </li>
+            <li>Nilwan Muhudu Theere Hector Dias Official Cover.m4a</li>
+            <li>
+              Nilwan Muhudu Theere Sarith - Surith and The News Coke RED.mp3
+            </li>
+            <li>Nondi Simaiya The Gypsies 2023.flac</li>
+            <li>Nondi Simaiya.m4a</li>
+            <li>Nurawani - Anushka ft. News Live @ O Fans Festival 2020.m4a</li>
+            <li>
+              Oba Inne Koheda Kiya (Lassana Lokaye) Dushan Jayathilake Sinhala
+              Songs.m4a
+            </li>
+            <li>
+              Oba Laba Ganna Chandani Hettiarachchi Mariazelle Goonetilleke
+              Baila Sadaya.m4a
+            </li>
+            <li>Ojaye The Gypsies 2019.flac</li>
+            <li>Parasindu Kolompure The Gypsies 2023.flac</li>
+            <li>Pathum Pirila.m4a</li>
+            <li>Pem Lowe Live Remake Ra Ahase Melbourne 2018.m4a</li>
+            <li>
+              Perum Puragena Senanayaka Weraliyadda Coke RED @Roo Tunes.m4a
+            </li>
+            <li>Piti Kotapang None The Gypsies 2001.flac</li>
+            <li>Piyumehi Panibothi - Taxi Christmas Mix EP 03.m4a</li>
+            <li>Polkatu Hande Mita Wage.m4a</li>
+            <li>
+              Rahasai Sonduru Jeeve @ Tone Poem with Mariazelle Goonetilleke.m4a
+            </li>
+            <li>Rambari La Signore 2021.flac</li>
+            <li>
+              Ran Kurahan Mala [NaNaNeNa] BNS Studio Live 2016 Mahesh Denipitiya
+              Live Creative Music Direction.m4a
+            </li>
+            <li>
+              Ran Rasa Wage Saman De Silva Ernest Soysa Hector Wijesiri.m4a
+            </li>
+            <li>Ran Van Mal Dam - Centigradz.mp3</li>
+            <li>
+              Rasa Pirunu Katha Shyami Fonseka Sinhala Classical Songs.mp3
+            </li>
+            <li>Ratakin Eha (Unplugged) - Priya Sooriyasena.m4a</li>
+            <li>
+              Res Wihidena Samanaliyakagen B & S lyrics video - Mathra.m4a
+            </li>
+            <li>
+              Rookantha Goonathilake medley Live in concert I #dmajor
+              #hectordias.m4a
+            </li>
+            <li>Rookantha Goonatillake - Diganthaye.m4a</li>
+            <li>Sada Sulan Hamanne The Gypsies 2023.flac</li>
+            <li>Saima Cut Vela @ Tone Poem with Sunil Perera.m4a</li>
+            <li>Salli Sarith and Surith, K V N 2023.flac</li>
+            <li>sanakeliye sanda eliye - clarance wijewardana.mp3</li>
+            <li>
+              Sanda Gilunath - Clarence Wijewardena Original Sinhala Songs Play
+              LK Music.mp3
+            </li>
+            <li>Clarence Wijewardena - Sanda Paane Gaman Yanna.mp3</li>
+            <li>
+              Sanda Walawan - Clarence Wijewardena Original Sinhala Songs Play
+              LK Music.mp3
+            </li>
+            <li>
+              Sandapana Wage Dilenne Rookantha Gunathilake Hiru Unplugged.m4a
+            </li>
+            <li>
+              Sanden Eha Milton Mallawarachchi Sinhala Classical Songs.mp3
+            </li>
+            <li>Seedevi Piyath Rajapakse, Lahiru De Costa 2024.flac</li>
+            <li>Signore The Gypsies 2001.flac</li>
+            <li>
+              Sihina Lowe Nalin Perera Peter Rosario Baila Sadya @RooTunes.m4a
+            </li>
+            <li>Sinhala All time Hits Medley Sarith and Surith 2022.flac</li>
+            <li>
+              Siri Sangabodhi Maligawedi BNS Studio Live 2016 Mahesh Denipitiya
+              Live Creative Music Direction.mp3
+            </li>
+            <li>
+              Sith Sith Sith Rookantha Goonatillake, Raini Charuka 2025.flac
+            </li>
+            <li>
+              Sithin Prema Wadana - Gassena Paddena Lassana Loke - (Mashup Cover
+              by Infinity) - Sundown Sessions I.m4a
+            </li>
+            <li>
+              Sithin Sina Sisi Windy Goonatillake, Raini Charuka 2020.flac
+            </li>
+            <li>Sokare Chinthy 2006.flac</li>
+            <li>Suba Upandinayak - Gypsies Audio.m4a</li>
+            <li>Sudu Adumin JAYA SRI Coke RED @RooTunes.m4a</li>
+            <li>Sudu Gawuma La Signore 2021.flac</li>
+            <li>Clarence Wijewardena - Sudu Menike Mage Menike.mp3</li>
+            <li>Sudu None The Gypsies 2003.flac</li>
+            <li>
+              Suraliyaka Wagei Ruwina Somasiri Pranandu Baila Sadaya
+              Rupavahini.m4a
+            </li>
+            <li>Tharumini (feat. Raini) Chinthy 2020.flac</li>
+            <li>
+              Tikki Tikiri Sina Paala Dalreen Suby Baila Sadaya @RooTunes.m4a
+            </li>
+            <li>Udarata Niliya Annesley Malewana 2012.flac</li>
+            <li>
+              Udarata Niliya Annesley Malewana Sinhala Classical Songs.mp3
+            </li>
+            <li>Uncle Jhonson The Gypsies 2019.flac</li>
+            <li>
+              Unmada Prema Geeya - BNS x Yohani ft. Kaizer Kaiz Official Music
+              Video.m4a
+            </li>
+            <li>Visekari Rockabye Baby Mashup - Live at Interflash 2020.m4a</li>
+            <li>Waduwa The Gypsies 2001.flac</li>
+            <li>
+              Wasanthaye Mal Kakulai Indrani Perera Sinhala Classical Songs.mp3
+            </li>
+            <li>
+              Wassanayata - Umaria ft Infinity Live at Interflash 2020.m4a
+            </li>
+            <li>Wessanthara Raja Putha - Ra Ahase Live in Concert 2017.m4a</li>
+            <li>Yaman Bando The Gypsies 2024.flac</li>
+            <li>
+              Yana Thanaka - Mihindu Ariyaratne (Live Cover by Infinity) -
+              Sundown Sessions I.m4a
+            </li>
+            <li>
+              Yanna Rata Watey Desmond De Silva Ft. Don Sherman (Des N Don).mp3
+            </li>
+            <li>Yowun Sihina Loke 2forty2.flac</li>
+            <li>Yowun Sihina Loke Mariazelle Goonetilleke.m4a</li>
+            <li>Aane Dingak Innako - Marians.m4a</li>
+            <li>
+              Oba Inne Koheda Kiya + Sal Mal Wel Gypsies Awurudu Pedura with
+              Derana.mp3
+            </li>
+            <li>Niyare Piyanagala NP Creationlk.mp3</li>
+            <li>Sal Mal Wal Chandani Hettiarachchi.mp3</li>
+            <li>Sara Sadisi Samitha Mudunkotuwa DJ RANDY REMiX.m4a</li>
+            <li>Ananthayata Yanawamai - Senaka Batagoda.m4a</li>
+            <li>Sanasennam Ma - Senaka Batagoda.m4a</li>
+          </ul>
+        </div>
+      </section>
 
-        <section class="section" aria-labelledby="dance-songs-title">
-            <h2 id="dance-songs-title">Non-Stop &amp; Baila for the Dance Floor</h2>
-            <div class="song-list">
-                <img src="nonestop1.png" alt="Non-stop dance songs page 1" loading="eager">
-                <img src="nonestop2.png" alt="Non-stop dance songs page 2" loading="eager">
-            </div>
-        </section>
+      <section class="section" aria-labelledby="dance-songs-title">
+        <h2 id="dance-songs-title">Non-Stop &amp; Baila for the Dance Floor</h2>
+        <div class="song-list">
+          <!-- <img src="nonestop1.png" alt="Non-stop dance songs page 1" loading="eager">
+                <img src="nonestop2.png" alt="Non-stop dance songs page 2" loading="eager"> -->
+          <ul>
+            <li>Ada Wei Il Dina</li>
+            <li>Adare</li>
+            <li>Adareta Kiyana Katha</li>
+            <li>Ahankara Nagare</li>
+            <li>Ajuthapara</li>
+            <li>Amathaka Karanna Epa</li>
+            <li>Ananthayata Yanawamai</li>
+            <li>Api Kauruda</li>
+            <li>aradhana kara</li>
+            <li>asurin mideela</li>
+            <li>awe wana bambarek</li>
+            <li>ayarin josephin</li>
+            <li>bambara nade</li>
+            <li>bambara pahasa</li>
+            <li>bambara petikka</li>
+            <li>Bambara Wage Visekaraya</li>
+            <li>Chuuda maanikya</li>
+            <li>chuuda manike</li>
+            <li>dakina dakina</li>
+            <li>desa piya gath kala</li>
+            <li>dompe aya</li>
+            <li>epa yanna</li>
+            <li>galkisse</li>
+            <li>Gayu Gee</li>
+            <li>gela wata</li>
+            <li>gele ran maala</li>
+            <li>gini anguru gode</li>
+            <li>golu hadawatha</li>
+            <li>gon wassa</li>
+            <li>Ha Mal Pipenne</li>
+            <li>hada selena</li>
+            <li>hadawada daa</li>
+            <li>hitha hiriwetunado</li>
+            <li>hitinna poddak</li>
+            <li>il mahe kurullo</li>
+            <li>ingimarana</li>
+            <li>Iri Thalunu wala</li>
+            <li>issara aadi kaale</li>
+            <li>kale ukule thiyala</li>
+            <li>kandy lamissi</li>
+            <li>kekiri pelena</li>
+            <li>kimada sumihiriye</li>
+            <li>ko inna</li>
+            <li>kodi gaha yata</li>
+            <li>koi yanne</li>
+            <li>kollupitiye junction</li>
+            <li>komaliya</li>
+            <li>konde nethath</li>
+            <li>kothamalli</li>
+            <li>kumariyak</li>
+            <li>lai lai lai</li>
+            <li>lassana amba gasak</li>
+            <li>Lassana Lokaye</li>
+            <li>lassanata pipuna</li>
+            <li>lelena</li>
+            <li>linda langa sangamaya</li>
+            <li>lorensoda</li>
+            <li>lowe sema</li>
+            <li>lunu dehi</li>
+            <li>lyla</li>
+            <li>ma adarei nangiye</li>
+            <li>maa adarei</li>
+            <li>maa handawala</li>
+            <li>mage pele andura</li>
+            <li>maha sayure</li>
+            <li>mama bohoma baya wuna</li>
+            <li>manali</li>
+            <li>mariyasilo</li>
+            <li>mata hithanna bae</li>
+            <li>mee amba</li>
+            <li>meewadayaki</li>
+            <li>menna muu</li>
+            <li>mod goviya</li>
+            <li>muhuda handana</li>
+            <li>muhude yamu</li>
+            <li>na na na na na</li>
+            <li>na na na ne na na</li>
+            <li>Nandana Sihina Gange</li>
+            <li>nelum male</li>
+            <li>nelum male pethi</li>
+            <li>nelum wilen</li>
+            <li>nethara</li>
+            <li>Nilwan Muhudu</li>
+            <li>Nilwan Muhudu theere</li>
+            <li>oba dutu</li>
+            <li>oba laba ganna</li>
+            <li>obage ruwa wage</li>
+            <li>obage ruwa wage mai</li>
+            <li>Original- Punsanda Paya</li>
+            <li>oru kandath</li>
+            <li>oya mage nan</li>
+            <li>oye ojaye</li>
+            <li>paawena peerisiyak</li>
+            <li>panhinda maaha</li>
+            <li>parasindu colompure</li>
+            <li>pem lowe</li>
+            <li>peni waraka madula</li>
+            <li>peraliyan bara karathe</li>
+            <li>pira rata</li>
+            <li>pita rata wisthara</li>
+            <li>piti kotapan</li>
+            <li>piti kotapang</li>
+            <li>piyamanne</li>
+            <li>piyamba yanawa ma</li>
+            <li>piyamenne</li>
+            <li>piyumehi peni bothi</li>
+            <li>polkatu</li>
+            <li>polkatu hande</li>
+            <li>polkatu maale</li>
+            <li>pulli gona</li>
+            <li>rae pel rekala</li>
+            <li>rampota thelambuwa</li>
+            <li>ran menike</li>
+            <li>Ran Ran Ran ft. Lose Yourself</li>
+            <li>ranga hala</li>
+            <li>Rangahala</li>
+            <li>Ratakin Eha</li>
+            <li>rosa</li>
+            <li>roselina</li>
+            <li>rowly bowly</li>
+            <li>rupa sobawata</li>
+            <li>saima</li>
+            <li>saima cut wela</li>
+            <li>samuganne na</li>
+            <li>samuganne nae</li>
+            <li>Sanda Basa giya</li>
+            <li>sanda gilunath</li>
+            <li>sanda paane gaman yanna</li>
+            <li>Sandak negi</li>
+            <li>sandalatha</li>
+            <li>sara sadisi</li>
+            <li>sarath sande</li>
+            <li>sayurata</li>
+            <li>seethala sanda eliye</li>
+            <li>senda walawan</li>
+            <li>sheela</li>
+            <li>sihina lowe mihira mewu</li>
+            <li>Sihinen Sihina Ma Handawanawa</li>
+            <li>sihinen sihinen</li>
+            <li>sili sili</li>
+            <li>Siri Sangabodhi</li>
+            <li>sith sith</li>
+            <li>sudu andumin</li>
+            <li>sudu roasi</li>
+            <li>sukomala banda</li>
+            <li>Sundariye</li>
+            <li>suraliyaka wage</li>
+            <li>suranganawi</li>
+            <li>surappa</li>
+            <li>suwandai male</li>
+            <li>suwandai muwe</li>
+            <li>sway</li>
+            <li>taxi kaaraya</li>
+            <li>tharahin ahaka bala</li>
+            <li>tharuna jeewithe</li>
+            <li>tikiri malee</li>
+            <li>udarata</li>
+            <li>uncle johnson</li>
+            <li>wada kaha</li>
+            <li>wadu weden</li>
+            <li>wasantha kaleta</li>
+            <li>wisekari</li>
+            <li>yaman bando</li>
+          </ul>
+        </div>
+      </section>
 
-        <section class="section" aria-labelledby="hindi-songs-title">
-            <h2 id="hindi-songs-title">Hindi</h2>
-            <div class="song-list">
-                <img src="hindi1.png" alt="Hindi songs page 1" loading="eager">
-                <img src="hindi2.png" alt="Hindi songs page 2" loading="eager">
-                <img src="hindi3.png" alt="Hindi songs page 3" loading="lazy">
-                <img src="hindi4.png" alt="Hindi songs page 4" loading="lazy">
-                <img src="hindi5.png" alt="Hindi songs page 5" loading="lazy">
-            </div>
-        </section>
+      <section class="section" aria-labelledby="hindi-songs-title">
+        <h2 id="hindi-songs-title">Hindi</h2>
+        <div class="song-list">
+          <img src="hindi1.png" alt="Hindi songs page 1" loading="eager" />
+          <img src="hindi2.png" alt="Hindi songs page 2" loading="eager" />
+          <img src="hindi3.png" alt="Hindi songs page 3" loading="lazy" />
+          <img src="hindi4.png" alt="Hindi songs page 4" loading="lazy" />
+          <img src="hindi5.png" alt="Hindi songs page 5" loading="lazy" />
+        </div>
+      </section>
 
-<section class="section" aria-labelledby="english-songs-title">
-    <h2 id="english-songs-title">English</h2>
-    <div class="song-list">
-        <h3>
-        <a href="https://djdesilva.github.io/DJDeSilva.io/MostReq.html"
-           target="_blank"
-           rel="noopener noreferrer">
-            Click here to view the most Requested English Songs
-        </a></h3>
-    </div>
-</section>
+      <section class="section" aria-labelledby="english-songs-title">
+        <h2 id="english-songs-title">English</h2>
+        <div class="song-list">
+          <h3>
+            <a
+              href="https://djdesilva.github.io/DJDeSilva.io/MostReq.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Click here to view the most Requested English Songs
+            </a>
+          </h3>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>
