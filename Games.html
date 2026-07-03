@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Party Plan</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        width: 100%;
+        background: radial-gradient(circle at top left, #141431 0%, #050611 35%, #020206 100%);
+        color: #eef2ff;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        padding: 0.9rem 0.75rem 1.5rem;
+      }
+
+      main {
+        width: min(100%, 760px);
+        margin: 0 auto;
+        background: rgba(14, 18, 44, 0.96);
+        border-radius: 1.5rem;
+        padding: 1.25rem;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.32);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+      }
+
+      .page-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        letter-spacing: 0.06em;
+        color: #ffd85f;
+        text-shadow: 0 0 18px rgba(255, 216, 95, 0.28);
+      }
+
+      .section {
+        margin-bottom: 1.8rem;
+      }
+
+      .section h2 {
+        text-align: left;
+        font-size: clamp(1.3rem, 5vw, 1.75rem);
+        margin-bottom: 1rem;
+        padding: 0.9rem 1rem;
+        border-radius: 1.35rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #f4f7ff;
+      }
+
+      .song-list {
+        display: grid;
+        gap: 0.95rem;
+        padding: 1.15rem;
+        border-radius: 1.35rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+      }
+
+      .song-list > p:first-child {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #ffe27f;
+      }
+
+      .song-list p {
+        line-height: 1.7;
+        color: #e7ecff;
+      }
+
+      .song-list p strong {
+        color: #ffffff;
+      }
+
+      .song-list ul {
+        list-style: none;
+        padding-left: 1rem;
+        margin: 0;
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .song-list ul li {
+        position: relative;
+        padding-left: 1.15rem;
+      }
+
+      .song-list ul li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0.12rem;
+        color: #65e0ff;
+        font-size: 1.1rem;
+        line-height: 1;
+      }
+
+      .song-list ul li p {
+        margin: 0;
+      }
+
+      .song-list img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+      }
+
+      section:nth-child(even) .song-list {
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      a {
+        color: #72d9ff;
+        transition: color 0.2s ease, transform 0.2s ease;
+        word-break: break-word;
+      }
+
+      a:hover {
+        color: #ffffff;
+        transform: translateX(2px);
+      }
+
+      h3 a {
+        display: inline-block;
+        padding: 0.65rem 0.95rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 0.75rem 0.65rem 1.2rem;
+        }
+
+        main {
+          padding: 1rem;
+          border-radius: 1rem;
+        }
+
+        .page-title {
+          margin-bottom: 1.25rem;
+        }
+
+        .section h2 {
+          padding: 0.8rem 0.95rem;
+          margin-bottom: 0.85rem;
+          font-size: 1.45rem;
+        }
+
+        .song-list {
+          padding: 0.95rem;
+          gap: 0.85rem;
+        }
+
+        .song-list > p:first-child {
+          font-size: 1rem;
+        }
+
+        .song-list p {
+          line-height: 1.65;
+        }
+
+        .song-list ul {
+          padding-left: 0.95rem;
+        }
+
+        .song-list ul li {
+          padding-left: 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main id="top">
+      <h1 class="page-title"><span style="background: linear-gradient(to right, rgb(255, 102, 0), rgb(255, 204, 0), rgb(0, 204, 255)); -webkit-background-clip: text; background-clip: text; color: transparent;">Games</span></h1>
+
+      <nav class="song-list" aria-label="Back to Song Requests">
+        <p><a href="Tamil.html">← Back to Song Requests</a></p>
+      </nav>
+
+      <section class="section" aria-labelledby="must-songs-title">
+
+        <div class="song-list">
+          <p>👑 1. "How Well Do You Know the Birthday Star?" (Pub-Style Trivia)</p>
+          <p><strong>When to play:</strong> During dinner (8:15 PM) to keep guests entertained while eating.</p>
+          <p><strong>How it works:</strong> Give each table a mini whiteboard or an answer sheet. The MC asks 8–10 funny, surprising, or nostalgic questions about the celebrant’s life.</p>
+          <p><strong>Sample Questions:</strong></p>
+          <ul>
+            <li>"What was [Name]’s very first car?" (A classic Proton Saga or Perodua Kancil is usually a hilarious local giveaway.)</li>
+            <li>"Which artist's poster did they have on their bedroom wall in college?"</li>
+            <li>"What is their absolute favorite supper spot or late-night order?"</li>
+            <li>"Who broke their arm climbing a tree?"</li>
+            <li>"Who first met the birthday person at university?"</li>
+            <li>"Which cousin lives overseas?"</li>
+          </ul>
+          <p><strong>Why it works:</strong> It honors the birthday star while sparking fun debates and storytelling across the tables.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>🎲 2. The "Ultimate Intro" Retro Music Trivia</p>
+          <p><strong>When to play:</strong> Right after dinner (8:30 PM), before the cake cutting. It re-energises the room while guests are still seated.</p>
+          <p><strong>How it works:</strong> The DJ plays just the first 2 to 3 seconds of an iconic intro beat (no lyrics). Tables compete against each other to shout out or write down the song title.</p>
+          <p><strong>The Twist:</strong> To cater to this specific crowd, divide the rounds by eras:</p>
+          <ul>
+            <li>Round 1: 80s Superstar Rajinikanth & Ilaiyaraaja hits (for the elders).</li>
+            <li>Round 2: 90s AR Rahman & Deva Gaana anthems (for the 40–50 age bracket).</li>
+            <li>Round 3: Early 2000s Malaysian Indian hip-hop classics like Yogi B or Psychomantra.</li>
+          </ul>
+          <p><strong>Why it works:</strong> It builds massive nostalgia and gets everyone singing along the moment the DJ drops the answer.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>🎶 3. Finish the Song 🎵 (Highly Recommended)</p>
+          <p>Play 5–10 seconds of a popular Tamil, Hindi, Malay, or English song.</p>
+          <p><strong>Players must:</strong></p>
+          <ul>
+            <li>Continue singing the next line.</li>
+            <li>Name the artist or movie for bonus points.</li>
+          </ul>
+          <p><strong>Include songs like:</strong></p>
+          <ul>
+            <li>Old Tamil classics</li>
+            <li>SPB hits</li>
+            <li>A.R. Rahman</li>
+            <li>90s Bollywood</li>
+            <li>Boney M</li>
+            <li>ABBA</li>
+            <li>Bee Gees</li>
+            <li>Malaysian favourites</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>🕺 4. Musical Freeze Dance</p>
+          <p>Everyone dances.</p>
+          <p><strong>When the music stops:</strong></p>
+          <ul>
+            <li>Everyone freezes.</li>
+            <li>Anyone moving is out.</li>
+            <li>Last person wins.</li>
+          </ul>
+          <p>Works well after dinner.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>💑 5. Couple Challenge</p>
+          <p>Invite 4–5 couples.</p>
+          <p><strong>Ask:</strong></p>
+          <ul>
+            <li>Who said "I love you" first?</li>
+            <li>Favourite restaurant?</li>
+            <li>Who is messier?</li>
+            <li>Who apologises first?</li>
+          </ul>
+          <p>Award points for matching answers.</p>
+          <p>Lots of laughs.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>🎈 6. Balloon Pop Challenge</p>
+          <p>Inside balloons place small challenges.</p>
+          <p><strong>Examples:</strong></p>
+          <ul>
+            <li>Dance for 20 seconds.</li>
+            <li>Tell a joke.</li>
+            <li>Sing an old Tamil song.</li>
+            <li>Moonwalk.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>🎬 7. Bollywood vs Kollywood Dance-Off</p>
+          <p>Create two teams.</p>
+          <p><strong>Play 30-second songs:</strong></p>
+          <ul>
+            <li>Bollywood</li>
+            <li>Kollywood</li>
+          </ul>
+          <p>Crowd chooses the winner.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>🎤 8. Lip Sync Battle</p>
+          <p>Contestants choose a famous song.</p>
+          <p><strong>Props:</strong></p>
+          <ul>
+            <li>Sunglasses</li>
+            <li>Scarves</li>
+            <li>Hats</li>
+          </ul>
+          <p>Judged on performance—not singing.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>🎯 9. Lucky Chair</p>
+          <p>Everyone sits.</p>
+          <p>Every round remove one chair while music plays.</p>
+          <p>Unlike musical chairs, nobody is pushed—just keep it light and friendly.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>🎲 10. Dice of Dares</p>
+          <p>Roll a giant dice.</p>
+          <p>Each number has a challenge:</p>
+          <ul>
+            <li>Sing.</li>
+            <li>Dance.</li>
+            <li>Joke.</li>
+            <li>Selfie with strangers.</li>
+            <li>High-five 10 people.</li>
+            <li>Birthday message.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>💃 11. The Malaysian "Teh Tarik" Dance-Off</p>
+          <p><strong>When to play:</strong> The dance floor opener (9:10 PM). Excellent for breaking the ice.</p>
+          <p><strong>How it works:</strong> Call up 5 to 6 volunteers (mix up the age groups—uncles vs. nephews works best). The DJ plays a fast-paced track like Appadi Podu or a local street remix.</p>
+          <p><strong>The Twist:</strong> Instead of normal dancing, contestants must bust out dance moves that mimic everyday Malaysian Indian life. The MC shouts out cues every 20 seconds:</p>
+          <ul>
+            <li>"Now pull the Teh Tarik!"</li>
+            <li>"Now flip the Roti Canai!"</li>
+            <li>"Now you are late for the KTM train!"</li>
+            <li>"Now do the Rajinikanth sunglass flip!"</li>
+          </ul>
+          <p><strong>Why it works:</strong> It is visually hilarious, culturally relatable, and instantly dissolves any dance floor shyness.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>📱 12. "Pass the Astro Remote" (The Milestone Edition)</p>
+          <p><strong>When to play:</strong> Right before opening the dance floor to get people moving.</p>
+          <p><strong>How it works:</strong> A giant Indian wedding/party variation of Hot Potato. Instead of a potato, use a prop (like an old TV remote or a decorated coconut). While the DJ plays high-energy music, guests pass it around. When the music stops, whoever is holding it draws a card.</p>
+          <p><strong>The Tasks (Keep them light and funny):</strong></p>
+          <ul>
+            <li>“Recreate the iconic Amitabh Bachchan dance step from Sholay.”</li>
+            <li>“Give the birthday star your best 10-second blessing in formal Tamil.”</li>
+            <li>“Find someone wearing gold on your table and bring them to the stage.”</li>
+            <li>“Tell your spouse one thing you love about them.”</li>
+            <li>“Dance like Rajinikanth.”</li>
+            <li>“Do your best Vijay dance.”</li>
+            <li>“Sing one line from your favourite song.”</li>
+            <li>“Tell your funniest childhood memory.”</li>
+          </ul>
+        </div>
+      </section>
+
+
+
+    </main>
+  </body>
+</html>
