@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Party Plan</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        min-height: 100%;
+        width: 100%;
+        background: radial-gradient(circle at top left, #141431 0%, #050611 35%, #020206 100%);
+        color: #eef2ff;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        padding: 0.9rem 0.75rem 1.5rem;
+      }
+
+      main {
+        width: min(100%, 760px);
+        margin: 0 auto;
+        background: rgba(14, 18, 44, 0.96);
+        border-radius: 1.5rem;
+        padding: 1.25rem;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.32);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(12px);
+      }
+
+      .page-title {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: clamp(2rem, 9vw, 2.8rem);
+        letter-spacing: 0.06em;
+        color: #ffd85f;
+        text-shadow: 0 0 18px rgba(255, 216, 95, 0.28);
+      }
+
+      .section {
+        margin-bottom: 1.8rem;
+      }
+
+      .section h2 {
+        text-align: left;
+        font-size: clamp(1.3rem, 5vw, 1.75rem);
+        margin-bottom: 1rem;
+        padding: 0.9rem 1rem;
+        border-radius: 1.35rem;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: #f4f7ff;
+      }
+
+      .song-list {
+        display: grid;
+        gap: 0.95rem;
+        padding: 1.15rem;
+        border-radius: 1.35rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+      }
+
+      .song-list > p:first-child {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #ffe27f;
+      }
+
+      .song-list p {
+        line-height: 1.7;
+        color: #e7ecff;
+      }
+
+      .song-list p strong {
+        color: #ffffff;
+      }
+
+      .song-list ul {
+        list-style: none;
+        padding-left: 1rem;
+        margin: 0;
+        display: grid;
+        gap: 0.55rem;
+      }
+
+      .song-list ul li {
+        position: relative;
+        padding-left: 1.15rem;
+      }
+
+      .song-list ul li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0.12rem;
+        color: #65e0ff;
+        font-size: 1.1rem;
+        line-height: 1;
+      }
+
+      .song-list ul li p {
+        margin: 0;
+      }
+
+      .song-list h3 {
+        color: #ffe27f;
+        font-size: 1.05rem;
+        margin-top: 0.2rem;
+      }
+
+      .song-list h3 + ul {
+        margin-top: 0.2rem;
+      }
+
+      .song-list img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1rem;
+      }
+
+      section:nth-child(even) .song-list {
+        background: rgba(255, 255, 255, 0.035);
+      }
+
+      a {
+        color: #72d9ff;
+        transition: color 0.2s ease, transform 0.2s ease;
+        word-break: break-word;
+      }
+
+      a:hover {
+        color: #ffffff;
+        transform: translateX(2px);
+      }
+
+      h3 a {
+        display: inline-block;
+        padding: 0.65rem 0.95rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-decoration: none;
+      }
+
+      @media (max-width: 520px) {
+        body {
+          padding: 0.75rem 0.65rem 1.2rem;
+        }
+
+        main {
+          padding: 1rem;
+          border-radius: 1rem;
+        }
+
+        .page-title {
+          margin-bottom: 1.25rem;
+        }
+
+        .section h2 {
+          padding: 0.8rem 0.95rem;
+          margin-bottom: 0.85rem;
+          font-size: 1.45rem;
+        }
+
+        .song-list {
+          padding: 0.95rem;
+          gap: 0.85rem;
+        }
+
+        .song-list > p:first-child {
+          font-size: 1rem;
+        }
+
+        .song-list p {
+          line-height: 1.65;
+        }
+
+        .song-list ul {
+          padding-left: 0.95rem;
+        }
+
+        .song-list ul li {
+          padding-left: 1rem;
+        }
+      }
+    
+  a, a:visited {
+    color: #00d9ff !important;
+  }
+  a:hover, a:focus {
+    color: #2de0ff !important;
+  }
+</style>
+  </head>
+  <body>
+    <main id="top">
+      <h1 class="page-title"><span style="background: linear-gradient(to right, rgb(255, 102, 0), rgb(255, 204, 0), rgb(0, 204, 255)); -webkit-background-clip: text; background-clip: text; color: transparent;">Song Requests to the DJ</span></h1>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p><span style="background: linear-gradient(to right, rgb(255, 102, 0), rgb(255, 204, 0), rgb(0, 204, 255)); -webkit-background-clip: text; background-clip: text; color: transparent;">What 3 songs DJ should play to see you on the dance floor?<br>What 2 slow songs DJ should play during dinner?</span></p>
+          <p>Message <strong>Event Date: Song Name : Artist </strong>to the DJ:</p>
+          <p><strong><a href="https://api.whatsapp.com/send?phone=0402595815" target="_blank" rel="noopener noreferrer">0402595815</a></strong></p>
+          <p>E.g:- 01-Aug : Beat It: Michael Jackson</p>
+          <p>OR</p>
+          <p>E.g:- 01-Aug : https://www.youtube.com/watch?v=oRdxUFDoQe0</p>
+        </div>
+      </section>
+
+      <h1 class="page-title">Party Plan</h1>
+
+      <section class="section" aria-labelledby="party-shortcuts-title">
+        <nav class="song-list" aria-label="Party shortcuts">
+          <p style="font-size: 1.25rem; font-weight: 700;"><a href="Games.html">Games ↗</a></p>
+        </nav>
+      </section>
+
+      <section class="section" aria-labelledby="must-songs-title">
+        <div class="song-list">
+          <p>Dance Music Ideas</p>
+          <ul>
+            <li><a href="https://youtu.be/ffF1wSwavLo?si=A08mLCumXk3rPNS6" target="_blank" rel="noopener noreferrer">DJ Dasss | Club Mix | A.R. Rahman's Mashup</a></li>
+            <li><a href="https://youtu.be/qM2GuvsorvE?si=CL3GNNs0l3UapxF8" target="_blank" rel="noopener noreferrer">DJ Dasss | Club Mix | Ilaiyaraaja Vibes</a></li>
+            <li><a href="https://youtu.be/mrxzfVYAWxQ?si=vLFsBR0jmsjlt6jM" target="_blank" rel="noopener noreferrer">DJ Dasss | Club Mix | Malaysian Folk Vibes</a></li>
+            <li><a href="https://youtu.be/QBDvWSJxCBE?si=TIFzC-cmJNhLY_E2" target="_blank" rel="noopener noreferrer">DJ Dasss | Club Mix | Ajith Kumar's Vibe</a></li>
+            <li><a href="https://www.youtube.com/@DJDasss/videos" target="_blank" rel="noopener noreferrer">More DJ Dasss videos (channel)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="song-ideas-title">
+        <h2 id="song-ideas-title">Song Ideas</h2>
+        <div class="song-list">
+          <p>Here are some song ideas for each segment of the party. Feel free to add your own favorites!</p>
+          <p>This playlist heavily features 90s and 2000s Bollywood and Tamil cinematic classics, evergreen retro anthems, high-energy Bhangra, and localized Malaysian Indian hits.</p>
+
+          <h3>2020s - Recent Bangers</h3>
+          <ul>
+            <li>Ghungroo – War</li>
+            <li>Saki Saki – Batla House</li>
+            <li>Mere Sohneya – Kabir Singh</li>
+            <li>Garmi – Street Dancer 3D</li>
+            <li>Teri Bhabhi – Coolie No. 1</li>
+            <li>Ranjha – Shershaah</li>
+            <li>Chaka Chak – Atrangi Re</li>
+            <li>Makhna – Drive</li>
+            <li>Kesariya – Brahmāstra: Part One – Shiva</li>
+            <li>The Punjaabban Song – Jugjugg Jeeyo</li>
+            <li>Rangisari – Jugjugg Jeeyo</li>
+            <li>Chaand Baaliyan</li>
+          </ul>
+
+          <h3>2010s - Party Starters</h3>
+          <ul>
+            <li>Ainvayi Ainvayi – Band Baaja Baaraat</li>
+            <li>Baari Barsi – Band Baaja Baaraat</li>
+            <li>Sheila Ki Jawani – Tees Maar Khan</li>
+            <li>Munni Badnaam Hui – Dabangg</li>
+            <li>Bahara – I Hate Luv Storys</li>
+            <li>Chammak Challo – Ra.One</li>
+            <li>Sooraj Ki Bahoon Mein – Zindagi Na Milegi Dobara</li>
+            <li>Sadi Gali – Tanu Weds Manu</li>
+            <li>Radha – Student of the Year</li>
+            <li>Navrai Majhi – English Vinglish</li>
+            <li>Ghagra – Yeh Jawaani Hai Deewani</li>
+            <li>Badtameez Dil – Yeh Jawaani Hai Deewani</li>
+            <li>Dilliwaali Girlfriend – Yeh Jawaani Hai Deewani</li>
+            <li>Nagada Sang Dhol – Ram-Leela</li>
+            <li>Tune Maari Entriyaan – Gunday</li>
+            <li>London Thumakda – Queen</li>
+            <li>Gallan Goodiyaan – Dil Dhadakne Do</li>
+            <li>Kar Gayi Chull – Kapoor & Sons</li>
+            <li>Kala Chashma – Baar Baar Dekho</li>
+            <li>Nachde Ne Saare – Baar Baar Dekho</li>
+            <li>Sau Aasmaan – Baar Baar Dekho</li>
+            <li>Punjabi Wedding Song – Hasee Toh Phasee</li>
+            <li>Din Shagna Da – Phillauri</li>
+            <li>Sweety Tera Drama – Bareilly Ki Barfi</li>
+            <li>Gal Mitthi Mitthi – Aisha</li>
+            <li>Aankh Marey – Simmba</li>
+            <li>Zingaat – Dhadak</li>
+            <li>Morni Banke – Badhaai Ho</li>
+            <li>Dil Chori – Sonu Ke Titu Ki Sweety</li>
+            <li>Kamariya – Mitron</li>
+            <li>Lagdi Hai Thaai – Simran</li>
+            <li>Kithe Reh Gaya</li>
+            <li>Liggi</li>
+            <li>Sauda Khara Khara – Good Newwz</li>
+            <li>Laal Ghagra – Good Newwz</li>
+          </ul>
+
+          <h3>2000s - Peak Bollywood</h3>
+          <ul>
+            <li>Dil Le Gayi Kudi – Bichhoo</li>
+            <li>Mehndi Hai Rachnewali – Zubeidaa</li>
+            <li>Dheeme Dheeme – Zubeidaa</li>
+            <li>Bole Chudiyan – Kabhi Khushi Kabhie Gham</li>
+            <li>Yeh Ladka Hai Allah – Kabhi Khushi Kabhie Gham</li>
+            <li>You Are My Soniya – Kabhi Khushi Kabhie Gham</li>
+            <li>Chhalka Chhalka Re – Saathiya</li>
+            <li>Mere Yaar Ki Shaadi Hai – Mere Yaar Ki Shaadi Hai</li>
+            <li>Maahi Ve – Kal Ho Naa Ho</li>
+            <li>It's the Time to Disco – Kal Ho Naa Ho</li>
+            <li>Koi Mil Gaya – Koi... Mil Gaya</li>
+            <li>Balle Balle – Bride and Prejudice</li>
+            <li>Dil Dooba – Khakee</li>
+            <li>Kajra Re – Bunty Aur Babli</li>
+            <li>Tumhi Dekho Naa – Kabhi Alvida Naa Kehna</li>
+            <li>Bidi Bidi – Omkara</li>
+            <li>Nagada Nagada – Jab We Met</li>
+            <li>Tum Se Hi – Jab We Met</li>
+            <li>Mauja Hi Mauja – Jab We Met</li>
+            <li>Dupatta Tera Nau Rang Da – Partner</li>
+            <li>Soni De Nakhre – Partner</li>
+            <li>Aaja Nachle – Aaja Nachle</li>
+            <li>Teri Ore – Singh Is Kinng</li>
+            <li>Pehli Nazar Mein – Race</li>
+            <li>Khuda Jaane – Bachna Ae Haseeno</li>
+            <li>Desi Girl – Dostana</li>
+          </ul>
+
+          <h3>90s - Romantic Era</h3>
+          <ul>
+            <li>Jumma Chumma De De – Hum</li>
+            <li>Pehla Nasha – Jo Jeeta Wohi Sikandar</li>
+            <li>Muqabla Muqabla – Hum Se Hai Muqabala</li>
+            <li>Ole Ole – Yeh Dillagi</li>
+            <li>Joote Do Paise Lo – Hum Aapke Hai Kaun</li>
+            <li>Didi Tera Devar Deewana – Hum Aapke Hai Kaun</li>
+            <li>Maye Ni Maye – Hum Aapke Hai Kaun</li>
+            <li>Chane Ke Khet Mein – Anjaam</li>
+            <li>Main Toh Raste Se Ja Raha Tha – Coolie No. 1</li>
+            <li>Tan Tana Tan – Judwaa</li>
+            <li>Dil To Pagal Hai – Dil To Pagal Hai</li>
+            <li>Dholna – Dil To Pagal Hai</li>
+            <li>Le Gayi Le Gayi – Dil To Pagal Hai</li>
+            <li>Chaiyya Chaiyya – Dil Se</li>
+            <li>O O Jaane Jaana – Pyaar Kiya To Darna Kya</li>
+            <li>Saajanji Ghar Aaye – Kuch Kuch Hota Hai</li>
+            <li>Kisi Disco Me Jaaye – Bade Miyan Chote Miyan</li>
+            <li>Chal Pyaar Karegi – Jab Pyaar Kisise Hota Hai</li>
+            <li>Chunari Chunari – Biwi No. 1</li>
+            <li>Dhol Baje – Hum Dil De Chuke Sanam</li>
+            <li>Nimbooda Nimbooda – Hum Dil De Chuke Sanam</li>
+          </ul>
+
+          <h3>80s - The Retro Era</h3>
+          <ul>
+            <li>Jab Chaye Mera Jadoo – Lootmaar</li>
+            <li>Aap Jaisa Koi – Qurbani</li>
+            <li>Laila O Laila – Qurbani</li>
+            <li>Mungda Mungda – Inkaar</li>
+            <li>Saara Zamana – Yaarana</li>
+            <li>Jahan Teri Yeh Nazar Hai – Kaalia</li>
+            <li>Jawani Jaaneman Haseen Dilruba – Namak Halaal</li>
+            <li>Disco Deewane – Disco Dancer</li>
+            <li>Jimmy Jimmy Aaja Aaja – Disco Dancer</li>
+            <li>Koi Yahan Aha Nache Nache – Disco Dancer</li>
+            <li>Naino Mein Sapna – Himmatwala</li>
+            <li>Hawa Hawai – Mr India</li>
+            <li>Ek Do Teen – Tezaab</li>
+            <li>Tirchi Topiwale – Tridev</li>
+          </ul>
+
+          <h3>70s - The Disco Era</h3>
+          <ul>
+            <li>Piya Tu Ab To Aaja – Caravan</li>
+            <li>Dekha Na Haye Re – Bombay To Goa</li>
+            <li>Are Rafta Rafta Dekho – Kahani Kismat Ki</li>
+            <li>Jai Jai Shiv Shankar – Aap Ki Kasam</li>
+            <li>Le Jayenge Le Jayenge – Chor Machaye Shor</li>
+            <li>Ek Main Aur Ek Tu – Khel Khel Mein</li>
+            <li>Khullam Khulla Pyar Karenge – Khel Khel Mein</li>
+            <li>Bachna Ae Haseeno – Hum Kisise Kum Naheen</li>
+            <li>Yeh Mera Dil – Don</li>
+            <li>Ho Pardesia – Mr Natwarlal</li>
+          </ul>
+
+          <h3>60s - The Golden Age</h3>
+          <ul>
+            <li>Chahe Koi Mujhe Junglee Kahe – Junglee</li>
+            <li>Baar Baar Dekho Hazaar Baar Dekho – China Town</li>
+            <li>Aao Twist Karen – Bhoot Bangla</li>
+            <li>O Haseena Zulfonwale Jane Jahan – Teesri Manzil</li>
+            <li>O Mere Sona Re Sona – Teesri Manzil</li>
+            <li>Aajkal Tere Mere Pyar Ke Charche – Brahmachari</li>
+            <li>Kajaraa Muhabbat Vaalaa – Kismat</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
