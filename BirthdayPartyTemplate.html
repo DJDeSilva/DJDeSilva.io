@@ -540,7 +540,14 @@
         color: #333;
       }
     }
-  </style>
+  
+  a, a:visited {
+    color: #00d9ff !important;
+  }
+  a:hover, a:focus {
+    color: #2de0ff !important;
+  }
+</style>
 </head>
 <body>
   <main class="page">
@@ -567,7 +574,10 @@
       <div class="info-grid">
         <div class="info-card">
           <p class="label">Birthday Celebrant</p>
-          <div class="blank-line">Mr / Mrs: </div>
+          <div class="blank-line">
+            <label for="celebrantName" class="sr-only">Birthday celebrant name</label>
+            <input id="celebrantName" type="text" value="Mr / Mrs : ......." style="width: 100%; background: transparent; border: none; color: inherit; font: inherit; padding: 0; outline: none;" />
+          </div>
         </div>
         <!-- <div class="info-card">
           <p class="label">Party Date</p>

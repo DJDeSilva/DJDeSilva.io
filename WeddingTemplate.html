@@ -479,7 +479,14 @@
         color: #333;
       }
     }
-  </style>
+  
+  a, a:visited {
+    color: #00d9ff !important;
+  }
+  a:hover, a:focus {
+    color: #2de0ff !important;
+  }
+</style>
 </head>
 <body>
   <main class="page">
@@ -507,11 +514,15 @@
       <div class="info-grid">
         <div class="info-card">
           <p class="label">Groom / Partner 1</p>
-          <div class="blank-line">Mr: </div>
+          <div class="blank-line">
+            <input type="text" value="Mr: ...." style="width: 100%; background: transparent; border: none; color: inherit; font: inherit; padding: 0; outline: none;" />
+          </div>
         </div>
         <div class="info-card">
           <p class="label">Bride / Partner 2</p>
-          <div class="blank-line">Mrs: </div>
+          <div class="blank-line">
+            <input type="text" value="Mrs: ...." style="width: 100%; background: transparent; border: none; color: inherit; font: inherit; padding: 0; outline: none;" />
+          </div>
         </div>
         <div class="info-card">
           <p class="label">Wedding Date</p>
